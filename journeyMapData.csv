@@ -1,8 +1,10 @@
-﻿one,two,three,four,five,six,seven,eight,nine,
-Stage,Planning a Journey,Using the System,,,,,Onward Connection,Paying for My Journey,
-Sub-Stage,Planning a Journey,Arrival at Station,Waiting at Station,Getting on Transport,During Journey,Getting off transport,Connecting Services,Buying a ticket,Managing Payment Card
-Touchpoint,Bla bla bla bla ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla
-Quote,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla ,Bla bla,Bla bla,Bla bla bla bla bla bla bla bla bla bla bla bla  
-Pain Points,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla,Bla bla bla bla bla bla bla bla bla bla bla bla  ,,,Bla bla,Bla bla bla bla ,Bla bla bla bla bla bla bla bla bla bla bla bla  
-Behaviour,Bla bla bla bla ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla,Bla bla bla bla ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,,Bla bla,Bla bla bla bla bla bla bla bla bla bla bla bla  ,
-Feeling,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  ,Bla bla bla bla bla bla bla bla bla bla bla bla  
+﻿one,two,three,four,five,six,seven
+Stage,Sub-Stage,Touchpoint,Quote,Pain Points,Behaviour,Feeling
+Planning a Journey,Planning a Journey,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla
+Using the System,Arrival at Station,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla
+,Waiting at Station,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla
+,Getting on Transport,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla
+,During Journey,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla
+,Getting off transport,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla
+Onward Connection,Connecting Services,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla
+Paying for My Journey,Buying a ticket,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla,BlaBlaBla
