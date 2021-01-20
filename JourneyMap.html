@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Journey Map</title>
+
+<style>
+
+body {
+	
+	margin: 0px;
+}
+
+
+.column {
+	float: left;
+	width: 11vw;
+	min-height: 7vw;
+	height:auto;
+	overflow:visible;
+	background-color: white;
+	margin: 0.2vw;
+}
+
+.stageBox{
+	min-height: 4vw !important;
+}
+
+.my-shuffle-container{
+	position: relative;
+	top: 8vw;
+	left:5vw;
+	width: 110vw;
+	float: left;
+	margin-left:3vw;
+	margin-right:3vw;
+	margin-bottom: 1vw;
+	overflow: visible !important;
+}
+
+.rowHeaderText{
+	font-weight: bold;
+	padding-top: 0vw;
+	font-size:1.2vw;
+	margin-top:0.5vw;
+	text-align: center;
+}
+
+.text{
+	position: absolute;
+	left: 0.5vw;
+	top: 0vw;
+	right: 0;
+	text-align: left;
+	font-family: 'Overpass', sans-serif; /* was font-family: 'Montserrat', sans-serif; */
+	font-size: 1vw;
+	z-index:2;
+	color: black;
+	display:table;
+}
+
+.quoteText{
+	color:rgb(35,62,152);
+	font-weight: bold;
+}
+
+.stageText{
+	position: absolute;
+	font-weight: bold;
+	padding-top: 0vw;
+	font-size:1.2vw;
+	margin-top:0.5vw;
+}
+
+.line{
+	position: absolute;
+	width: 100%;
+	height: 0;
+	top: 1%;
+	left: 0%;
+	border-bottom-width: 0.1vw;
+	border-bottom-style: solid;
+	border-bottom-color: lightgray;
+}
+
+.my-sizer-element { 
+	margin-left: 0.8vw;
+	visibility: hidden;
+}
+
+</style>
+</head>
+
+<body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Shuffle/5.2.3/shuffle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/lazysizes-umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.6.3/papaparse.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+	
+<div class="canvasWrapper">	
+	<div id="container" class="row my-shuffle-container">
+		<div class="column my-sizer-element"></div>
+	</div>
+</div>
+<script>
+	
+	
+	
+	var animationSpeed = 750; 
+	var data = [];
+	
+	//****** SHUFFLE ******\\
+	
+	var Shuffle = window.Shuffle;
+	var element = document.querySelector('.my-shuffle-container');
+	var sizer = element.querySelector('.my-sizer-element');
+
+	var shuffleInstance = new Shuffle(element, {
+		itemSelector: '.shuffle-item',
+		sizer: sizer,
+		speed: animationSpeed,
+		filterMode: Shuffle.FilterMode.ALL,
+		gutterWidth: 5,
+	});
+	
+	var maxStageStringLength = 0;
+	var maxSubStageStringLength = 0;
+	var maxQuoteStringLength = 0;
+	var maxNeedsStringLength = 0;
+	var maxPainPointsStringLength = 0;
+	var maxBehaviourStringLength = 0;
+	var maxFeelingsStringLength = 0;
+	
+	var stageHeight = 0;
+	var subStageHeight = 0;
+	var quoteHeight = 0;
+	var needsHeight = 0;
+	var painPointsHeight = 0;
+	var behaviourHeight = 0;
+	var feelingsHeight = 0;
+	
+	var heightNumber = 12.5; //the percentage the string length gets divided by
+	
+	var newData =[
+	{stage: "Planning a Journey",
+	 subStage: "",
+	 quote: "Bla",
+	 needs: "Bla",
+	 painPoints: "Bla",
+	 behaviour: "Bla",
+	 feelings: "Bla"},
+	{stage: "Using the System",
+	 subStage: "",
+	 quote: "Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla",
+	 needs: "Bla",
+	 painPoints: "Bla",
+	 behaviour: "Bla",
+	 feelings: "Bla"},
+	{stage: "",
+	 subStage: "",
+	 quote: "Bla",
+	 needs: "Bla",
+	 painPoints: "Bla",
+	 behaviour: "Bla",
+	 feelings: "Bla"},
+	{stage: "",
+	 subStage: "",
+	 quote: "Bla",
+	 needs: "Bla",
+	 painPoints: "Bla",
+	 behaviour: "Bla",
+	 feelings: "Bla"},
+	{stage: "",
+	 subStage: "",
+	 quote: "Bla",
+	 needs: "Bla",
+	 painPoints: "Bla",
+	 behaviour: "Bla",
+	 feelings: "Bla"},
+	{stage: "",
+	 subStage: "",
+	 quote: "Bla",
+	 needs: "This is text, text this is. Its here to test the sizing function. Hopefully it fits everything in nice and snug",
+	 painPoints: "Bla",
+	 behaviour: "Bla",
+	 feelings: "Bla"},
+	{stage: "Onward Connection",
+	 subStage: "",
+	 quote: "Bla",
+	 needs: "Bla",
+	 painPoints: "Bla",
+	 behaviour: "Bla",
+	 feelings: "Bla"},
+	{stage: "Paying for My Journey",
+	 subStage: "",
+	 quote: "Bla",
+	 needs: "Bla",
+	 painPoints: "Bla",
+	 behaviour: "Bla",
+	 feelings: "Bla"},
+	{stage: "",
+	 subStage: "",
+	 quote: "Bla",
+	 needs: "Bla",
+	 painPoints: "Bla",
+	 behaviour: "Bla",
+	 feelings: "Bla"}
+	];
+	
+	var keys = Object.keys(newData[0]);
+	for(var i = 0; i < keys.length; i++){
+		keys[i] = keys[i].charAt(0).toUpperCase() + keys[i].slice(1)
+	}
+	console.log(keys);
+	
+	//****** PARSING ******\\
+	
+	//parseData("https://raw.githubusercontent.com/jonathonkearney/journeyMapMaker/main/journeyMapData.csv", main); 
+	
+	main();
+	
+	function main(theData) { 
+	
+		data = newData;
+		getMaxStringLengths();
+		//generateRowHeaders()
+		appendBoxesMk2();
+
+	}
+	
+	function parseData(url, callBack) {
+		Papa.parse(url, {
+			download: true,
+			header: true,
+			dynamicTyping: true,
+			complete: function(results) {
+				callBack(results.data);
+			}
+		});
+	}
+	
+	//****** ADD IN BOXES ******\\
+	
+	//add the boxes to the shuffleInstance
+	function appendBoxesMk2() {
+	
+		var elements = generateBoxesMk2();
+
+		elements.forEach(function (element) {
+			this.element.appendChild(element);
+		}, this);
+
+		shuffleInstance.add(elements);
+		shuffleInstance.update();
+	};
+	
+	function getMaxStringLengths(){
+	
+		for (var i = 0; i < data.length; i++) {
+			if(data[i].stage.length > maxStageStringLength){
+				maxStageStringLength = data[i].stage.length;
+			}
+			if(data[i].subStage.length > maxSubStageStringLength){
+				maxSubStageStringLength = data[i].subStage.length;
+			}
+			if(data[i].quote.length > maxQuoteStringLength){
+				maxQuoteStringLength = data[i].quote.length;
+			}
+			if(data[i].painPoints.length > maxPainPointsStringLength){
+				maxPainPointsStringLength = data[i].painPoints.length;
+			}
+			if(data[i].needs.length > maxNeedsStringLength){
+				maxNeedsStringLength = data[i].needs.length;
+			}
+			if(data[i].behaviour.length > maxBehaviourStringLength){
+				maxBehaviourStringLength = data[i].behaviour.length;
+			}
+			if(data[i].feelings.length > maxFeelingsStringLength){
+				maxFeelingsStringLength = data[i].feelings.length;
+			}
+		}
+		console.log(maxStageStringLength + " " + maxSubStageStringLength + " " + maxQuoteStringLength + " " + maxPainPointsStringLength + " " + maxNeedsStringLength + " " + maxBehaviourStringLength + " " + maxFeelingsStringLength);
+		
+		stageHeight = maxStageStringLength/heightNumber;
+		stageHeight = stageHeight.toString();
+		stageHeight = stageHeight.concat("vw");
+		
+		subStageHeight = maxSubStageStringLength/heightNumber;
+		subStageHeight = subStageHeight.toString();
+		subStageHeight = subStageHeight.concat("vw");
+		
+		quoteHeight = maxQuoteStringLength/heightNumber;
+		quoteHeight = quoteHeight.toString();
+		quoteHeight = quoteHeight.concat("vw");
+		
+		painPointsHeight = maxPainPointsStringLength/heightNumber;
+		painPointsHeight = painPointsHeight.toString();
+		painPointsHeight = painPointsHeight.concat("vw");
+		
+		needsHeight = maxNeedsStringLength/heightNumber;
+		needsHeight = needsHeight.toString();
+		needsHeight = needsHeight.concat("vw");
+		
+		behaviourHeight = maxBehaviourStringLength/heightNumber;
+		behaviourHeight = behaviourHeight.toString();
+		behaviourHeight = behaviourHeight.concat("vw");
+		
+		feelingsHeight = maxFeelingsStringLength/heightNumber;
+		feelingsHeight = feelingsHeight.toString();
+		feelingsHeight = feelingsHeight.concat("vw");
+		
+		console.log(stageHeight + " " + subStageHeight + " " + quoteHeight + " " + painPointsHeight + " " + needsHeight + " " + behaviourHeight + " " + feelingsHeight);
+	}
+	
+	function generateRowHeaders(){
+			
+		for (var i = 0; i < keys.length; i++) {
+		
+			var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+			rowHeaderTextDiv.className = "rowHeaderTextDiv";
+			
+			var rowHeader = document.createElement('P');
+			rowHeader.className = "rowHeaderText text";
+			var rowHeaderText = document.createTextNode(keys[i]);
+			rowHeader.appendChild(rowHeaderText);
+			rowHeaderTextDiv.appendChild(rowHeader);
+			
+		}
+	}
+	
+	function generateBoxesMk2(){
+		
+		var items = [];
+		console.log(data);
+		
+		for (var i = 0; i < data.length; i++) {
+			var stageBox = document.createElement('figure'); //create a figure
+			stageBox.className = "column aspect stageBox";
+			stageBox.style.height = stageHeight; 
+			
+			if(data[i].stage != null){
+
+				var stageTextDiv = document.createElement('div'); //create a Div for text
+				stageTextDiv.className = "stageTextDiv";
+				stageBox.appendChild(stageTextDiv); //add Div to box
+				
+				if(i==0){
+					var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+					rowHeaderTextDiv.className = "rowHeaderTextDiv";
+					
+					var rowHeader = document.createElement('P');
+					rowHeader.className = "rowHeaderText text";
+					var rowHeaderText = document.createTextNode(keys[0]); // 0 is stage
+					rowHeader.appendChild(rowHeaderText);
+					rowHeaderTextDiv.appendChild(rowHeader);
+					rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+					
+					stageTextDiv.appendChild(rowHeaderTextDiv);
+				}
+				
+				var stage = document.createElement('P');
+				stage.className = "stageText text";
+				var stageText = document.createTextNode(data[i].stage);
+				stage.appendChild(stageText);
+				stageTextDiv.appendChild(stage);
+			}
+			
+			items.push(stageBox); 	
+		}
+		for (var i = 0; i < data.length; i++) {
+			var subStageBox = document.createElement('figure'); //create a figure
+			subStageBox.className = "column aspect";
+			subStageBox.style.height = subStageHeight; 
+			
+			var subStageLine = document.createElement('div');
+			subStageLine.className = "line";
+			subStageBox.appendChild(subStageLine);
+			
+			var subStageTextDiv = document.createElement('div'); //create a Div for text
+			subStageTextDiv.className = "subStageTextDiv";
+			subStageBox.appendChild(subStageTextDiv); //add Div to box
+			
+			if(i==0){
+				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+				rowHeaderTextDiv.className = "rowHeaderTextDiv";
+				
+				var rowHeader = document.createElement('P');
+				rowHeader.className = "rowHeaderText text";
+				var rowHeaderText = document.createTextNode(keys[1]);
+				rowHeader.appendChild(rowHeaderText);
+				rowHeaderTextDiv.appendChild(rowHeader);
+				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				
+				subStageTextDiv.appendChild(rowHeaderTextDiv);
+			}
+			
+			
+			var subStage = document.createElement('P');
+			subStage.className = "subStageText text";
+			var subStageText = document.createTextNode(data[i].subStage);
+			subStage.appendChild(subStageText);
+			subStageTextDiv.appendChild(subStage);
+			
+			
+			items.push(subStageBox);
+			
+		}
+		for (var i = 0; i < data.length; i++) {
+			var quoteBox = document.createElement('figure'); //create a figure
+			quoteBox.className = "column aspect";
+			quoteBox.style.height = quoteHeight; 
+			
+			var quoteLine = document.createElement('div');
+			quoteLine.className = "line";
+			quoteBox.appendChild(quoteLine);
+			
+			
+			var quoteTextDiv = document.createElement('div'); //create a Div for text
+			quoteTextDiv.className = "touchpointTextDiv";
+			quoteBox.appendChild(quoteTextDiv); //add Div to box
+			
+			if(i==0){
+				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+				rowHeaderTextDiv.className = "rowHeaderTextDiv";
+				
+				var rowHeader = document.createElement('P');
+				rowHeader.className = "rowHeaderText text";
+				var rowHeaderText = document.createTextNode(keys[2]);
+				rowHeader.appendChild(rowHeaderText);
+				rowHeaderTextDiv.appendChild(rowHeader);
+				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				
+				quoteTextDiv.appendChild(rowHeaderTextDiv);
+			}
+			
+			var quote = document.createElement('P');
+			quote.className = "quoteText text";
+			var quoteText = document.createTextNode('"' + data[i].quote + '"');
+			quote.appendChild(quoteText);
+			quoteTextDiv.appendChild(quote);
+			
+			
+			items.push(quoteBox);
+			
+		}
+		for (var i = 0; i < data.length; i++) {
+			var needsBox = document.createElement('figure'); //create a figure
+			needsBox.className = "column aspect";
+			needsBox.style.height = needsHeight; 
+			
+			var needsLine = document.createElement('div');
+			needsLine.className = "line";
+			needsBox.appendChild(needsLine);
+			
+			var needsTextDiv = document.createElement('div'); //create a Div for text
+			needsTextDiv.className = "needsTextDiv";
+			needsBox.appendChild(needsTextDiv); //add Div to box
+			
+			if(i==0){
+				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+				rowHeaderTextDiv.className = "rowHeaderTextDiv";
+				
+				var rowHeader = document.createElement('P');
+				rowHeader.className = "rowHeaderText text";
+				var rowHeaderText = document.createTextNode(keys[3]);
+				rowHeader.appendChild(rowHeaderText);
+				rowHeaderTextDiv.appendChild(rowHeader);
+				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				
+				needsTextDiv.appendChild(rowHeaderTextDiv);
+			}
+			
+			var needs = document.createElement('P');
+			needs.className = "needsText text";
+			var needsText = document.createTextNode(data[i].needs);
+			needs.appendChild(needsText);
+			needsTextDiv.appendChild(needs);
+			
+			
+			items.push(needsBox);
+			
+		}
+		for (var i = 0; i < data.length; i++) {
+			var painPointsBox = document.createElement('figure'); //create a figure
+			painPointsBox.className = "column aspect";
+			painPointsBox.style.height = painPointsHeight; 
+			
+			var painPointsLine = document.createElement('div');
+			painPointsLine.className = "line";
+			painPointsBox.appendChild(painPointsLine);
+			
+			
+			var painPointsTextDiv = document.createElement('div'); //create a Div for text
+			painPointsTextDiv.className = "painPointsTextDiv";
+			painPointsBox.appendChild(painPointsTextDiv); //add Div to box
+			
+			if(i==0){
+				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+				rowHeaderTextDiv.className = "rowHeaderTextDiv";
+				
+				var rowHeader = document.createElement('P');
+				rowHeader.className = "rowHeaderText text";
+				var rowHeaderText = document.createTextNode(keys[4]);
+				rowHeader.appendChild(rowHeaderText);
+				rowHeaderTextDiv.appendChild(rowHeader);
+				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				
+				painPointsTextDiv.appendChild(rowHeaderTextDiv);
+			}
+			
+			var painPoints = document.createElement('P');
+			painPoints.className = "painPointsText text";
+			var painPointsText = document.createTextNode(data[i].painPoints);
+			painPoints.appendChild(painPointsText);
+			painPointsTextDiv.appendChild(painPoints);
+			
+			
+			items.push(painPointsBox);
+			
+		}
+		for (var i = 0; i < data.length; i++) {
+			var behaviourBox = document.createElement('figure'); //create a figure
+			behaviourBox.className = "column aspect";
+			behaviourBox.style.height = behaviourHeight; 
+			
+			var behaviourLine = document.createElement('div');
+			behaviourLine.className = "line";
+			behaviourBox.appendChild(behaviourLine);
+			
+			var behaviourTextDiv = document.createElement('div'); //create a Div for text
+			behaviourTextDiv.className = "behaviourTextDiv";
+			behaviourBox.appendChild(behaviourTextDiv); //add Div to box
+			
+			if(i==0){
+				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+				rowHeaderTextDiv.className = "rowHeaderTextDiv";
+				
+				var rowHeader = document.createElement('P');
+				rowHeader.className = "rowHeaderText text";
+				var rowHeaderText = document.createTextNode(keys[5]);
+				rowHeader.appendChild(rowHeaderText);
+				rowHeaderTextDiv.appendChild(rowHeader);
+				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				
+				behaviourTextDiv.appendChild(rowHeaderTextDiv);
+			}
+			
+			var behaviour = document.createElement('P');
+			behaviour.className = "painPointsText text";
+			var behaviourText = document.createTextNode(data[i].behaviour);
+			behaviour.appendChild(behaviourText);
+			behaviourTextDiv.appendChild(behaviour);
+			
+			
+			items.push(behaviourBox);
+			
+		}
+		for (var i = 0; i < data.length; i++) {
+			var feelingsBox = document.createElement('figure'); //create a figure
+			feelingsBox.className = "column aspect";
+			feelingsBox.style.height = feelingsHeight; 
+			
+			var feelingsLine = document.createElement('div');
+			feelingsLine.className = "line";
+			feelingsBox.appendChild(feelingsLine);
+			
+			var feelingsTextDiv = document.createElement('div'); //create a Div for text
+			feelingsTextDiv.className = "feelingsTextDiv";
+			feelingsBox.appendChild(feelingsTextDiv); //add Div to box
+			
+			if(i==0){
+				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+				rowHeaderTextDiv.className = "rowHeaderTextDiv";
+				
+				var rowHeader = document.createElement('P');
+				rowHeader.className = "rowHeaderText text";
+				var rowHeaderText = document.createTextNode(keys[6]);
+				rowHeader.appendChild(rowHeaderText);
+				rowHeaderTextDiv.appendChild(rowHeader);
+				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				
+				feelingsTextDiv.appendChild(rowHeaderTextDiv);
+			}
+			
+			var feelings = document.createElement('P');
+			feelings.className = "feelingsText text";
+			var feelingsText = document.createTextNode(data[i].feelings);
+			feelings.appendChild(feelingsText);
+			feelingsTextDiv.appendChild(feelings);
+			
+			
+			items.push(feelingsBox);
+			
+		}
+		
+		return items;
+	}
+	
+</script>
+
+</body>
+</html>
