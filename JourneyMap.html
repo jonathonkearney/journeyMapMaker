@@ -270,7 +270,7 @@ body {
 	 needs: 
 		[
 		"This is text, text this is. Its here to test the sizing function. Hopefully it fits everything in nice and snug",
-		"Bla",
+		"Bla de bla de bla de bla",
 		"Bla"
 		],
 	 painPoints:
@@ -465,18 +465,42 @@ body {
 			if(data[i].quote.length > maxQuoteStringLength){
 				maxQuoteStringLength = data[i].quote.length;
 			}
-			if(data[i].painPoints.length > maxPainPointsStringLength){
-				maxPainPointsStringLength = data[i].painPoints.length;
+			
+			var ppLength = 0;
+			for(var j = 0; j < data[i].painPoints.length; j++){
+				ppLength = ppLength + data[i].painPoints[j].length;
 			}
-			if(data[i].needs.length > maxNeedsStringLength){
-				maxNeedsStringLength = data[i].needs.length;
+			if(ppLength > maxPainPointsStringLength){
+				maxPainPointsStringLength = ppLength;
 			}
-			if(data[i].behaviour.length > maxBehaviourStringLength){
-				maxBehaviourStringLength = data[i].behaviour.length;
+			ppLength = 0;
+			
+			var nLength = 0;
+			for(var j = 0; j < data[i].needs.length; j++){
+				nLength = nLength + data[i].needs[j].length;
 			}
-			if(data[i].feelings.length > maxFeelingsStringLength){
-				maxFeelingsStringLength = data[i].feelings.length;
+			if(nLength > maxNeedsStringLength){
+				maxNeedsStringLength = nLength;
 			}
+			nLength = 0;
+			
+			var bLength = 0;
+			for(var j = 0; j < data[i].behaviour.length; j++){
+				bLength = bLength + data[i].behaviour[j].length;
+			}
+			if(bLength > maxBehaviourStringLength){
+				maxBehaviourStringLength = bLength;
+			}
+			bLength = 0;
+			
+			var fLength = 0;
+			for(var j = 0; j < data[i].feelings.length; j++){
+				fLength = fLength + data[i].feelings[j].length;
+			}
+			if(fLength > maxFeelingsStringLength){
+				maxFeelingsStringLength = fLength;
+			}
+			fLength = 0;
 		}
 		console.log(maxStageStringLength + " " + maxSubStageStringLength + " " + maxQuoteStringLength + " " + maxPainPointsStringLength + " " + maxNeedsStringLength + " " + maxBehaviourStringLength + " " + maxFeelingsStringLength);
 		
