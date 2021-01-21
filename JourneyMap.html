@@ -34,7 +34,7 @@ body {
 	position: relative;
 	top: 8vw;
 	left:5vw;
-	width: 110vw;
+	width: 60vw;
 	float: left;
 	margin-left:3vw;
 	margin-right:3vw;
@@ -51,7 +51,6 @@ body {
 }
 
 .text{
-	position: absolute;
 	left: 0.5vw;
 	top: 0vw;
 	right: 0;
@@ -61,6 +60,11 @@ body {
 	z-index:2;
 	color: black;
 	display:table;
+}
+
+.rowHeaderTextDiv{
+	width: 5vw;
+	margin: 0;
 }
 
 .quoteText{
@@ -114,7 +118,7 @@ body {
 </div>
 <script>
 	
-	
+	var gutterWidth = 5;
 	
 	var animationSpeed = 750; 
 	var data = [];
@@ -130,7 +134,7 @@ body {
 		sizer: sizer,
 		speed: animationSpeed,
 		filterMode: Shuffle.FilterMode.ALL,
-		gutterWidth: 5,
+		gutterWidth: gutterWidth,
 	});
 	
 	var maxStageStringLength = 0;
@@ -150,6 +154,188 @@ body {
 	var feelingsHeight = 0;
 	
 	var heightNumber = 12.5; //the percentage the string length gets divided by
+	
+	var newNewData =
+	[
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+	];
+	
+	console.log(newNewData);
+	
 	
 	var newData =[
 	{stage: "Planning a Journey",
@@ -407,9 +593,12 @@ body {
 	];
 	
 	var keys = Object.keys(newData[0]);
+	/*
 	for(var i = 0; i < keys.length; i++){
 		keys[i] = keys[i].charAt(0).toUpperCase() + keys[i].slice(1)
 	}
+	*/
+	
 	console.log(keys);
 	
 	//****** PARSING ******\\
@@ -419,12 +608,12 @@ body {
 	main();
 	
 	function main(theData) { 
-	
-		data = newData;
-		getMaxStringLengths();
+		
+		data = newNewData;
+		setContainerWidth();
+		//getMaxStringLengths();
 		//generateRowHeaders()
-		appendBoxesMk2();
-
+		appendBoxesMk3();
 	}
 	
 	function parseData(url, callBack) {
@@ -441,9 +630,10 @@ body {
 	//****** ADD IN BOXES ******\\
 	
 	//add the boxes to the shuffleInstance
-	function appendBoxesMk2() {
+	function appendBoxesMk3() {
 	
-		var elements = generateBoxesMk2();
+		//var elements = generateBoxesMk2();
+		var elements = generateBoxesMk3();
 
 		elements.forEach(function (element) {
 			this.element.appendChild(element);
@@ -555,6 +745,7 @@ body {
 		
 		var items = [];
 		console.log(data);
+		console.log("data.length is " + data.length);
 		
 		for (var i = 0; i < data.length; i++) {
 			var stageBox = document.createElement('figure'); //create a figure
@@ -568,6 +759,10 @@ body {
 				stageBox.appendChild(stageTextDiv); //add Div to box
 				
 				if(i==0){
+					
+					stageBox.id = "firstStageBox";
+					
+					/*
 					var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
 					rowHeaderTextDiv.className = "rowHeaderTextDiv";
 					
@@ -576,9 +771,11 @@ body {
 					var rowHeaderText = document.createTextNode(keys[0]); // 0 is stage
 					rowHeader.appendChild(rowHeaderText);
 					rowHeaderTextDiv.appendChild(rowHeader);
-					rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+					rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
 					
-					stageTextDiv.appendChild(rowHeaderTextDiv);
+					stageBox.appendChild(rowHeaderTextDiv);
+					
+					*/
 				}
 				
 				var stage = document.createElement('P');
@@ -612,9 +809,9 @@ body {
 				var rowHeaderText = document.createTextNode(keys[1]);
 				rowHeader.appendChild(rowHeaderText);
 				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
 				
-				subStageTextDiv.appendChild(rowHeaderTextDiv);
+				subStageBox.appendChild(rowHeaderTextDiv);
 			}
 			
 			
@@ -651,9 +848,9 @@ body {
 				var rowHeaderText = document.createTextNode(keys[2]);
 				rowHeader.appendChild(rowHeaderText);
 				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
 				
-				quoteTextDiv.appendChild(rowHeaderTextDiv);
+				quoteBox.appendChild(rowHeaderTextDiv);
 			}
 			
 			var quote = document.createElement('P');
@@ -680,7 +877,7 @@ body {
 			needsBox.appendChild(needsTextDiv); //add Div to box
 			
 			if(i==0){
-				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+				var rowHeaderTextDiv = document.createElement('div'); 
 				rowHeaderTextDiv.className = "rowHeaderTextDiv";
 				
 				var rowHeader = document.createElement('P');
@@ -688,17 +885,20 @@ body {
 				var rowHeaderText = document.createTextNode(keys[3]);
 				rowHeader.appendChild(rowHeaderText);
 				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
 				
-				needsTextDiv.appendChild(rowHeaderTextDiv);
+				needsBox.appendChild(rowHeaderTextDiv);
 			}
-			
-			var needs = document.createElement('P');
-			needs.className = "needsText text";
-			var needsText = document.createTextNode(data[i].needs);
-			needs.appendChild(needsText);
-			needsTextDiv.appendChild(needs);
-			
+			for(var j = 0; j < data[i].needs.length; j++){
+				var needsPDiv = document.createElement('div');
+				needsPDiv.className = "pDiv";
+				var needs = document.createElement('P');
+				needs.className = "needsText text";
+				var needsText = document.createTextNode(data[i].needs[j]);
+				needs.appendChild(needsText);
+				needsPDiv.appendChild(needs);
+				needsTextDiv.appendChild(needsPDiv);
+			}
 			
 			items.push(needsBox);
 			
@@ -726,9 +926,9 @@ body {
 				var rowHeaderText = document.createTextNode(keys[4]);
 				rowHeader.appendChild(rowHeaderText);
 				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
 				
-				painPointsTextDiv.appendChild(rowHeaderTextDiv);
+				painPointsBox.appendChild(rowHeaderTextDiv);
 			}
 			
 			var painPoints = document.createElement('P');
@@ -763,9 +963,9 @@ body {
 				var rowHeaderText = document.createTextNode(keys[5]);
 				rowHeader.appendChild(rowHeaderText);
 				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
 				
-				behaviourTextDiv.appendChild(rowHeaderTextDiv);
+				behaviourBox.appendChild(rowHeaderTextDiv);
 			}
 			
 			var behaviour = document.createElement('P');
@@ -800,9 +1000,9 @@ body {
 				var rowHeaderText = document.createTextNode(keys[6]);
 				rowHeader.appendChild(rowHeaderText);
 				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translateX(-6vw)";
+				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
 				
-				feelingsTextDiv.appendChild(rowHeaderTextDiv);
+				feelingsBox.appendChild(rowHeaderTextDiv);
 			}
 			
 			var feelings = document.createElement('P');
@@ -817,6 +1017,77 @@ body {
 		}
 		
 		return items;
+	}
+	
+	function generateBoxesMk3(){
+		
+		var items = [];
+		
+		for(var i = 0; i < keys.length; i++){
+			for(var j = 0; j < data.length; j++){
+				
+				//make the figure and give it classes
+				var box = document.createElement('figure'); //create a figure
+				var boxClassName = "";
+				boxClassName = boxClassName.concat("column aspect ", keys[i], "Box");
+				box.className = boxClassName;
+				//box.style.height = stageHeight; //make the heights an array and access them with numbers
+				
+				//create the line and give it a class
+				var line = document.createElement('div');
+				line.className = "line";
+				box.appendChild(line);
+
+				//make the text div and give it classes
+				var paraTextDiv = document.createElement('div'); //create a Div for text
+				var paraTextDivClassName = "";
+				paraTextDivClassName = paraTextDivClassName = (keys[i], "TextDiv");
+				paraTextDiv.className = paraTextDivClassName;
+				
+				if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
+					var arrayLength = data[j][i].length;
+					for(var k = 0; k < arrayLength; k++){
+						//make the paragraphc and give it classes
+						var para = document.createElement('P');
+						var paraClassName = "";
+						paraClassName = paraClassName.concat(keys[i], "Text ", "text");
+						para.className = paraClassName;
+						
+						//make the text
+						var paraText = document.createTextNode(data[j][i][k]);
+						para.appendChild(paraText); //add the text to the paragraph
+						paraTextDiv.appendChild(para); //add the paragraph to the div
+					}
+				}
+				else{
+					//make the paragraphc and give it classes
+					var para = document.createElement('P');
+					var paraClassName = "";
+					paraClassName = paraClassName.concat(keys[i], "Text ", "text");
+					para.className = paraClassName;
+					
+					//make the text
+					var paraText = document.createTextNode(data[j][i]);
+					para.appendChild(paraText); //add the text to the paragraph
+					paraTextDiv.appendChild(para); //add the paragraph to the div
+				}
+
+				box.appendChild(paraTextDiv); //add the div to box
+				
+				items.push(box);
+			}
+		}
+		return items;
+	}
+	
+	function setContainerWidth(){
+		
+		console.log(element.querySelector('.my-sizer-element'));
+		var containerWidthNumber = 11 * (data.length * 1.1); //the column width * the number of columns. the 1.1 is to make up for the gutter
+		containerWidth = "";
+		containerWidth = containerWidth.concat(containerWidthNumber, "vw");
+		document.getElementById("container").style.width = containerWidth;
+		console.log(containerWidth);
 	}
 	
 </script>
