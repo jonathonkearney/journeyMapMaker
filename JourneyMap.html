@@ -118,7 +118,255 @@ body {
 </div>
 <script>
 	
-	var gutterWidth = 5;
+		var newNewData =
+	[
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint but im gonna make it a bit longer to see if the sizing works well. It does look a little tight so lets make it a bit bigger. and bigger"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"Here is the stage",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+	];
+	
+	
+	//var keys = Object.keys(newData[0]);
+	var keys = ["stage", "subStage", "quote", "needs", "painPoints", "behaviour", "feelings"]
+	
+	console.log(keys);
 	
 	var animationSpeed = 750; 
 	var data = [];
@@ -134,472 +382,18 @@ body {
 		sizer: sizer,
 		speed: animationSpeed,
 		filterMode: Shuffle.FilterMode.ALL,
-		gutterWidth: gutterWidth,
+		gutterWidth: 5,
 	});
 	
-	var maxStageStringLength = 0;
-	var maxSubStageStringLength = 0;
-	var maxQuoteStringLength = 0;
-	var maxNeedsStringLength = 0;
-	var maxPainPointsStringLength = 0;
-	var maxBehaviourStringLength = 0;
-	var maxFeelingsStringLength = 0;
+	var maxHeights = [];
 	
-	var stageHeight = 0;
-	var subStageHeight = 0;
-	var quoteHeight = 0;
-	var needsHeight = 0;
-	var painPointsHeight = 0;
-	var behaviourHeight = 0;
-	var feelingsHeight = 0;
+	for (var i = 0; i < keys.length; i++) {
+		maxHeights.push(0);
+	}
 	
 	var heightNumber = 12.5; //the percentage the string length gets divided by
 	
-	var newNewData =
-	[
-		[
-			"Here is the stage",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need",
-				"Here is a Need"
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-		[
-			"Here is the stage",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need",
-				"Here is a Need"
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-		[
-			"Here is the stage",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need",
-				"Here is a Need"
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-		[
-			"Here is the stage",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need",
-				"Here is a Need"
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-		[
-			"Here is the stage",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need",
-				"Here is a Need"
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-		[
-			"Here is the stage",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need",
-				"Here is a Need"
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-		[
-			"Here is the stage",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need",
-				"Here is a Need"
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-	];
-	
 	console.log(newNewData);
-	
-	
-	var newData =[
-	{stage: "Planning a Journey",
-	 subStage: "",
-	 quote: "Bla",
-	 needs: 
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 painPoints:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 behaviour:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 feelings:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 },
-	{stage: "Using the System",
-	 subStage: "",
-	 quote: "Bla Bla Bla Bla Bla Bla Bl Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla Bla",
-	 needs: 
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 painPoints:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 behaviour:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 feelings:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 },
-	{stage: "",
-	 subStage: "",
-	 quote: "Bla",
-	 needs: 
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 painPoints:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 behaviour:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 feelings:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 },
-	{stage: "",
-	 subStage: "",
-	 quote: "Bla",
-	 needs: 
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 painPoints:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 behaviour:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 feelings:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 },
-	{stage: "",
-	 subStage: "",
-	 quote: "Bla",
-	 needs: 
-		[
-		"This is text, text this is. Its here to test the sizing function. Hopefully it fits everything in nice and snug",
-		"Bla de bla de bla de bla",
-		"Bla"
-		],
-	 painPoints:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 behaviour:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 feelings:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 },
-	{stage: "",
-	 subStage: "",
-	 quote: "Bla",
-	 needs: 
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 painPoints:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 behaviour:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 feelings:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 },
-	{stage: "Onward Connection",
-	 subStage: "",
-	 quote: "Bla",
-	 needs: 
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 painPoints:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 behaviour:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 feelings:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 },
-	{stage: "Paying for My Journey",
-	 subStage: "",
-	 quote: "Bla",
-	 needs: 
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 painPoints:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 behaviour:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 feelings:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 },
-	{stage: "",
-	 subStage: "",
-	 quote: "Bla",
-	 needs: 
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 painPoints:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 behaviour:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 feelings:
-		[
-		"Bla",
-		"Bla",
-		"Bla"
-		],
-	 },
-	];
-	
-	var keys = Object.keys(newData[0]);
-	/*
-	for(var i = 0; i < keys.length; i++){
-		keys[i] = keys[i].charAt(0).toUpperCase() + keys[i].slice(1)
-	}
-	*/
-	
-	console.log(keys);
 	
 	//****** PARSING ******\\
 	
@@ -611,7 +405,7 @@ body {
 		
 		data = newNewData;
 		setContainerWidth();
-		//getMaxStringLengths();
+		getMaxHeights();
 		//generateRowHeaders()
 		appendBoxesMk3();
 	}
@@ -643,86 +437,40 @@ body {
 		shuffleInstance.update();
 	};
 	
-	function getMaxStringLengths(){
-	
-		for (var i = 0; i < data.length; i++) {
-			if(data[i].stage.length > maxStageStringLength){
-				maxStageStringLength = data[i].stage.length;
+	function getMaxHeights(){
+		
+		for(var i = 0; i < keys.length; i++){
+			for(var j = 0; j < data.length; j++){
+				
+				var charCount = 0;
+				
+				if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
+
+					const reducer = (accumulator, currentValue) => accumulator + currentValue;
+					
+					var flattened = data[j][i].reduce(reducer);
+					
+					charCount = flattened.length;
+				}
+				else{
+					charCount = charCount + data[j][i].length;
+				}
+				
+				if(charCount > maxHeights[i]){
+					maxHeights[i] = charCount;
+				}
+				
 			}
-			if(data[i].subStage.length > maxSubStageStringLength){
-				maxSubStageStringLength = data[i].subStage.length;
-			}
-			if(data[i].quote.length > maxQuoteStringLength){
-				maxQuoteStringLength = data[i].quote.length;
-			}
-			
-			var ppLength = 0;
-			for(var j = 0; j < data[i].painPoints.length; j++){
-				ppLength = ppLength + data[i].painPoints[j].length;
-			}
-			if(ppLength > maxPainPointsStringLength){
-				maxPainPointsStringLength = ppLength;
-			}
-			ppLength = 0;
-			
-			var nLength = 0;
-			for(var j = 0; j < data[i].needs.length; j++){
-				nLength = nLength + data[i].needs[j].length;
-			}
-			if(nLength > maxNeedsStringLength){
-				maxNeedsStringLength = nLength;
-			}
-			nLength = 0;
-			
-			var bLength = 0;
-			for(var j = 0; j < data[i].behaviour.length; j++){
-				bLength = bLength + data[i].behaviour[j].length;
-			}
-			if(bLength > maxBehaviourStringLength){
-				maxBehaviourStringLength = bLength;
-			}
-			bLength = 0;
-			
-			var fLength = 0;
-			for(var j = 0; j < data[i].feelings.length; j++){
-				fLength = fLength + data[i].feelings[j].length;
-			}
-			if(fLength > maxFeelingsStringLength){
-				maxFeelingsStringLength = fLength;
-			}
-			fLength = 0;
 		}
-		console.log(maxStageStringLength + " " + maxSubStageStringLength + " " + maxQuoteStringLength + " " + maxPainPointsStringLength + " " + maxNeedsStringLength + " " + maxBehaviourStringLength + " " + maxFeelingsStringLength);
+		//Add the view widths
+		for(var i = 0; i < maxHeights.length; i++){
+			var height = "";
+			height = height.concat((maxHeights[i] / heightNumber), "vw");
+			maxHeights[i] = height;
+		}
 		
-		stageHeight = maxStageStringLength/heightNumber;
-		stageHeight = stageHeight.toString();
-		stageHeight = stageHeight.concat("vw");
 		
-		subStageHeight = maxSubStageStringLength/heightNumber;
-		subStageHeight = subStageHeight.toString();
-		subStageHeight = subStageHeight.concat("vw");
-		
-		quoteHeight = maxQuoteStringLength/heightNumber;
-		quoteHeight = quoteHeight.toString();
-		quoteHeight = quoteHeight.concat("vw");
-		
-		painPointsHeight = maxPainPointsStringLength/heightNumber;
-		painPointsHeight = painPointsHeight.toString();
-		painPointsHeight = painPointsHeight.concat("vw");
-		
-		needsHeight = maxNeedsStringLength/heightNumber;
-		needsHeight = needsHeight.toString();
-		needsHeight = needsHeight.concat("vw");
-		
-		behaviourHeight = maxBehaviourStringLength/heightNumber;
-		behaviourHeight = behaviourHeight.toString();
-		behaviourHeight = behaviourHeight.concat("vw");
-		
-		feelingsHeight = maxFeelingsStringLength/heightNumber;
-		feelingsHeight = feelingsHeight.toString();
-		feelingsHeight = feelingsHeight.concat("vw");
-		
-		console.log(stageHeight + " " + subStageHeight + " " + quoteHeight + " " + painPointsHeight + " " + needsHeight + " " + behaviourHeight + " " + feelingsHeight);
+		console.log(maxHeights);
 	}
 	
 	function generateRowHeaders(){
@@ -741,284 +489,6 @@ body {
 		}
 	}
 	
-	function generateBoxesMk2(){
-		
-		var items = [];
-		console.log(data);
-		console.log("data.length is " + data.length);
-		
-		for (var i = 0; i < data.length; i++) {
-			var stageBox = document.createElement('figure'); //create a figure
-			stageBox.className = "column aspect stageBox";
-			stageBox.style.height = stageHeight; 
-			
-			if(data[i].stage != null){
-
-				var stageTextDiv = document.createElement('div'); //create a Div for text
-				stageTextDiv.className = "stageTextDiv";
-				stageBox.appendChild(stageTextDiv); //add Div to box
-				
-				if(i==0){
-					
-					stageBox.id = "firstStageBox";
-					
-					/*
-					var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
-					rowHeaderTextDiv.className = "rowHeaderTextDiv";
-					
-					var rowHeader = document.createElement('P');
-					rowHeader.className = "rowHeaderText text";
-					var rowHeaderText = document.createTextNode(keys[0]); // 0 is stage
-					rowHeader.appendChild(rowHeaderText);
-					rowHeaderTextDiv.appendChild(rowHeader);
-					rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
-					
-					stageBox.appendChild(rowHeaderTextDiv);
-					
-					*/
-				}
-				
-				var stage = document.createElement('P');
-				stage.className = "stageText text";
-				var stageText = document.createTextNode(data[i].stage);
-				stage.appendChild(stageText);
-				stageTextDiv.appendChild(stage);
-			}
-			
-			items.push(stageBox); 	
-		}
-		for (var i = 0; i < data.length; i++) {
-			var subStageBox = document.createElement('figure'); //create a figure
-			subStageBox.className = "column aspect";
-			subStageBox.style.height = subStageHeight; 
-			
-			var subStageLine = document.createElement('div');
-			subStageLine.className = "line";
-			subStageBox.appendChild(subStageLine);
-			
-			var subStageTextDiv = document.createElement('div'); //create a Div for text
-			subStageTextDiv.className = "subStageTextDiv";
-			subStageBox.appendChild(subStageTextDiv); //add Div to box
-			
-			if(i==0){
-				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
-				rowHeaderTextDiv.className = "rowHeaderTextDiv";
-				
-				var rowHeader = document.createElement('P');
-				rowHeader.className = "rowHeaderText text";
-				var rowHeaderText = document.createTextNode(keys[1]);
-				rowHeader.appendChild(rowHeaderText);
-				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
-				
-				subStageBox.appendChild(rowHeaderTextDiv);
-			}
-			
-			
-			var subStage = document.createElement('P');
-			subStage.className = "subStageText text";
-			var subStageText = document.createTextNode(data[i].subStage);
-			subStage.appendChild(subStageText);
-			subStageTextDiv.appendChild(subStage);
-			
-			
-			items.push(subStageBox);
-			
-		}
-		for (var i = 0; i < data.length; i++) {
-			var quoteBox = document.createElement('figure'); //create a figure
-			quoteBox.className = "column aspect";
-			quoteBox.style.height = quoteHeight; 
-			
-			var quoteLine = document.createElement('div');
-			quoteLine.className = "line";
-			quoteBox.appendChild(quoteLine);
-			
-			
-			var quoteTextDiv = document.createElement('div'); //create a Div for text
-			quoteTextDiv.className = "touchpointTextDiv";
-			quoteBox.appendChild(quoteTextDiv); //add Div to box
-			
-			if(i==0){
-				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
-				rowHeaderTextDiv.className = "rowHeaderTextDiv";
-				
-				var rowHeader = document.createElement('P');
-				rowHeader.className = "rowHeaderText text";
-				var rowHeaderText = document.createTextNode(keys[2]);
-				rowHeader.appendChild(rowHeaderText);
-				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
-				
-				quoteBox.appendChild(rowHeaderTextDiv);
-			}
-			
-			var quote = document.createElement('P');
-			quote.className = "quoteText text";
-			var quoteText = document.createTextNode('"' + data[i].quote + '"');
-			quote.appendChild(quoteText);
-			quoteTextDiv.appendChild(quote);
-			
-			
-			items.push(quoteBox);
-			
-		}
-		for (var i = 0; i < data.length; i++) {
-			var needsBox = document.createElement('figure'); //create a figure
-			needsBox.className = "column aspect";
-			needsBox.style.height = needsHeight; 
-			
-			var needsLine = document.createElement('div');
-			needsLine.className = "line";
-			needsBox.appendChild(needsLine);
-			
-			var needsTextDiv = document.createElement('div'); //create a Div for text
-			needsTextDiv.className = "needsTextDiv";
-			needsBox.appendChild(needsTextDiv); //add Div to box
-			
-			if(i==0){
-				var rowHeaderTextDiv = document.createElement('div'); 
-				rowHeaderTextDiv.className = "rowHeaderTextDiv";
-				
-				var rowHeader = document.createElement('P');
-				rowHeader.className = "rowHeaderText text";
-				var rowHeaderText = document.createTextNode(keys[3]);
-				rowHeader.appendChild(rowHeaderText);
-				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
-				
-				needsBox.appendChild(rowHeaderTextDiv);
-			}
-			for(var j = 0; j < data[i].needs.length; j++){
-				var needsPDiv = document.createElement('div');
-				needsPDiv.className = "pDiv";
-				var needs = document.createElement('P');
-				needs.className = "needsText text";
-				var needsText = document.createTextNode(data[i].needs[j]);
-				needs.appendChild(needsText);
-				needsPDiv.appendChild(needs);
-				needsTextDiv.appendChild(needsPDiv);
-			}
-			
-			items.push(needsBox);
-			
-		}
-		for (var i = 0; i < data.length; i++) {
-			var painPointsBox = document.createElement('figure'); //create a figure
-			painPointsBox.className = "column aspect";
-			painPointsBox.style.height = painPointsHeight; 
-			
-			var painPointsLine = document.createElement('div');
-			painPointsLine.className = "line";
-			painPointsBox.appendChild(painPointsLine);
-			
-			
-			var painPointsTextDiv = document.createElement('div'); //create a Div for text
-			painPointsTextDiv.className = "painPointsTextDiv";
-			painPointsBox.appendChild(painPointsTextDiv); //add Div to box
-			
-			if(i==0){
-				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
-				rowHeaderTextDiv.className = "rowHeaderTextDiv";
-				
-				var rowHeader = document.createElement('P');
-				rowHeader.className = "rowHeaderText text";
-				var rowHeaderText = document.createTextNode(keys[4]);
-				rowHeader.appendChild(rowHeaderText);
-				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
-				
-				painPointsBox.appendChild(rowHeaderTextDiv);
-			}
-			
-			var painPoints = document.createElement('P');
-			painPoints.className = "painPointsText text";
-			var painPointsText = document.createTextNode(data[i].painPoints);
-			painPoints.appendChild(painPointsText);
-			painPointsTextDiv.appendChild(painPoints);
-			
-			
-			items.push(painPointsBox);
-			
-		}
-		for (var i = 0; i < data.length; i++) {
-			var behaviourBox = document.createElement('figure'); //create a figure
-			behaviourBox.className = "column aspect";
-			behaviourBox.style.height = behaviourHeight; 
-			
-			var behaviourLine = document.createElement('div');
-			behaviourLine.className = "line";
-			behaviourBox.appendChild(behaviourLine);
-			
-			var behaviourTextDiv = document.createElement('div'); //create a Div for text
-			behaviourTextDiv.className = "behaviourTextDiv";
-			behaviourBox.appendChild(behaviourTextDiv); //add Div to box
-			
-			if(i==0){
-				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
-				rowHeaderTextDiv.className = "rowHeaderTextDiv";
-				
-				var rowHeader = document.createElement('P');
-				rowHeader.className = "rowHeaderText text";
-				var rowHeaderText = document.createTextNode(keys[5]);
-				rowHeader.appendChild(rowHeaderText);
-				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
-				
-				behaviourBox.appendChild(rowHeaderTextDiv);
-			}
-			
-			var behaviour = document.createElement('P');
-			behaviour.className = "painPointsText text";
-			var behaviourText = document.createTextNode(data[i].behaviour);
-			behaviour.appendChild(behaviourText);
-			behaviourTextDiv.appendChild(behaviour);
-			
-			
-			items.push(behaviourBox);
-			
-		}
-		for (var i = 0; i < data.length; i++) {
-			var feelingsBox = document.createElement('figure'); //create a figure
-			feelingsBox.className = "column aspect";
-			feelingsBox.style.height = feelingsHeight; 
-			
-			var feelingsLine = document.createElement('div');
-			feelingsLine.className = "line";
-			feelingsBox.appendChild(feelingsLine);
-			
-			var feelingsTextDiv = document.createElement('div'); //create a Div for text
-			feelingsTextDiv.className = "feelingsTextDiv";
-			feelingsBox.appendChild(feelingsTextDiv); //add Div to box
-			
-			if(i==0){
-				var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
-				rowHeaderTextDiv.className = "rowHeaderTextDiv";
-				
-				var rowHeader = document.createElement('P');
-				rowHeader.className = "rowHeaderText text";
-				var rowHeaderText = document.createTextNode(keys[6]);
-				rowHeader.appendChild(rowHeaderText);
-				rowHeaderTextDiv.appendChild(rowHeader);
-				rowHeaderTextDiv.style.transform = "translate(-6vw, -7vw)";
-				
-				feelingsBox.appendChild(rowHeaderTextDiv);
-			}
-			
-			var feelings = document.createElement('P');
-			feelings.className = "feelingsText text";
-			var feelingsText = document.createTextNode(data[i].feelings);
-			feelings.appendChild(feelingsText);
-			feelingsTextDiv.appendChild(feelings);
-			
-			
-			items.push(feelingsBox);
-			
-		}
-		
-		return items;
-	}
-	
 	function generateBoxesMk3(){
 		
 		var items = [];
@@ -1031,7 +501,7 @@ body {
 				var boxClassName = "";
 				boxClassName = boxClassName.concat("column aspect ", keys[i], "Box");
 				box.className = boxClassName;
-				//box.style.height = stageHeight; //make the heights an array and access them with numbers
+				box.style.height = maxHeights[i];
 				
 				//create the line and give it a class
 				var line = document.createElement('div');
