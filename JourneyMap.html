@@ -20,11 +20,11 @@ body {
 }
 
 .rowHeadersDiv{
-	width: 7vw;
-    height: 10vw;
-    background-color: lightgray;
+	width: 6vw;
     position: relative;
+	margin-top: 0.5vw;
 }
+
 
 .my-shuffle-container{
 	width: 60vw;
@@ -36,7 +36,6 @@ body {
 .column {
 	float: left;
 	width: 11vw;
-	min-height: 7vw;
 	height:auto;
 	overflow:visible;
 	background-color: white;
@@ -44,7 +43,7 @@ body {
 }
 
 .stageBox{
-	min-height: 4vw !important;
+
 }
 
 
@@ -53,7 +52,8 @@ body {
 	padding-top: 0vw;
 	font-size:1.2vw;
 	margin-top:0.5vw;
-	text-align: center;
+	text-align-last: right;
+	color: #FFC107;
 }
 
 .text{
@@ -64,8 +64,8 @@ body {
 	font-family: 'Overpass', sans-serif; /* was font-family: 'Montserrat', sans-serif; */
 	font-size: 1vw;
 	z-index:2;
-	color: black;
 	display:table;
+	width: 100%;
 }
 
 .rowHeaderTextDiv{
@@ -75,7 +75,6 @@ body {
 }
 
 .quoteText{
-	color:rgb(35,62,152);
 	font-weight: bold;
 }
 
@@ -85,6 +84,7 @@ body {
 	padding-top: 0vw;
 	font-size:1.2vw;
 	margin-top:0.5vw;
+	color: #FFC107;
 }
 
 .line{
@@ -515,7 +515,8 @@ body {
 			rowHeader.appendChild(rowHeaderText);
 			rowHeaderTextDiv.appendChild(rowHeader);
 			
-			rowHeaderTextDiv.style.height = maxHeights[i];
+			rowHeaderTextDiv.style.height = maxHeights[i]; 
+			rowHeaderTextDiv.style.marginBottom = "0.4vw";
 			
 			rowHeadersDiv.appendChild(rowHeaderTextDiv);
 		}
