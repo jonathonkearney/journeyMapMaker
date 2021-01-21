@@ -15,6 +15,23 @@ body {
 	margin: 0px;
 }
 
+.canvasWrapper{
+	display: inline-flex;
+}
+
+.rowHeadersDiv{
+	width: 7vw;
+    height: 10vw;
+    background-color: lightgray;
+    position: relative;
+}
+
+.my-shuffle-container{
+	width: 60vw;
+	float: left;
+	margin-bottom: 1vw;
+	overflow: visible !important;
+}
 
 .column {
 	float: left;
@@ -30,17 +47,6 @@ body {
 	min-height: 4vw !important;
 }
 
-.my-shuffle-container{
-	position: relative;
-	top: 8vw;
-	left:5vw;
-	width: 60vw;
-	float: left;
-	margin-left:3vw;
-	margin-right:3vw;
-	margin-bottom: 1vw;
-	overflow: visible !important;
-}
 
 .rowHeaderText{
 	font-weight: bold;
@@ -65,6 +71,7 @@ body {
 .rowHeaderTextDiv{
 	width: 5vw;
 	margin: 0;
+	float: left;
 }
 
 .quoteText{
@@ -118,7 +125,7 @@ body {
 </div>
 <script>
 	
-		var newNewData =
+	var newNewData =
 	[
 		[
 			"Here is the stage",
@@ -362,6 +369,8 @@ body {
 		],
 	];
 	
+	var minFirstRowHeight = 4;
+	var minRowHeight = 7;
 	
 	//var keys = Object.keys(newData[0]);
 	var keys = ["stage", "subStage", "quote", "needs", "painPoints", "behaviour", "feelings"]
@@ -406,7 +415,7 @@ body {
 		data = newNewData;
 		setContainerWidth();
 		getMaxHeights();
-		//generateRowHeaders()
+		generateRowHeaders()
 		appendBoxesMk3();
 	}
 	
@@ -445,11 +454,8 @@ body {
 				var charCount = 0;
 				
 				if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
-
 					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					
 					var flattened = data[j][i].reduce(reducer);
-					
 					charCount = flattened.length;
 				}
 				else{
@@ -459,13 +465,33 @@ body {
 				if(charCount > maxHeights[i]){
 					maxHeights[i] = charCount;
 				}
-				
 			}
 		}
+		
+		//reduce them to a good viewWidth size
+		for(var i = 0; i < maxHeights.length; i++){
+			maxHeights[i] = maxHeights[i] / heightNumber;
+		}
+		
+		//set them to at least the minimum
+		for(var i = 0; i < maxHeights.length; i++){
+			if(i == 0){
+				console.log(maxHeights[i]);
+				if(maxHeights[i] < minFirstRowHeight){
+					maxHeights[i] = minFirstRowHeight;
+				}
+			}
+			else{
+				if(maxHeights[i] < minRowHeight){
+					maxHeights[i] = minRowHeight;
+				}
+			}
+		}
+		
 		//Add the view widths
 		for(var i = 0; i < maxHeights.length; i++){
 			var height = "";
-			height = height.concat((maxHeights[i] / heightNumber), "vw");
+			height = height.concat(maxHeights[i], "vw");
 			maxHeights[i] = height;
 		}
 		
@@ -475,6 +501,9 @@ body {
 	
 	function generateRowHeaders(){
 			
+		var rowHeadersDiv = document.createElement('div'); //create a Div for text
+		rowHeadersDiv.className = "rowHeadersDiv";	
+		
 		for (var i = 0; i < keys.length; i++) {
 		
 			var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
@@ -486,7 +515,30 @@ body {
 			rowHeader.appendChild(rowHeaderText);
 			rowHeaderTextDiv.appendChild(rowHeader);
 			
+			rowHeaderTextDiv.style.height = maxHeights[i];
+			
+			rowHeadersDiv.appendChild(rowHeaderTextDiv);
 		}
+		
+		
+		let container = document.getElementById("container")
+		let parentDiv = container.parentNode
+		parentDiv.insertBefore(rowHeadersDiv, container) //do this last? 
+		
+		
+		/*	
+		for (var i = 0; i < keys.length; i++) {
+		
+			var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
+			rowHeaderTextDiv.className = "rowHeaderTextDiv";
+			
+			var rowHeader = document.createElement('P');
+			rowHeader.className = "rowHeaderText text";
+			var rowHeaderText = document.createTextNode(keys[i]);
+			rowHeader.appendChild(rowHeaderText);
+			rowHeaderTextDiv.appendChild(rowHeader);
+		}
+		*/
 	}
 	
 	function generateBoxesMk3(){
