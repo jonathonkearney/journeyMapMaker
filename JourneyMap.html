@@ -55,7 +55,7 @@ body {
 .rowHeadersDiv{
 	width: 6vw;
     position: relative;
-	margin-top: 0.5vw;
+	margin-top: 0.3vw;
 }
 
 
@@ -147,6 +147,37 @@ body {
     margin-bottom: 0vw;
 }
 
+.createdByDiv{
+	top:0;
+	right:0;
+	margin-top:1vw;
+	font-size: 1vw;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#createdBy{
+	margin:1vw;
+}
+
+.list{
+	width:85%;
+	margin: 0;
+	padding-left: 1.5vw;
+	margin-top: 0.3vw;
+}
+
+ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+	content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+	color: gray; /* Change the color */
+	font-weight: bold; /* If you want it to be bold */
+	display: inline-block; /* Needed to add space between the bullet and the text */
+	width: 1em; /* Also needed for space (tweak if needed) */
+	margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
 
 </style>
 </head>
@@ -169,8 +200,8 @@ body {
 	<div class="titleDiv">
 		<p class="title"><strong>Inspecting Organisation</strong> Customer Journey Map</p>
 	</div>
-	<div class="logoDiv">
-		<img class="logoImage" src="logo-nzta.png" alt="Logo">
+	<div class="createdByDiv">
+		<p id="createdBy">Created <strong>by: <br> Research and Analytics</strong></p>
 	</div>
 </div>
 <div class="canvasWrapper">	
@@ -184,7 +215,31 @@ body {
 	[
 		[
 			"Trigger",
-			"Here is the Sub-Stage",
+			"Helping the Community",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need"
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"",
+			"License Required for Work",
 			"Here is the Quote", 
 			[
 				"Here is a Need",
@@ -208,7 +263,7 @@ body {
 		],
 		[
 			"Pre-Application",
-			"Here is the Sub-Stage",
+			"Researching what is needed",
 			"Here is the Quote", 
 			[
 				"Here is a Need",
@@ -237,30 +292,6 @@ body {
 			[
 				"Here is a Need",
 				"Here is a Need",
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-		[
-			"",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need"
 			],
 			[
 				"Here is a Painpoint",
@@ -610,8 +641,31 @@ body {
 				paraTextDiv.className = paraTextDivClassName;
 				
 				if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
+					
+					//LIST VERSION
+					var list = document.createElement('ul')
+					var listClassName = "";
+					listClassName = listClassName.concat(keys[i], "Text ", "text paraText list");
+					list.className = listClassName
+					
 					var arrayLength = data[j][i].length;
 					for(var k = 0; k < arrayLength; k++){
+						
+						var li = document.createElement('li');
+						
+						var listText = "";
+						if(keys[i] == "quote" || keys[i] == "quotes" || keys[i] == "Quote" || keys[i] == "Quotes"){
+							listText = document.createTextNode('"' + data[j][i][k] + '"');
+						}
+						else{
+							listText = document.createTextNode(data[j][i][k]);
+						}
+						
+						li.appendChild(listText);
+						list.appendChild(li);
+						paraTextDiv.appendChild(list);
+						
+						/*
 						//make the paragraphc and give it classes
 						var para = document.createElement('P');
 						var paraClassName = "";
@@ -628,6 +682,9 @@ body {
 						}
 						para.appendChild(paraText); //add the text to the paragraph
 						paraTextDiv.appendChild(para); //add the paragraph to the div
+						*/
+						
+						
 					}
 				}
 				else{
