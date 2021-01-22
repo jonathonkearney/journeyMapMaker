@@ -15,6 +15,39 @@ body {
 	margin: 0px;
 }
 
+.headerDiv{
+	height:11vw;
+	display: inline-flex;
+	width: 100%;
+	margin-left: 6vw;
+	margin-right: 4vw;
+}
+
+.title{
+	font-size: 3.5vw;
+	width: 100%;
+	margin: 1vw;
+	margin-left:0;
+	font-family: 'Montserrat', sans-serif !important;
+}
+
+.titleDiv{
+	width: 50%;
+}
+
+.logoDiv{
+	float: right;
+	width: 50%;
+	height: 100%;
+}
+
+.logoImage{
+	right: 0;
+	top: 0;
+	float:right;
+	margin: 1vw;
+}
+
 .canvasWrapper{
 	display: inline-flex;
 }
@@ -30,30 +63,27 @@ body {
 	width: 60vw;
 	float: left;
 	margin-bottom: 1vw;
+	margin-right: 4vw;
 	overflow: visible !important;
 }
 
 .column {
 	float: left;
-	width: 11vw;
+	width: 10vw;
 	height:auto;
 	overflow:visible;
 	background-color: white;
 	margin: 0.2vw;
 }
 
-.stageBox{
-
-}
-
 
 .rowHeaderText{
 	font-weight: bold;
 	padding-top: 0vw;
-	font-size:1.2vw;
+	font-size: 0.9vw !important;
 	margin-top:0.5vw;
 	text-align-last: right;
-	color: #FFC107;
+	color: #4384a2fa;
 }
 
 .text{
@@ -61,11 +91,14 @@ body {
 	top: 0vw;
 	right: 0;
 	text-align: left;
-	font-family: 'Overpass', sans-serif; /* was font-family: 'Montserrat', sans-serif; */
+	/* font-family: 'Overpass', sans-serif; */
+	/* font-family: 'Montserrat', sans-serif; */
+	font-family: 'Lato', sans-serif;
 	font-size: 1vw;
 	z-index:2;
 	display:table;
 	width: 100%;
+	
 }
 
 .rowHeaderTextDiv{
@@ -76,15 +109,20 @@ body {
 
 .quoteText{
 	font-weight: bold;
+	font-style: italic;
 }
 
 .stageText{
-	position: absolute;
 	font-weight: bold;
 	padding-top: 0vw;
-	font-size:1.2vw;
+	font-size:1.4vw;
 	margin-top:0.5vw;
-	color: #FFC107;
+	color: #4384a2fa;;
+}
+
+.subStageText{
+	font-size: 1.2vw;
+	color: #4384a2fa;
 }
 
 .line{
@@ -93,15 +131,22 @@ body {
 	height: 0;
 	top: 1%;
 	left: 0%;
+	border-color: black;
 	border-bottom-width: 0.1vw;
 	border-bottom-style: solid;
-	border-bottom-color: lightgray;
 }
 
 .my-sizer-element { 
 	margin-left: 0.8vw;
 	visibility: hidden;
 }
+
+.paraText{
+	margin-left: 0;
+    margin-top: 0.4vw;
+    margin-bottom: 0vw;
+}
+
 
 </style>
 </head>
@@ -117,7 +162,17 @@ body {
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
-	
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+
+<div id="headerDiv" class="headerDiv">
+	<div class="titleDiv">
+		<p class="title"><strong>Inspecting Organisation</strong> Customer Journey Map</p>
+	</div>
+	<div class="logoDiv">
+		<img class="logoImage" src="logo-nzta.png" alt="Logo">
+	</div>
+</div>
 <div class="canvasWrapper">	
 	<div id="container" class="row my-shuffle-container">
 		<div class="column my-sizer-element"></div>
@@ -128,7 +183,7 @@ body {
 	var newNewData =
 	[
 		[
-			"Here is the stage",
+			"Trigger",
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
@@ -152,31 +207,7 @@ body {
 			]
 		],
 		[
-			"Here is the stage",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need",
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint but im gonna make it a bit longer to see if the sizing works well. It does look a little tight so lets make it a bit bigger. and bigger"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-		[
-			"Here is the stage",
+			"Pre-Application",
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
@@ -200,7 +231,31 @@ body {
 			]
 		],
 		[
-			"Here is the stage",
+			"Application Form",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Here is a Need",
+			],
+			[
+				"Here is a Painpoint",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Here is a Behaviour",
+				"Here is a Behaviour"
+			],
+			[
+				"Here is a Feeling",
+				"Here is a Feeling",
+				"Here is a Feeling"
+			]
+		],
+		[
+			"",
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
@@ -224,7 +279,7 @@ body {
 			]
 		],
 		[
-			"Here is the stage",
+			"",
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
@@ -248,7 +303,7 @@ body {
 			]
 		],
 		[
-			"Here is the stage",
+			"",
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
@@ -272,7 +327,7 @@ body {
 			]
 		],
 		[
-			"Here is the stage",
+			"Payment",
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
@@ -296,7 +351,7 @@ body {
 			]
 		],
 		[
-			"Here is the stage",
+			"Site Assessment",
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
@@ -320,7 +375,7 @@ body {
 			]
 		],
 		[
-			"Here is the stage",
+			"",
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
@@ -344,7 +399,7 @@ body {
 			]
 		],
 		[
-			"Here is the stage",
+			"Post-Application",
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
@@ -511,12 +566,12 @@ body {
 			
 			var rowHeader = document.createElement('P');
 			rowHeader.className = "rowHeaderText text";
-			var rowHeaderText = document.createTextNode(keys[i]);
+			var rowHeaderText = document.createTextNode(capitalizeFirstLetter(keys[i]));
 			rowHeader.appendChild(rowHeaderText);
 			rowHeaderTextDiv.appendChild(rowHeader);
 			
 			rowHeaderTextDiv.style.height = maxHeights[i]; 
-			rowHeaderTextDiv.style.marginBottom = "0.4vw";
+			rowHeaderTextDiv.style.marginBottom = "0.3vw"; //was 0.4
 			
 			rowHeadersDiv.appendChild(rowHeaderTextDiv);
 		}
@@ -526,20 +581,6 @@ body {
 		let parentDiv = container.parentNode
 		parentDiv.insertBefore(rowHeadersDiv, container) //do this last? 
 		
-		
-		/*	
-		for (var i = 0; i < keys.length; i++) {
-		
-			var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
-			rowHeaderTextDiv.className = "rowHeaderTextDiv";
-			
-			var rowHeader = document.createElement('P');
-			rowHeader.className = "rowHeaderText text";
-			var rowHeaderText = document.createTextNode(keys[i]);
-			rowHeader.appendChild(rowHeaderText);
-			rowHeaderTextDiv.appendChild(rowHeader);
-		}
-		*/
 	}
 	
 	function generateBoxesMk3(){
@@ -556,15 +597,16 @@ body {
 				box.className = boxClassName;
 				box.style.height = maxHeights[i];
 				
-				//create the line and give it a class
-				var line = document.createElement('div');
-				line.className = "line";
-				box.appendChild(line);
-
+				if(i != 0){
+					//create the line and give it a class
+					var line = document.createElement('div');
+					line.className = "line";
+					box.appendChild(line);
+				}
 				//make the text div and give it classes
 				var paraTextDiv = document.createElement('div'); //create a Div for text
 				var paraTextDivClassName = "";
-				paraTextDivClassName = paraTextDivClassName = (keys[i], "TextDiv");
+				paraTextDivClassName = paraTextDivClassName = (keys[i], "textDiv");
 				paraTextDiv.className = paraTextDivClassName;
 				
 				if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
@@ -573,11 +615,17 @@ body {
 						//make the paragraphc and give it classes
 						var para = document.createElement('P');
 						var paraClassName = "";
-						paraClassName = paraClassName.concat(keys[i], "Text ", "text");
+						paraClassName = paraClassName.concat(keys[i], "Text ", "text paraText");
 						para.className = paraClassName;
 						
 						//make the text
-						var paraText = document.createTextNode(data[j][i][k]);
+						var paraText = "";
+						if(keys[i] == "quote" || keys[i] == "quotes" || keys[i] == "Quote" || keys[i] == "Quotes"){
+							paraText = document.createTextNode('"' + data[j][i][k] + '"');
+						}
+						else{
+							paraText = document.createTextNode(data[j][i][k]);
+						}
 						para.appendChild(paraText); //add the text to the paragraph
 						paraTextDiv.appendChild(para); //add the paragraph to the div
 					}
@@ -586,11 +634,19 @@ body {
 					//make the paragraphc and give it classes
 					var para = document.createElement('P');
 					var paraClassName = "";
-					paraClassName = paraClassName.concat(keys[i], "Text ", "text");
+					paraClassName = paraClassName.concat(keys[i], "Text ", "text paraText");
 					para.className = paraClassName;
 					
 					//make the text
 					var paraText = document.createTextNode(data[j][i]);
+					var paraText = "";
+					if(keys[i] == "quote" || keys[i] == "quotes" || keys[i] == "Quote" || keys[i] == "Quotes"){
+						paraText = document.createTextNode('"' + data[j][i] + '"');
+					}
+					else{
+						paraText = document.createTextNode(data[j][i]);
+					}		
+					
 					para.appendChild(paraText); //add the text to the paragraph
 					paraTextDiv.appendChild(para); //add the paragraph to the div
 				}
@@ -606,11 +662,17 @@ body {
 	function setContainerWidth(){
 		
 		console.log(element.querySelector('.my-sizer-element'));
-		var containerWidthNumber = 11 * (data.length * 1.1); //the column width * the number of columns. the 1.1 is to make up for the gutter
+		var containerWidthNumber = 10 * (data.length * 1.1); //the column width * the number of columns. the 1.1 is to make up for the gutter
 		containerWidth = "";
 		containerWidth = containerWidth.concat(containerWidthNumber, "vw");
 		document.getElementById("container").style.width = containerWidth;
 		console.log(containerWidth);
+		
+		//set the header width too while we are at it
+		document.getElementById("headerDiv").style.width = containerWidth;
+	}
+	function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 	
 </script>
