@@ -495,9 +495,10 @@ ul li::before {
 	var minFirstRowHeight = 4;
 	var minRowHeight = 7;
 	
-	var heightNumber = 11; //the percentage the string length gets divided by. Smaller the number the taller the box
+	//Smaller number = taller box
+	var heightNumber = 14; 
+	var arrayHeightNumber = 11
 	
-	//var keys = ["stage", "subStage", "quote", "needs", "painPoints", "behaviour", "feelings"]
 	var keys = [];
 	
 	var animationSpeed = 750; 
@@ -558,8 +559,11 @@ ul li::before {
 	
 	function getMaxHeights(){
 		
+		var rowHasArray = [];
+		
 		for (var i = 0; i < keys.length; i++) {
 			maxHeights.push(0);
+			rowHasArray.push(false);
 		}
 		
 		for(var i = 0; i < keys.length; i++){
@@ -568,6 +572,7 @@ ul li::before {
 				var charCount = 0;
 				
 				if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
+					rowHasArray[i] = true;
 					const reducer = (accumulator, currentValue) => accumulator + currentValue;
 					var flattened = data[j][i].reduce(reducer);
 					charCount = flattened.length;
@@ -584,7 +589,13 @@ ul li::before {
 		
 		//reduce them to a good viewWidth size
 		for(var i = 0; i < maxHeights.length; i++){
-			maxHeights[i] = maxHeights[i] / heightNumber;
+		
+			if(rowHasArray[i] == true){
+				maxHeights[i] = maxHeights[i] / arrayHeightNumber;
+			}
+			else{
+				maxHeights[i] = maxHeights[i] / heightNumber;
+			}
 		}
 		
 		//set them to at least the minimum
@@ -754,9 +765,6 @@ ul li::before {
 		for(var i = 0; i < data[0].length; i++){ //go through first data column
 			keys.push(decapitalizeFirstLetter(data[0][i]));
 		}
-		var oldKeys = ["stage", "subStage", "quote", "needs", "painPoints", "behaviour", "feelings"]
-		console.log(keys);
-		console.log(oldKeys);
 	}
 	
 </script>
