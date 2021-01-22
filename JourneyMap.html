@@ -19,8 +19,7 @@ body {
 	height:11vw;
 	display: inline-flex;
 	width: 100%;
-	margin-left: 6vw;
-	margin-right: 4vw;
+	margin-left: 7%;
 }
 
 .title{
@@ -33,6 +32,20 @@ body {
 
 .titleDiv{
 	width: 50%;
+}
+
+.createdByDiv{
+	width: 39%;
+	margin-top:1vw;
+	font-size: 1vw;
+	font-family: 'Montserrat', sans-serif;
+}
+
+#createdBy{
+	margin-top:1vw;
+	position: absolute;
+	right: 0%;
+	width: 10%;
 }
 
 .logoDiv{
@@ -65,11 +78,12 @@ body {
 	margin-bottom: 1vw;
 	margin-right: 4vw;
 	overflow: visible !important;
+	left: -3vw;
 }
 
 .column {
 	float: left;
-	width: 10vw;
+	width: 9vw;
 	height:auto;
 	overflow:visible;
 	background-color: white;
@@ -80,7 +94,7 @@ body {
 .rowHeaderText{
 	font-weight: bold;
 	padding-top: 0vw;
-	font-size: 0.9vw !important;
+	font-size: 0.8vw !important;
 	margin-top:0.5vw;
 	text-align-last: right;
 	color: #4384a2fa;
@@ -94,17 +108,37 @@ body {
 	/* font-family: 'Overpass', sans-serif; */
 	/* font-family: 'Montserrat', sans-serif; */
 	font-family: 'Lato', sans-serif;
-	font-size: 1vw;
+	font-size: 0.9vw;
 	z-index:2;
 	display:table;
 	width: 100%;
 	
 }
 
-.rowHeaderTextDiv{
+.rowHeaderTextDiv{ /*UNNEEDED */
 	width: 5vw;
 	margin: 0;
 	float: left;
+}
+
+.rowHeaderFigure{
+	
+}
+
+.rowHeader{
+	font-weight: bold;
+	padding-top: 0vw;
+	font-size: 0.8vw !important;
+	margin-top:0.5vw;
+	text-align-last: right;
+	color: #4384a2fa;
+}
+
+.rowHeaderDiv{
+	width: 5vw;
+	margin: 0;
+	float: right;
+	margin-right: 0.5vw;
 }
 
 .quoteText{
@@ -115,19 +149,20 @@ body {
 .stageText{
 	font-weight: bold;
 	padding-top: 0vw;
-	font-size:1.4vw;
+	font-size:1.2vw;
 	margin-top:0.5vw;
-	color: #4384a2fa;;
+	color: #4384a2fa;
+	width: 90%;
 }
 
 .subStageText{
-	font-size: 1.2vw;
+	font-size: 1.0vw;
 	color: #4384a2fa;
 }
 
 .line{
 	position: absolute;
-	width: 100%;
+	width: 95%;
 	height: 0;
 	top: 1%;
 	left: 0%;
@@ -142,27 +177,16 @@ body {
 }
 
 .paraText{
-	margin-left: 0;
     margin-top: 0.4vw;
     margin-bottom: 0vw;
-}
-
-.createdByDiv{
-	top:0;
-	right:0;
-	margin-top:1vw;
-	font-size: 1vw;
-	font-family: 'Montserrat', sans-serif;
-}
-
-#createdBy{
-	margin:1vw;
+	width:90%;
+	margin-left: 0.3vw;
 }
 
 .list{
 	width:85%;
 	margin: 0;
-	padding-left: 1.5vw;
+	padding-left: 1vw;
 	margin-top: 0.3vw;
 }
 
@@ -214,26 +238,35 @@ ul li::before {
 	var newNewData =
 	[
 		[
+			"Stage",
+			"Sub-Stage",
+			"Quotes", 
+			"Needs",
+			"PainPoints",
+			"Behaviours",
+			"Feelings"
+		],
+		[
 			"Trigger",
 			"Helping the Community",
 			"Here is the Quote", 
 			[
 				"Here is a Need",
-				"Here is a Need"
+				"Need stuff goes in this section"
 			],
 			[
 				"Here is a Painpoint",
 				"Here is a Painpoint",
-				"Here is a Painpoint"
+				"This is where we talk about PainPoints"
 			],
 			[
 				"Here is a Behaviour",
-				"Here is a Behaviour",
+				"Behaviour stuff goes here",
 				"Here is a Behaviour"
 			],
 			[
 				"Here is a Feeling",
-				"Here is a Feeling",
+				"What a feeling",
 				"Here is a Feeling"
 			]
 		],
@@ -243,22 +276,22 @@ ul li::before {
 			"Here is the Quote", 
 			[
 				"Here is a Need",
-				"Here is a Need"
+				"Need Need, this is a Need"
 			],
 			[
-				"Here is a Painpoint",
+				"This is where we talk about PainPoints, sometimes at length",
 				"Here is a Painpoint",
 				"Here is a Painpoint"
 			],
 			[
 				"Here is a Behaviour",
 				"Here is a Behaviour",
-				"Here is a Behaviour"
+				"Behaviour Behaviour Behaviour"
 			],
 			[
+				"The Feeling stuff goes here",
 				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
+				"What a feeling"
 			]
 		],
 		[
@@ -266,22 +299,22 @@ ul li::before {
 			"Researching what is needed",
 			"Here is the Quote", 
 			[
-				"Here is a Need",
+				"Need stuff goes in this section",
 				"Here is a Need",
 			],
 			[
 				"Here is a Painpoint",
-				"Here is a Painpoint",
+				"This section is all about PainPoints",
 				"Here is a Painpoint"
 			],
 			[
 				"Here is a Behaviour",
 				"Here is a Behaviour",
-				"Here is a Behaviour"
+				"Behaviour Behaviour Behaviour"
 			],
 			[
-				"Here is a Feeling",
-				"Here is a Feeling",
+				"The Feelings that they had",
+				"Feelings. Feelings.",
 				"Here is a Feeling"
 			]
 		],
@@ -291,20 +324,44 @@ ul li::before {
 			"Here is the Quote", 
 			[
 				"Here is a Need",
-				"Here is a Need",
+				"This is the Needs Section",
 			],
 			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
+				"This is where we talk about PainPoints",
+				"This is also where we talk about PainPoints",
 				"Here is a Painpoint"
 			],
 			[
-				"Here is a Behaviour",
+				"Behaviour stuff goes here",
 				"Here is a Behaviour",
 				"Here is a Behaviour"
 			],
 			[
 				"Here is a Feeling",
+				"Here is a Feeling",
+				"The Feelings that they had"
+			]
+		],
+		[
+			"",
+			"Here is the Sub-Stage",
+			"Here is the Quote", 
+			[
+				"Here is a Need",
+				"Needs"
+			],
+			[
+				"Here is a where we mention some PainPoints",
+				"Here is a Painpoint",
+				"Here is a Painpoint"
+			],
+			[
+				"Here is a Behaviour",
+				"Behaviour stuff goes here",
+				"Here is a Behaviour"
+			],
+			[
+				"The Feelings that they had",
 				"Here is a Feeling",
 				"Here is a Feeling"
 			]
@@ -320,40 +377,16 @@ ul li::before {
 			[
 				"Here is a Painpoint",
 				"Here is a Painpoint",
-				"Here is a Painpoint"
+				"This is where we list the PainPoints they had"
 			],
 			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			]
-		],
-		[
-			"",
-			"Here is the Sub-Stage",
-			"Here is the Quote", 
-			[
-				"Here is a Need",
-				"Here is a Need"
-			],
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
+				"Behaviour stuff goes here",
 				"Here is a Behaviour",
 				"Here is a Behaviour"
 			],
 			[
-				"Here is a Feeling",
-				"Here is a Feeling",
+				"Here is a where we talk about Feelings. The Feelings stuff goes here",
+				"Feelings. Feelings",
 				"Here is a Feeling"
 			]
 		],
@@ -368,16 +401,16 @@ ul li::before {
 			[
 				"Here is a Painpoint",
 				"Here is a Painpoint",
-				"Here is a Painpoint"
+				"Painpoints. Painpoints"
 			],
 			[
+				"Behaviour stuff goes here",
 				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
+				"Behaviour stuff goes here"
 			],
 			[
 				"Here is a Feeling",
-				"Here is a Feeling",
+				"The Feelings stuff goes here",
 				"Here is a Feeling"
 			]
 		],
@@ -387,12 +420,12 @@ ul li::before {
 			"Here is the Quote", 
 			[
 				"Here is a Need",
-				"Here is a Need"
+				"This is where we talk about their Needs"
 			],
 			[
+				"PainPoints. PainPoints",
 				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
+				"This is where we talk about PainPoints"
 			],
 			[
 				"Here is a Behaviour",
@@ -400,9 +433,9 @@ ul li::before {
 				"Here is a Behaviour"
 			],
 			[
+				"Feelings and some more Feelings",
 				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
+				"Here is a where we talk about Feelings. The Feelings stuff goes here"
 			]
 		],
 		[
@@ -411,7 +444,7 @@ ul li::before {
 			"Here is the Quote", 
 			[
 				"Here is a Need",
-				"Here is a Need"
+				"Need stuff goes in this section"
 			],
 			[
 				"Here is a Painpoint",
@@ -424,9 +457,9 @@ ul li::before {
 				"Here is a Behaviour"
 			],
 			[
+				"Feelings and some more Feelings",
 				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
+				"Here is a where we talk about Feelings. The Feelings stuff goes here"
 			]
 		],
 		[
@@ -434,23 +467,23 @@ ul li::before {
 			"Here is the Sub-Stage",
 			"Here is the Quote", 
 			[
-				"Here is a Need",
+				"Need stuff goes in this section",
 				"Here is a Need"
 			],
 			[
 				"Here is a Painpoint",
-				"Here is a Painpoint",
+				"This section is all about PainPoints",
 				"Here is a Painpoint"
 			],
 			[
 				"Here is a Behaviour",
 				"Here is a Behaviour",
-				"Here is a Behaviour"
+				"Behaviour Behaviour Behaviour"
 			],
 			[
+				"The Feeling stuff goes here",
 				"Here is a Feeling",
-				"Here is a Feeling",
-				"Here is a Feeling"
+				"What a feeling"
 			]
 		],
 	];
@@ -501,7 +534,7 @@ ul li::before {
 		data = newNewData;
 		setContainerWidth();
 		getMaxHeights();
-		generateRowHeaders()
+		//generateRowHeaders()
 		appendBoxesMk3();
 	}
 	
@@ -522,7 +555,8 @@ ul li::before {
 	function appendBoxesMk3() {
 	
 		//var elements = generateBoxesMk2();
-		var elements = generateBoxesMk3();
+		//var elements = generateBoxesMk3();
+		var elements = generateBoxesMk4();
 
 		elements.forEach(function (element) {
 			this.element.appendChild(element);
@@ -614,7 +648,7 @@ ul li::before {
 		
 	}
 	
-	function generateBoxesMk3(){
+	function generateBoxesMk4(){
 		
 		var items = [];
 		
@@ -624,48 +658,77 @@ ul li::before {
 				//make the figure and give it classes
 				var box = document.createElement('figure'); //create a figure
 				var boxClassName = "";
+				
+				if(j == 0){//if its the first column
+					boxClassName = boxClassName.concat("column aspect rowHeaderFigure ");
+				}
+				
 				boxClassName = boxClassName.concat("column aspect ", keys[i], "Box");
 				box.className = boxClassName;
 				box.style.height = maxHeights[i];
 				
-				if(i != 0){
-					//create the line and give it a class
-					var line = document.createElement('div');
-					line.className = "line";
-					box.appendChild(line);
-				}
-				//make the text div and give it classes
-				var paraTextDiv = document.createElement('div'); //create a Div for text
-				var paraTextDivClassName = "";
-				paraTextDivClassName = paraTextDivClassName = (keys[i], "textDiv");
-				paraTextDiv.className = paraTextDivClassName;
 				
-				if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
+				if(j == 0){//if its the first column
 					
-					//LIST VERSION
-					var list = document.createElement('ul')
-					var listClassName = "";
-					listClassName = listClassName.concat(keys[i], "Text ", "text paraText list");
-					list.className = listClassName
+					//make the text div and give it classes
+					var rowHeaderDiv = document.createElement('div'); //create a Div for text
+					rowHeaderDiv.className = "rowHeaderDiv";
 					
-					var arrayLength = data[j][i].length;
-					for(var k = 0; k < arrayLength; k++){
+					//make the paragraph and give it classes
+					var rowHeader = document.createElement('P');
+					rowHeader.className = "rowHeader";
+					
+					//make the text
+					var rowHeaderText = document.createTextNode(data[j][i]);		
+					
+					rowHeader.appendChild(rowHeaderText); //add the text to the paragraph
+					rowHeaderDiv.appendChild(rowHeader); //add the paragraph to the div
+
+					box.appendChild(rowHeaderDiv); //add the div to box
+					
+				}
+				else{//if its any of the other columns
+				
+					if(i != 0){//if its not the top row then create the line and give it a class
+						var line = document.createElement('div');
+						line.className = "line";
+						box.appendChild(line);
+					}
+					
+					//make the text div and give it classes
+					var paraTextDiv = document.createElement('div'); //create a Div for text
+					var paraTextDivClassName = "";
+					paraTextDivClassName = paraTextDivClassName = (keys[i], "textDiv");
+					paraTextDiv.className = paraTextDivClassName;
+					
+					if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
 						
-						var li = document.createElement('li');
+						//LIST VERSION
+						var list = document.createElement('ul')
+						var listClassName = "";
+						listClassName = listClassName.concat(keys[i], "Text ", "text paraText list");
+						list.className = listClassName
 						
-						var listText = "";
-						if(keys[i] == "quote" || keys[i] == "quotes" || keys[i] == "Quote" || keys[i] == "Quotes"){
-							listText = document.createTextNode('"' + data[j][i][k] + '"');
+						var arrayLength = data[j][i].length;
+						for(var k = 0; k < arrayLength; k++){
+							
+							var li = document.createElement('li');
+							
+							var listText = "";
+							if(keys[i] == "quote" || keys[i] == "quotes" || keys[i] == "Quote" || keys[i] == "Quotes"){
+								listText = document.createTextNode('"' + data[j][i][k] + '"');
+							}
+							else{
+								listText = document.createTextNode(data[j][i][k]);
+							}
+							
+							li.appendChild(listText);
+							list.appendChild(li);
+							paraTextDiv.appendChild(list);
+							
 						}
-						else{
-							listText = document.createTextNode(data[j][i][k]);
-						}
-						
-						li.appendChild(listText);
-						list.appendChild(li);
-						paraTextDiv.appendChild(list);
-						
-						/*
+					}
+					else{
 						//make the paragraphc and give it classes
 						var para = document.createElement('P');
 						var paraClassName = "";
@@ -673,43 +736,21 @@ ul li::before {
 						para.className = paraClassName;
 						
 						//make the text
+						var paraText = document.createTextNode(data[j][i]);
 						var paraText = "";
 						if(keys[i] == "quote" || keys[i] == "quotes" || keys[i] == "Quote" || keys[i] == "Quotes"){
-							paraText = document.createTextNode('"' + data[j][i][k] + '"');
+							paraText = document.createTextNode('"' + data[j][i] + '"');
 						}
 						else{
-							paraText = document.createTextNode(data[j][i][k]);
-						}
+							paraText = document.createTextNode(data[j][i]);
+						}		
+						
 						para.appendChild(paraText); //add the text to the paragraph
 						paraTextDiv.appendChild(para); //add the paragraph to the div
-						*/
-						
-						
 					}
-				}
-				else{
-					//make the paragraphc and give it classes
-					var para = document.createElement('P');
-					var paraClassName = "";
-					paraClassName = paraClassName.concat(keys[i], "Text ", "text paraText");
-					para.className = paraClassName;
-					
-					//make the text
-					var paraText = document.createTextNode(data[j][i]);
-					var paraText = "";
-					if(keys[i] == "quote" || keys[i] == "quotes" || keys[i] == "Quote" || keys[i] == "Quotes"){
-						paraText = document.createTextNode('"' + data[j][i] + '"');
-					}
-					else{
-						paraText = document.createTextNode(data[j][i]);
-					}		
-					
-					para.appendChild(paraText); //add the text to the paragraph
-					paraTextDiv.appendChild(para); //add the paragraph to the div
-				}
 
-				box.appendChild(paraTextDiv); //add the div to box
-				
+					box.appendChild(paraTextDiv); //add the div to box
+				}
 				items.push(box);
 			}
 		}
@@ -719,7 +760,7 @@ ul li::before {
 	function setContainerWidth(){
 		
 		console.log(element.querySelector('.my-sizer-element'));
-		var containerWidthNumber = 10 * (data.length * 1.1); //the column width * the number of columns. the 1.1 is to make up for the gutter
+		var containerWidthNumber = 9 * (data.length * 1.1); //the column width * the number of columns. the 1.1 is to make up for the gutter
 		containerWidth = "";
 		containerWidth = containerWidth.concat(containerWidthNumber, "vw");
 		document.getElementById("container").style.width = containerWidth;
