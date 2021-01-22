@@ -129,7 +129,7 @@ body {
 	font-weight: bold;
 	padding-top: 0vw;
 	font-size: 0.8vw !important;
-	margin-top:0.5vw;
+	margin-top:0.4vw;
 	text-align-last: right;
 	color: #4384a2fa;
 }
@@ -153,6 +153,7 @@ body {
 	margin-top:0.5vw;
 	color: #4384a2fa;
 	width: 90%;
+	margin-top: 0.2vw !important;
 }
 
 .subStageText{
@@ -239,11 +240,11 @@ ul li::before {
 	[
 		[
 			"Stage",
-			"Sub-Stage",
-			"Quotes", 
+			"SubStage",
+			"Quote", 
 			"Needs",
 			"PainPoints",
-			"Behaviours",
+			"Behaviour",
 			"Feelings"
 		],
 		[
@@ -488,16 +489,18 @@ ul li::before {
 		],
 	];
 	
+	var data = [];
+	
+	var maxHeights = [];
 	var minFirstRowHeight = 4;
 	var minRowHeight = 7;
 	
-	//var keys = Object.keys(newData[0]);
-	var keys = ["stage", "subStage", "quote", "needs", "painPoints", "behaviour", "feelings"]
+	var heightNumber = 12.5; //the percentage the string length gets divided by
 	
-	console.log(keys);
+	//var keys = ["stage", "subStage", "quote", "needs", "painPoints", "behaviour", "feelings"]
+	var keys = [];
 	
 	var animationSpeed = 750; 
-	var data = [];
 	
 	//****** SHUFFLE ******\\
 	
@@ -513,28 +516,14 @@ ul li::before {
 		gutterWidth: 5,
 	});
 	
-	var maxHeights = [];
-	
-	for (var i = 0; i < keys.length; i++) {
-		maxHeights.push(0);
-	}
-	
-	var heightNumber = 12.5; //the percentage the string length gets divided by
-	
-	console.log(newNewData);
-	
-	//****** PARSING ******\\
-	
-	//parseData("https://raw.githubusercontent.com/jonathonkearney/journeyMapMaker/main/journeyMapData.csv", main); 
-	
 	main();
 	
 	function main(theData) { 
 		
 		data = newNewData;
+		getKeys();
 		setContainerWidth();
 		getMaxHeights();
-		//generateRowHeaders()
 		appendBoxesMk3();
 	}
 	
@@ -567,6 +556,10 @@ ul li::before {
 	};
 	
 	function getMaxHeights(){
+		
+		for (var i = 0; i < keys.length; i++) {
+			maxHeights.push(0);
+		}
 		
 		for(var i = 0; i < keys.length; i++){
 			for(var j = 0; j < data.length; j++){
@@ -617,35 +610,6 @@ ul li::before {
 		
 		
 		console.log(maxHeights);
-	}
-	
-	function generateRowHeaders(){
-			
-		var rowHeadersDiv = document.createElement('div'); //create a Div for text
-		rowHeadersDiv.className = "rowHeadersDiv";	
-		
-		for (var i = 0; i < keys.length; i++) {
-		
-			var rowHeaderTextDiv = document.createElement('div'); //create a Div for text
-			rowHeaderTextDiv.className = "rowHeaderTextDiv";
-			
-			var rowHeader = document.createElement('P');
-			rowHeader.className = "rowHeaderText text";
-			var rowHeaderText = document.createTextNode(capitalizeFirstLetter(keys[i]));
-			rowHeader.appendChild(rowHeaderText);
-			rowHeaderTextDiv.appendChild(rowHeader);
-			
-			rowHeaderTextDiv.style.height = maxHeights[i]; 
-			rowHeaderTextDiv.style.marginBottom = "0.3vw"; //was 0.4
-			
-			rowHeadersDiv.appendChild(rowHeaderTextDiv);
-		}
-		
-		
-		let container = document.getElementById("container")
-		let parentDiv = container.parentNode
-		parentDiv.insertBefore(rowHeadersDiv, container) //do this last? 
-		
 	}
 	
 	function generateBoxesMk4(){
@@ -771,6 +735,19 @@ ul li::before {
 	}
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+		function decapitalizeFirstLetter(string) {
+		return string.charAt(0).toLowerCase() + string.slice(1);
+	}
+	
+	function getKeys(){
+		
+		for(var i = 0; i < data[0].length; i++){ //go through first data column
+			keys.push(decapitalizeFirstLetter(data[0][i]));
+		}
+		var oldKeys = ["stage", "subStage", "quote", "needs", "painPoints", "behaviour", "feelings"]
+		console.log(keys);
+		console.log(oldKeys);
 	}
 	
 </script>
