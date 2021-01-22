@@ -521,6 +521,7 @@ ul li::before {
 	function main(theData) { 
 		
 		data = newNewData;
+		console.log(data);
 		getKeys();
 		setContainerWidth();
 		getMaxHeights();
@@ -656,6 +657,14 @@ ul li::before {
 					if(i != 0){//if its not the top row then create the line and give it a class
 						var line = document.createElement('div');
 						line.className = "line";
+						
+						//if the box up and right of it is blank then make your line connect up
+
+						if(j < data.length -1 && data[j+1][i-1] === ""){
+							console.log("the one up and right is blank")
+							line.style.width = "140%";
+						}
+						
 						box.appendChild(line);
 					}
 					
