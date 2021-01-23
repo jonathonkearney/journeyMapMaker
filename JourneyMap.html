@@ -191,22 +191,17 @@ body {
 	margin-top: 0.3vw;
 }
 
-ul li::before {
-	color: gray; /* Change the color */
+ul {
+  list-style: none; /* Remove default bullets */
 }
 
-ul {
-  margin: 0;
-}
-ul {
-  list-style-type: none;
-}
-ul > li {
-  text-indent: -5px;
-}
-ul > li:before {
-  content: "- ";
-  text-indent: -5px;
+ul li::before {
+	content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+	color: gray; /* Change the color */
+	font-weight: bold; /* If you want it to be bold */
+	display: inline-block; /* Needed to add space between the bullet and the text */
+	width: 1em; /* Also needed for space (tweak if needed) */
+	margin-left: -1em; /* Also needed for space (tweak if needed) */
 }
 
 li:not(:last-child) {
