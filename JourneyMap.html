@@ -29,6 +29,7 @@ body {
 
 #sideDiv{
 	height:100%;
+	width:30%;
 	display: flex;
     flex-direction: column;
 }
@@ -59,7 +60,7 @@ body {
 }
 
 .canvasWrapper{
-	width: 60vw;
+	width: 70vw;
 	height: 100%
 }
 
@@ -106,12 +107,12 @@ body {
 	margin-bottom: 1vw;
 	margin-right: 4vw;
 	overflow: visible !important;
-	left: -8vw;
+	left: -4vw;
 }
 
 .column {
 	float: left;
-	width: 13.2vw;
+	width: 8vw;
 	height:auto;
 	overflow:visible;
 	background-color: white;
@@ -122,7 +123,7 @@ body {
 .rowHeaderText{
 	font-weight: bold;
 	padding-top: 0vw;
-	font-size: 0.8vw !important;
+	font-size: 0.5vw !important;
 	margin-top:0.5vw;
 	text-align-last: right;
 	color: #4384a2fa;
@@ -136,7 +137,7 @@ body {
 	/* font-family: 'Overpass', sans-serif; */
 	/* font-family: 'Montserrat', sans-serif; */
 	font-family: 'Lato', sans-serif;
-	font-size: 0.9vw;
+	font-size: 0.6vw;
 	z-index:2;
 	display:table;
 	width: 100%;
@@ -156,7 +157,7 @@ body {
 .rowHeader{
 	font-weight: bold;
 	padding-top: 0vw;
-	font-size: 0.8vw !important;
+	font-size: 0.5vw !important;
 	margin-top:0.4vw;
 	text-align-last: right;
 	color: #4384a2fa;
@@ -177,7 +178,7 @@ body {
 .stageText{
 	font-weight: bold;
 	padding-top: 0vw;
-	font-size:1.2vw;
+	font-size:0.8vw;
 	margin-top:0.5vw;
 	color: #4384a2fa;
 	width: 90%;
@@ -185,7 +186,7 @@ body {
 }
 
 .subStageText{
-	font-size: 1.0vw;
+	font-size: 0.7vw;
 	color: #4384a2fa;
 }
 
@@ -247,6 +248,7 @@ ol li {
   margin: 0 0 0.5rem 0;
   counter-increment: my-awesome-counter;
   position: relative;
+  font-size:1vw;
 }
 ol li::before {
   content: counter(my-awesome-counter);
@@ -618,7 +620,6 @@ ol li::before {
 		speed: animationSpeed,
 		filterMode: Shuffle.FilterMode.ALL,
 		gutterWidth: 5,
-		useTransforms: false,
 	});
 	
 	main();
@@ -849,7 +850,7 @@ ol li::before {
 	function setContainerWidth(){
 		
 		console.log(element.querySelector('.my-sizer-element'));
-		var containerWidthNumber = 13.2 * (data.length * 1.1); //the column width * the number of columns. the 1.1 is to make up for the gutter
+		var containerWidthNumber = 8 * (data.length * 1.1); //the column width * the number of columns. the 1.1 is to make up for the gutter
 		containerWidth = "";
 		containerWidth = containerWidth.concat(containerWidthNumber, "vw");
 		document.getElementById("container").style.width = containerWidth;
