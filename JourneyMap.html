@@ -15,11 +15,56 @@ body {
 	margin: 0px;
 }
 
+#parentDiv{
+	   display: flex;
+    flex-direction: column;
+}
+
 .headerDiv{
 	height:11vw;
 	display: inline-flex;
 	width: 100%;
 	margin-left: 7%;
+}
+
+#sideDiv{
+	height:100%;
+	display: flex;
+    flex-direction: column;
+}
+
+#sonDiv{
+	display: flex;
+}
+
+#insightsDiv{
+	background-color: #dceaf1;
+	float: left;
+	z-index: 1;
+	height: 50%;
+}
+#insightsDiv2{
+	background-color: gray;
+	float: left;
+	z-index: 1;
+	height: 50%;
+}
+
+#insightsHeaderDiv{
+	
+}
+
+#insightsOLDiv{
+	
+}
+
+.canvasWrapper{
+	width: 60vw;
+	height: 100%
+}
+
+.titleDiv{
+	width: 50%;
 }
 
 .title{
@@ -28,10 +73,6 @@ body {
 	margin: 1vw;
 	margin-left:0;
 	font-family: 'Montserrat', sans-serif !important;
-}
-
-.titleDiv{
-	width: 50%;
 }
 
 .createdByDiv{
@@ -48,22 +89,8 @@ body {
 	width: 10%;
 }
 
-.logoDiv{
-	float: right;
-	width: 50%;
-	height: 100%;
-}
-
-.logoImage{
-	right: 0;
-	top: 0;
-	float:right;
-	margin: 1vw;
-}
-
-.canvasWrapper{
-	display: inline-flex;
-	margin-left: 31vw;
+.insightPointTitle{
+	font-weight: bold;
 }
 
 .rowHeadersDiv{
@@ -79,7 +106,7 @@ body {
 	margin-bottom: 1vw;
 	margin-right: 4vw;
 	overflow: visible !important;
-	left: -3vw;
+	left: -8vw;
 }
 
 .column {
@@ -213,7 +240,8 @@ ol {
   max-width: 350px;
   counter-reset: my-awesome-counter;
   list-style: none;
-  padding-left: 40px;
+  padding-left: 4vw;
+  margin-right: 2vw;
 }
 ol li {
   margin: 0 0 0.5rem 0;
@@ -223,10 +251,9 @@ ol li {
 ol li::before {
   content: counter(my-awesome-counter);
   color: black;
-  font-size: 1.5rem;
   font-weight: bold;
   position: absolute;
-  --size: 32px;
+  --size: 1vw;
   left: calc(-1 * var(--size) - 10px);
   line-height: var(--size);
   width: var(--size);
@@ -238,17 +265,7 @@ ol li::before {
   border-color: black;
 }
 
-#insightsDiv{
-	width: 35vw;
-	background-color: #dceaf1;
-	position: absolute;
-	float: left;
-	z-index: 1;
-}
 
-.insightPointTitle{
-	font-weight: bold;
-}
 
 </style>
 </head>
@@ -266,27 +283,34 @@ ol li::before {
 <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 
-
-<div id="headerDiv" class="headerDiv">
-	<div class="titleDiv">
-		<p class="title"><strong>Inspecting Organisation</strong> Customer Journey Map</p>
+<div id="parentDiv">
+	<div id="headerDiv" class="headerDiv">
+		<div class="titleDiv">
+			<p class="title"><strong>Inspecting Organisation</strong> Customer Journey Map</p>
+		</div>
+		<div class="createdByDiv">
+			<p id="createdBy">Created <strong>by: <br> Research and Analytics</strong></p>
+		</div>
 	</div>
-	<div class="createdByDiv">
-		<p id="createdBy">Created <strong>by: <br> Research and Analytics</strong></p>
-	</div>
-</div>
-<div id="insightsDiv">
-	<div id="insightsHeaderDiv">
-		<p class="insightsTitle"><strong>Key Insights</strong></p>
-	</div>
-	<div id="insightsOLDiv">
-		<ol id="insightsOL">
-		</ol>
-	</div>
-</div>
-<div class="canvasWrapper">	
-	<div id="container" class="row my-shuffle-container">
-		<div class="column my-sizer-element"></div>
+	<div id="sonDiv">
+		<div id="sideDiv">
+			<div id="insightsDiv">
+				<div id="insightsHeaderDiv">
+					<p class="insightsTitle"><strong>Key Insights</strong></p>
+				</div>
+				<div id="insightsOLDiv">
+				</div>
+			</div>
+			<div id="insightsDiv2">
+				<p><strong>Placeholder</strong></p>
+			</div>
+		</div>
+		<div class="canvasWrapper">	
+			<div id="container" class="row my-shuffle-container">
+				<div class="column my-sizer-element"></div>
+			</div>
+		</div>
+		
 	</div>
 </div>
 <script>
@@ -594,6 +618,7 @@ ol li::before {
 		speed: animationSpeed,
 		filterMode: Shuffle.FilterMode.ALL,
 		gutterWidth: 5,
+		useTransforms: false,
 	});
 	
 	main();
@@ -848,7 +873,7 @@ ol li::before {
 	}
 	
 	function generateInsightsList(){
-		document.getElementById("insightsDiv").style.height = document.getElementById("container").style.height;
+		document.getElementById("sideDiv").style.height = document.getElementById("container").style.height;
 		
 		var list = document.createElement('ol')
 		list.id = "insightsOL"
@@ -874,7 +899,7 @@ ol li::before {
 			}
 				
 			list.appendChild(li);
-			document.getElementById("insightsDiv").appendChild(list);
+			document.getElementById("insightsOLDiv").appendChild(list);
 		}
 		
 	}
