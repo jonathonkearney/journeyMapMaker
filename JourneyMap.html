@@ -29,9 +29,12 @@ body {
 
 #sideDiv{
 	height:100%;
-	width:30%;
+	width:25%;
 	display: flex;
     flex-direction: column;
+	background-color: #f9ecec;
+	z-index: 1;
+	border-radius: 0.6vw;
 }
 
 #sonDiv{
@@ -39,20 +42,30 @@ body {
 }
 
 #insightsDiv{
-	background-color: #dceaf1;
 	float: left;
 	z-index: 1;
 	height: 50%;
+	margin-bottom: 1vw;
 }
-#insightsDiv2{
-	background-color: gray;
+#valueDriversDiv{
+	
 	float: left;
 	z-index: 1;
 	height: 50%;
 }
 
 #insightsHeaderDiv{
-	
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: 1vw;
+	margin-left:1.5vw;
+	color: #4384a2fa;
+}
+
+#valueDriversHeaderDiv{
+	font-family: 'Montserrat', sans-serif !important;
+	font-size: 1vw;
+	margin-left:1.5vw;
+	color: #4384a2fa;
 }
 
 #insightsOLDiv{
@@ -92,6 +105,11 @@ body {
 
 .insightPointTitle{
 	font-weight: bold;
+	color: #4384a2fa;
+}
+.valueDriversPointTitle{
+	font-weight: bold;
+	color: #4384a2fa;
 }
 
 .rowHeadersDiv{
@@ -241,14 +259,14 @@ ol {
   max-width: 350px;
   counter-reset: my-awesome-counter;
   list-style: none;
-  padding-left: 4vw;
-  margin-right: 2vw;
+  padding-left: 3.2vw;
+  margin-right: 0vw;
 }
 ol li {
   margin: 0 0 0.5rem 0;
   counter-increment: my-awesome-counter;
   position: relative;
-  font-size:1vw;
+  font-size:0.8vw;
 }
 ol li::before {
   content: counter(my-awesome-counter);
@@ -267,7 +285,16 @@ ol li::before {
   border-color: black;
 }
 
-
+#sideDivLine{
+	width: 90%;
+	height: 0;
+	top: 1%;
+	left: 0%;
+	margin-left: 5%;
+	border-color: gray;
+	border-bottom-width: 0.2vw;
+	border-bottom-style: dashed;
+}
 
 </style>
 </head>
@@ -303,8 +330,13 @@ ol li::before {
 				<div id="insightsOLDiv">
 				</div>
 			</div>
-			<div id="insightsDiv2">
-				<p><strong>Placeholder</strong></p>
+			<div id="sideDivLine"></div>
+			<div id="valueDriversDiv">
+				<div id="valueDriversHeaderDiv">
+					<p><strong>Value Drivers</strong></p>
+				</div>
+				<div id="valueDriversOLDiv">
+				</div>
 			</div>
 		</div>
 		<div class="canvasWrapper">	
@@ -339,6 +371,30 @@ ol li::before {
 			"Insight Title",
 			"The insight Description goes here and it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
 		]
+	];
+	
+	var valueDrivers =
+	[
+		[
+			"Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+		],
+		[
+			"Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+		],
+		[
+			"Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+		],
+		[
+			"Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+		],
+		[
+			"Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+		],
 	];
 	
 	var newNewData =
@@ -601,8 +657,8 @@ ol li::before {
 	var minRowHeight = 7;
 	
 	//Smaller number = taller box
-	var heightNumber = 14; 
-	var arrayHeightNumber = 11
+	var heightNumber = 21; 
+	var arrayHeightNumber = 16.5
 	
 	var keys = [];
 	
@@ -633,6 +689,7 @@ ol li::before {
 		getMaxHeights();
 		appendBoxesMk3();
 		generateInsightsList()
+		generateValueDriversList();
 	}
 	
 	function parseData(url, callBack) {
@@ -901,6 +958,37 @@ ol li::before {
 				
 			list.appendChild(li);
 			document.getElementById("insightsOLDiv").appendChild(list);
+		}
+		
+	}
+	
+	function generateValueDriversList(){
+		
+		var list = document.createElement('ol')
+		list.id = "valueDriversOL"
+		
+		
+		for(var i = 0; i < valueDrivers.length; i++){
+		
+			var li = document.createElement('li');
+			for(var j = 0; j < 2; j++){
+				
+				if(j == 0){
+					var span = document.createElement('SPAN');
+					span.className = "valueDriversPointTitle";
+					var listText = document.createTextNode(insights[i][j] + ": ");
+					span.appendChild(listText);
+					li.appendChild(span);
+				}
+				else{
+					var listText = document.createTextNode(insights[i][j]);
+					li.appendChild(listText);
+				}
+				
+			}
+				
+			list.appendChild(li);
+			document.getElementById("valueDriversOLDiv").appendChild(list);
 		}
 		
 	}
