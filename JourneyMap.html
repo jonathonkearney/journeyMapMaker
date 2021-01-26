@@ -27,18 +27,18 @@ body {
 .headerDiv{
 	height:5vw;
 	display: inline-flex;
-	width: 100%;
+	width: 127%;
 }
 
 #sideDiv{
 	height:100%;
-	width:20%;
+	width:25%;
 	display: flex;
     flex-direction: column;
-	background-color: #edf7f0;
+	background-color: #f7f3f3ab;
 	z-index: 1;
 	border-radius: 0.6vw;
-	border-color: #c3d6c9;
+	border-color: #e7dede7a;
 	border-right-width: 0.5vw;
 	border-right-style: solid;
 }
@@ -49,7 +49,7 @@ body {
 }
 
 #sideTitleDiv{
-	height:10%;
+	height:7%;
 	font-size: 2vw;
 	width: 90%;
 	margin-left: 2vw;
@@ -58,19 +58,23 @@ body {
 }
 
 #sideTitle{
-	margin: 1vw;
+	margin-top: 1vw;
+	margin-right:1vw;
+	margin-left: 0vw;
+	margin-bottom: 0vw;
+	color: #eb2020;
 }
 
 #insightsDiv{
 	float: left;
 	z-index: 1;
-	height: 45%;
+	height: 46%;
 	margin-bottom: 1vw;
 }
 #valueDriversDiv{
 	float: left;
 	z-index: 1;
-	height: 45%;
+	height: 46%;
 }
 
 #insightsHeaderDiv{
@@ -109,6 +113,10 @@ body {
 	font-family: 'Montserrat', sans-serif !important;
 }
 
+#logo{
+	height: 100%;
+}
+
 .createdByDiv{
 	width: 20%;
 	font-size: 0.9vw;
@@ -122,10 +130,12 @@ body {
 .insightPointTitle{
 	font-weight: bold;
 	color: #4384a2fa;
+	font-size: 0.7vw !important;
 }
 .valueDriversPointTitle{
 	font-weight: bold;
 	color: #4384a2fa;
+	font-size: 0.7vw !important;
 }
 
 .rowHeadersDiv{
@@ -230,8 +240,8 @@ body {
 	height: 0;
 	top: 1%;
 	left: 0%;
-	border-color: black;
-	border-bottom-width: 0.1vw;
+	border-color: #4384a2fa;
+	border-bottom-width: 0.07vw;
 	border-bottom-style: solid;
 }
 
@@ -281,13 +291,22 @@ ol {
 ol li {
   /* counter-increment: my-awesome-counter; */
   margin-bottom: 0.6vw !important;
-  font-size: 0.7vw;
+  font-size: 0.6vw;
   font-family: 'Lato', sans-serif;
+  
 }
 ol li::before {
   /* content: counter(my-awesome-counter) ". "; */
   color: #4384a2fa;
   font-weight: bold;
+}
+
+.liLine {
+  border-color: #e7dede;
+  border-top-width: 0.2vw;
+  border-top-style: solid;
+  width: 10%;
+  margin-bottom: 0.5vw;  
 }
 
 #sideDivLine{
@@ -296,7 +315,7 @@ ol li::before {
 	top: 1%;
 	left: 0%;
 	margin-left: 5%;
-	border-color: gray;
+	border-color: #80808070;
 	border-bottom-width: 0.2vw;
 	border-bottom-style: dashed;
 }
@@ -341,7 +360,10 @@ ol li::before {
 	<div id="sonDiv">
 		<div id="headerDiv" class="headerDiv">
 			<div class="titleDiv">
-				<p class="title">Customer Journey Map</p>
+				<p class="title"><strong>Customer Journey Map</strong></p>
+			</div>
+			<div id="logoDiv">
+				<img id="logo" src="WKLogo.jpg">
 			</div>
 			<div class="createdByDiv">
 				<p id="createdBy">Created <strong>by: <br> Research and Analytics</strong></p>
@@ -361,23 +383,23 @@ ol li::before {
 	[
 		[
 			"Insight Title",
+			"The insight Description goes here and it will be a somewhat long bit of text. Bla Bla. I could add some latin in here I guess. We talk about the insight here yes we do. yes we do.",
+		],
+		[
+			"Another Insight Title",
 			"The insight Description goes here and it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
 		],
 		[
-			"Insight Title",
-			"The insight Description goes here and it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
+			"The Third Insight Title",
+			"Aliquam quis ante id enim elementum vestibulum vel non erat. Nulla vel est eget augue efficitur pharetra. Nam imperdiet nunc quis tortor aliquet posuere. Nam placerat bibendum leo, nec elementum. We talk about the insight here yes we do. yes we do.",
 		],
 		[
-			"Insight Title",
-			"The insight Description goes here and it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
+			"And Another Insight Title",
+			"The insight Description goes here and it will be a somewhat vitae posuere felis ex vel magna. Etiam vel semper urna. Nulla quis dolor ut eros feugiat sodales  long bit of text. We talk about the insight here yes we do. yes we do.",
 		],
 		[
-			"Insight Title",
-			"The insight Description goes here and it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
-		],
-		[
-			"Insight Title",
-			"The insight Description goes here and it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
+			"The Last Insight Title",
+			"The insight Description goes here and vitae ullamcorper sem efficitur sodales. Cras nec congue sem. Curabitur id scelerisque felis. Maecenas finibus erat non lacus malesuada it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
 		]
 	];
 	
@@ -385,23 +407,23 @@ ol li::before {
 	[
 		[
 			"Value Driver",
-			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+			"The Value Driver goes here and it will be a somewhat long bit of text. Quisque rhoncus metus eget velit faucibus, nec congue est bibendum. We talk about the value here yes we do. yes we do.",
 		],
 		[
-			"Value Driver",
-			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+			"Another Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do. Sed at dui nec erat vehicula congue. Vestibulum volutpat quam ligula.",
 		],
 		[
-			"Value Driver",
-			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+			"The Third Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do. Nulla in mi turpis. Vestibulum aliquam, ex et interdum aliquam, ante turpis imperdiet mi, sit amet lobortis",
 		],
 		[
-			"Value Driver",
-			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+			"And Another Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. Nulla vel est eget augue efficitur pharetra. Nam imperdiet nunc quis tortor aliquet posuere. Nam placerat bibendum leo, nec elementum lacus mollis sed.",
 		],
 		[
-			"Value Driver",
-			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do.",
+			"The Final Value Driver",
+			"Nulla id odio magna. Vestibulum malesuada tortor non tincidunt molestie. Maecenas non odio lacinia, tincidunt nibh suscipit, eleifend neque. We talk about the value here yes we do. yes we do.",
 		],
 	];
 	
@@ -946,8 +968,12 @@ ol li::before {
 		
 		
 		for(var i = 0; i < insights.length; i++){
-		
+			
 			var li = document.createElement('li');
+			var liDiv = document.createElement('div');
+			liDiv.className = "liLine";
+			li.appendChild(liDiv);
+			
 			for(var j = 0; j < 2; j++){
 				
 				if(j == 0){
@@ -963,7 +989,7 @@ ol li::before {
 				}
 				
 			}
-				
+			
 			list.appendChild(li);
 			document.getElementById("insightsOLDiv").appendChild(list);
 		}
@@ -979,6 +1005,10 @@ ol li::before {
 		for(var i = 0; i < valueDrivers.length; i++){
 		
 			var li = document.createElement('li');
+			var liDiv = document.createElement('div');
+			liDiv.className = "liLine";
+			li.appendChild(liDiv);
+			
 			for(var j = 0; j < 2; j++){
 				
 				if(j == 0){
