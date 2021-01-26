@@ -38,6 +38,9 @@ body {
 	background-color: #edf7f0;
 	z-index: 1;
 	border-radius: 0.6vw;
+	border-color: #c3d6c9;
+	border-right-width: 0.5vw;
+	border-right-style: solid;
 }
 
 #sonDiv{
@@ -276,13 +279,13 @@ ol {
   margin-right: 2vw;
 }
 ol li {
-  counter-increment: my-awesome-counter;
+  /* counter-increment: my-awesome-counter; */
   margin-bottom: 0.6vw !important;
   font-size: 0.7vw;
   font-family: 'Lato', sans-serif;
 }
 ol li::before {
-  content: counter(my-awesome-counter) ". ";
+  /* content: counter(my-awesome-counter) ". "; */
   color: #4384a2fa;
   font-weight: bold;
 }
@@ -661,7 +664,7 @@ ol li::before {
 	var minFirstRowHeight = 1.5;
 	var minRowHeight = 2;
 	
-	//Smaller number = taller box THESE DONT SEEM TO BE WORKING - LOOK AT MIN ONES ABOVE TOO
+	//Smaller number = bigger box
 	var heightNumber = 22; 
 	var arrayHeightNumber = 18
 	
