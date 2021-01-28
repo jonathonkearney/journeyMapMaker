@@ -35,12 +35,14 @@ body {
 .headerDiv{
 	height:5vw;
 	display: inline-flex;
-	width: 127%;
+	width: 100%;
 }
 
 #sideDiv{
-	height:100%;
-	width:20%;
+	height: auto;
+	min-height:100%;
+	width: auto;
+	min-width:20%;
 	display: flex;
     flex-direction: column;
 	background-color: #4384a212;
@@ -54,10 +56,12 @@ body {
 #sonDiv{
 	display: flex;
 	flex-direction: column;
+	width: auto;
+	min-width: 100%;
 }
 
 #sideTitleDiv{
-	height:7%;
+	height:15%;
 	font-size: 2vw;
 	width: 90%;
 	margin-left: 2vw;
