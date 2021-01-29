@@ -160,19 +160,17 @@ body {
 
 
 .my-shuffle-container{
-	width: 60vw;
 	float: left;
 	margin-bottom: 1vw;
 	margin-right: 4vw;
 	overflow: visible !important;
-	left: -3vw;
 }
 
 .column {
 	float: left;
-	width: 9vw; /* remember to change other value to the same in the JS code below */
+	/* width: 9vw;   */
 	height:auto;
-	overflow:visible;
+	/* overflow:visible; */
 	background-color: white;
 	margin: 0vw;
 }
@@ -245,6 +243,10 @@ body {
 
 .subStageText{
 	font-size: 0.8vw;
+	color: #4384a2fa;
+}
+
+.descriptionText{
 	color: #4384a2fa;
 }
 
@@ -445,7 +447,7 @@ ol li::before {
 	[
 		[
 			"Stage",
-			"SubStage", //look at maybe making this the Description stage instead. Leave the substage CSS and make a ne description CSS
+			"Description",
 			"Quote", 
 			"PainPoints",
 			"Behaviour",
@@ -453,8 +455,8 @@ ol li::before {
 			"Improvements"
 		],
 		[
-			"-",
 			"Trigger",
+			"This is a description. The description will go here",
 			"Here is the Quote", 
 			[
 				"Here is a Need",
@@ -477,8 +479,8 @@ ol li::before {
 			]
 		],
 		[
-			"-",
 			"Pre-Application",
+			"This is a description. The description will go here",
 			"This is a Quote from a participant. It may be quite a long quote or it may be quite short. Who knows", 
 			[
 				"Here is a Need",
@@ -501,8 +503,8 @@ ol li::before {
 			]
 		],
 		[
-			"-",
 			"Application Form",
+			"This is a description. The description will go here",
 			"Another quote goes here. It'll likely be at least this long", 
 			[
 				"Need stuff goes in this section",
@@ -525,8 +527,8 @@ ol li::before {
 			]
 		],
 		[
-			"-",
 			"Additional Info or Queries",
+			"This is a description. The description will go here",
 			"Here is a quote too. Its a quote. It's a good quote", 
 			[
 				"Here is a Need",
@@ -549,8 +551,8 @@ ol li::before {
 			]
 		],
 		[
-			"-",
 			"Form Processing and Payment",
+			"This is a description. The description will go here",
 			"Another day another quote. A quote from a person we interviewed", 
 			[
 				"Here is a Need",
@@ -573,8 +575,8 @@ ol li::before {
 			]
 		],
 		[
-			"-",
 			"Site Inspection",
+			"This is a description. The description will go here",
 			"This is a quote from a participant too. It may be quite a long quote or it may be quite short. I think this is about as long as it will get", 
 			[
 				"Here is a Need",
@@ -597,8 +599,8 @@ ol li::before {
 			]
 		],
 		[
-			"-",
 			"Confirmation and First WoF",
+			"This is a description. The description will go here",
 			"Here is a quote, a short quote", 
 			[
 				"Here is a Need",
@@ -621,8 +623,8 @@ ol li::before {
 			]
 		],
 		[
-			"-",
 			"Having a Site Assessment",
+			"This is a description. The description will go here",
 			"Here is a quote, a quote, a quote", 
 			[
 				"Here is a Need",
@@ -648,9 +650,11 @@ ol li::before {
 	
 	var data = [];
 	
+	var columnWidth = 10;
+	
 	var maxHeights = [];
-	var minFirstRowHeight = 1.5;
-	var minRowHeight = 3;
+	var minFirstRowHeight = 3;
+	var minRowHeight = 4.5;
 	
 	//Smaller number = bigger box
 	var heightNumber = 16; 
@@ -794,6 +798,11 @@ ol li::before {
 				var box = document.createElement('figure'); //create a figure
 				var boxClassName = "";
 				
+				//set its width to the columnWidth
+				var boxWidth = "";
+				box.style.width = boxWidth.concat(columnWidth, "vw");
+				console.log("The Box width is: " + box.style.width);
+				
 				if(j == 0){//if its the first column
 					boxClassName = boxClassName.concat("column aspect rowHeaderFigure ");
 				}
@@ -902,16 +911,21 @@ ol li::before {
 	
 	function setContainerWidth(){
 		
-		console.log(element.querySelector('.my-sizer-element'));
-		var containerWidthNumber = 9 * (data.length * 1.1); //the column width * the number of columns. the 1.1 is to make up for the gutter
+		//set the size of the container
+		var containerWidthNumber = (columnWidth * (data.length)) * 1.08; //had to guess that last number cos I cant find the gutterWidth 
 		containerWidth = "";
 		containerWidth = containerWidth.concat(containerWidthNumber, "vw");
 		document.getElementById("container").style.width = containerWidth;
-		console.log(containerWidth);
 		
-		//set the header width too while we are at it
-		document.getElementById("headerDiv").style.width = containerWidth *0.95;
+		//set the sizer element as the correct size
+		var columnWidthString = ""; 
+		element.querySelector('.my-sizer-element').style.width = columnWidthString.concat(columnWidth, "vw");	
+		
+		//move the container slightly left while we are at it. so the row headers are snug to the left.
+		var moveContainerLeft = "";
+		document.getElementById("container").style.left = moveContainerLeft.concat(columnWidth * -0.4, "vw");
 	}
+	
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
