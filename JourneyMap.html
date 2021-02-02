@@ -47,7 +47,7 @@ body {
 	min-width:28vw;
 	display: flex;
     flex-direction: column;
-	background-color: rgba(215,228,244,0.2);
+	background-color: rgba(215,228,244,0.3);
 	z-index: 1;
 	border-radius: 0.6vw;
 	border-color: rgba(215,228,244,0.9);
@@ -60,6 +60,7 @@ body {
 	flex-direction: column;
 	width: auto;
 	min-width: 100%;
+	margin-left: 2.5vw;
 }
 
 #sideTitleDiv{
@@ -109,12 +110,12 @@ body {
 
 .canvasWrapper{
 	width: 70vw;
-	height: 100%
+	height: 100%;
+	margin-left: -2.5vw;
 }
 
 .titleDiv{
 	width: 45%;
-	margin-left: 3vw;
 	margin-bottom: 0;
 	margin-top: 0;
 	max-height: 50%;
@@ -140,8 +141,7 @@ body {
 
 .createdByDiv{
 	width: 45%;
-	height: 45%;
-	margin-left: 3vw;
+	height: 45%;;
 	font-size: 0.9vw;
 	font-family: 'Roboto', sans-serif;
 }
@@ -242,13 +242,12 @@ body {
 }
 
 .stageText{
-	font-weight: bold;
 	padding-top: 0vw;
 	font-size:0.9vw;
-	margin-top:0.5vw;
-	color: rgba(0,89,104,1);
+	margin-top:0.5vw;;
 	width: 90%;
 	margin-top: 0.2vw !important;
+	font-family: 'Noto Sans JP', sans-serif;
 }
 
 .subStageText{
@@ -257,7 +256,7 @@ body {
 }
 
 .improvementsText{
-	color: rgba(0,89,104,1);
+
 }
 
 .descriptionText{
@@ -270,7 +269,7 @@ body {
 	height: 0;
 	top: 1%;
 	left: 0%;
-	border-color: #4384a2fa;
+	border-color: rgba(0,89,104,1);
 	border-bottom-width: 0.05vw;
 	border-bottom-style: solid;
 }
@@ -332,7 +331,7 @@ ol li::before {
 }
 
 .liLine {
-  border-color: #4384a27d;
+  border-color: rgba(0,89,104,0.7);
   border-top-width: 0.15vw;
   border-top-style: solid;
   width: 10%;
@@ -345,9 +344,18 @@ ol li::before {
 	top: 1%;
 	left: 0%;
 	margin-left: 5%;
-	border-color: #80808070;
+	border-color: rgba(0,89,104,0.5);
 	border-bottom-width: 0.2vw;
 	border-bottom-style: dashed;
+}
+
+#titleDivLine{
+	width: 5%;
+	height: 0;
+	margin-left: 0%;
+	border-color: rgba(0,89,104,0.7);
+	border-bottom-width: 0.2vw;
+	border-bottom-style: solid;
 }
 
 .versionAndDateSpan{
@@ -372,6 +380,7 @@ ol li::before {
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Roboto:wght@500&display=swap" rel="stylesheet">
 
 <div id="parentDiv">
 	<div id="sideDiv">
@@ -399,6 +408,7 @@ ol li::before {
 			<div class="titleDiv">
 				<p class="title">Understanding the Customer Experience</p>
 			</div>
+			<div id="titleDivLine"></div>
 			<div class="createdByDiv">
 				<p id="createdBy">Developed by Research and Analytics<span class="versionAndDateSpan"><br>Version 1.0, 2021</span></p>
 			</div>
@@ -650,12 +660,12 @@ ol li::before {
 	var columnWidth = 11;
 	
 	var maxHeights = [];
-	var minFirstRowHeight = 3;
+	var minFirstRowHeight = 3.3;
 	var minRowHeight = 4.5;
 	
 	//Smaller number = bigger box
 	var heightNumber = 16; 
-	var arrayHeightNumber = 11;
+	var arrayHeightNumber = 12;
 	
 	var keys = [];
 	
