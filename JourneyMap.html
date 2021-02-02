@@ -186,12 +186,11 @@ body {
 
 
 .rowHeaderText{
-	font-weight: bold;
 	padding-top: 0vw;
-	font-size: 0.6vw !important;
+	font-size: 0.7vw !important;
 	margin-top:0.5vw;
 	text-align-last: right;
-	color: #4384a2fa;
+	color: rgba(0,89,104,0.8);
 }
 
 .text{
@@ -344,9 +343,9 @@ ol li::before {
 	top: 1%;
 	left: 0%;
 	margin-left: 5%;
-	border-color: rgba(0,89,104,0.5);
+	border-color: rgba(0,89,104,0.1);
 	border-bottom-width: 0.2vw;
-	border-bottom-style: dashed;
+	border-bottom-style: solid;
 }
 
 #titleDivLine{
@@ -966,7 +965,7 @@ ol li::before {
 				if(j == 0){
 					var span = document.createElement('SPAN');
 					span.className = "insightPointTitle";
-					var listText = document.createTextNode(insights[i][j] + ": ");
+					var listText = document.createTextNode(insights[i][j] + " - ");
 					span.appendChild(listText);
 					li.appendChild(span);
 				}
@@ -1001,7 +1000,7 @@ ol li::before {
 				if(j == 0){
 					var span = document.createElement('SPAN');
 					span.className = "valueDriversPointTitle";
-					var listText = document.createTextNode(valueDrivers[i][j] + ": ");
+					var listText = document.createTextNode(valueDrivers[i][j] + " - ");
 					span.appendChild(listText);
 					li.appendChild(span);
 				}
