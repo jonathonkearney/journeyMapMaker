@@ -55,19 +55,24 @@ body {
 	border-right-style: solid;
 }
 
+#sideSonDiv{
+	margin-right: 2vw;
+	margin-left: 2vw;
+	margin-bottom: 2vw;
+}
+
 #sonDiv{
 	display: flex;
 	flex-direction: column;
 	width: auto;
 	min-width: 100%;
-	margin-left: 2.5vw;
+	margin-left: 2vw;
 }
 
 #sideTitleDiv{
-	height:15%;
+	height:4%;
 	font-size: 2vw;
-	width: 90%;
-	margin-left: 2vw;
+	width: 100%;
 	margin-bottom: 0vw;
 	font-family: 'Roboto', sans-serif !important;
 }
@@ -80,28 +85,37 @@ body {
 	color: rgba(0,89,55,1);
 }
 
+#contextDiv{
+	
+}
+
+#context{
+	
+}
+
+#contextSpan{
+	font-weight: bold;
+}
+
 #insightsDiv{
-	float: left;
 	z-index: 1;
-	height: 46%;
+	height: 40%;
 	margin-bottom: 1vw;
 }
 #valueDriversDiv{
 	float: left;
 	z-index: 1;
-	height: 46%;
+	height: 40%;
 }
 
 #insightsHeaderDiv{
 	font-family: 'Roboto', sans-serif !important;
 	font-size: 1vw;
-	margin-left:1.5vw;
 }
 
 #valueDriversHeaderDiv{
 	font-family: 'Roboto', sans-serif !important;
 	font-size: 1vw;
-	margin-left:1.5vw;
 }
 
 #insightsOLDiv{
@@ -141,7 +155,8 @@ body {
 
 .createdByDiv{
 	width: 45%;
-	height: 45%;;
+	height: 35%;
+	margin-top:0.5vw;
 	font-size: 0.9vw;
 	font-family: 'Roboto', sans-serif;
 }
@@ -315,6 +330,8 @@ ol {
   list-style: none;
   counter-reset: my-awesome-counter;
   margin-right: 2vw;
+  padding-left: 0;
+  margin-left: 1vw;
 }
 ol li {
   /* counter-increment: my-awesome-counter; */
@@ -337,12 +354,11 @@ ol li::before {
   margin-bottom: 0.5vw;  
 }
 
-#sideDivLine{
-	width: 90%;
+.sideDivLine{
+	width: 95%;
 	height: 0;
 	top: 1%;
 	left: 0%;
-	margin-left: 5%;
 	border-color: rgba(0,89,104,0.1);
 	border-bottom-width: 0.2vw;
 	border-bottom-style: solid;
@@ -361,6 +377,7 @@ ol li::before {
 	font-size: 0.8vw;
 	font-style: italic;
 }
+
 
 </style>
 </head>
@@ -383,22 +400,27 @@ ol li::before {
 
 <div id="parentDiv">
 	<div id="sideDiv">
-		<div id="sideTitleDiv">
-			<p id="sideTitle">Inspecting Organisations</p>
-		</div>
-		<div id="insightsDiv">
-			<div id="insightsHeaderDiv">
-				<p class="insightsTitle">Key Insights</p>
+		<div id="sideSonDiv">
+			<div id="sideTitleDiv">
+				<p id="sideTitle">Inspecting Organisations</p>
 			</div>
-			<div id="insightsOLDiv">
+			<div id="contextDiv">
 			</div>
-		</div>
-		<div id="sideDivLine"></div>
-		<div id="valueDriversDiv">
-			<div id="valueDriversHeaderDiv">
-				<p>Value Drivers</p>
+			<div class="sideDivLine"></div>
+			<div id="insightsDiv">
+				<div id="insightsHeaderDiv">
+					<p class="insightsTitle">Key Insights</p>
+				</div>
+				<div id="insightsOLDiv">
+				</div>
 			</div>
-			<div id="valueDriversOLDiv">
+			<div class="sideDivLine"></div>
+			<div id="valueDriversDiv">
+				<div id="valueDriversHeaderDiv">
+					<p>Value Drivers</p>
+				</div>
+				<div id="valueDriversOLDiv">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -409,7 +431,7 @@ ol li::before {
 			</div>
 			<div id="titleDivLine"></div>
 			<div class="createdByDiv">
-				<p id="createdBy">Developed by Research and Analytics<span class="versionAndDateSpan"><br>Version 1.0, 2021</span></p>
+				<p id="createdBy">Developed by Research and Analytics<span class="versionAndDateSpan"><br>2021 - Version 1.0</span></p>
 			</div>
 			<div id="logoDiv">
 				<img id="logo" src="WKLogo.jpg">
@@ -424,6 +446,11 @@ ol li::before {
 	</div>
 </div>
 <script>
+	
+	var context = 	[
+					" e ", 
+					" ."
+					];
 	
 	var insights =
 	[
@@ -489,10 +516,6 @@ ol li::before {
 			"This is a description. The description will go here",
 			"Here is the Quote", 
 			[
-				"Here is a Need",
-				"Need stuff goes in this section"
-			],
-			[
 				"Here is a Painpoint",
 				"Here is a Painpoint",
 				"This is where we talk about PainPoints"
@@ -506,16 +529,16 @@ ol li::before {
 				"Here is a Feeling",
 				"What a feeling",
 				"Here is a Feeling"
+			],
+			[
+				"Here is an Improvement",
+				"Improvement stuff goes in this section"
 			]
 		],
 		[
 			"Research and Training",
 			"This is a description. The description will go here",
 			"This is a Quote from a participant. It may be quite a long quote or it may be quite short. Who knows", 
-			[
-				"Here is a Need",
-				"Need Need, this is a Need"
-			],
 			[
 				"This is where we talk about PainPoints, sometimes at length",
 				"Here is a Painpoint",
@@ -530,16 +553,16 @@ ol li::before {
 				"The Feeling stuff goes here",
 				"Here is a Feeling",
 				"What a feeling"
+			],
+			[
+				"Here is an Improvement",
+				"Improvement Improvement, this is an Improvement"
 			]
 		],
 		[
 			"Application Form",
 			"This is a description. The description will go here",
 			"Another quote goes here. It'll likely be at least this long", 
-			[
-				"Need stuff goes in this section",
-				"Here is a Need",
-			],
 			[
 				"Here is a Painpoint",
 				"This section is all about PainPoints",
@@ -554,16 +577,16 @@ ol li::before {
 				"The Feelings that they had",
 				"Feelings. Feelings.",
 				"Here is a Feeling"
+			],
+			[
+				"Improvement stuff goes in this section",
+				"Here is an Improvement",
 			]
 		],
 		[
 			"Additional Info or Queries",
 			"This is a description. The description will go here",
 			"Here is a quote too. Its a quote. It's a good quote", 
-			[
-				"Here is a Need",
-				"This is the Needs Section",
-			],
 			[
 				"This is where we talk about PainPoints",
 				"This is also where we talk about PainPoints",
@@ -578,16 +601,16 @@ ol li::before {
 				"Here is a Feeling",
 				"Here is a Feeling",
 				"The Feelings that they had"
+			],
+			[
+				"Here is an Improvement",
+				"This is the Improvements Section",
 			]
 		],
 		[
 			"Form Processing and Payment",
 			"This is a description. The description will go here",
 			"Another day another quote. A quote from a person we interviewed", 
-			[
-				"Here is a Need",
-				"Needs"
-			],
 			[
 				"Here is a where we mention some PainPoints",
 				"Here is a Painpoint",
@@ -602,16 +625,16 @@ ol li::before {
 				"The Feelings that they had",
 				"Here is a Feeling",
 				"Here is a Feeling"
+			],
+			[
+				"Here is an Improvement",
+				"Improvements"
 			]
 		],
 		[
 			"Site Inspection",
 			"This is a description. The description will go here",
 			"This is a quote from a participant too. It may be quite a long quote or it may be quite short. I think this is about as long as it will get", 
-			[
-				"Here is a Need",
-				"Here is a Need"
-			],
 			[
 				"Here is a Painpoint",
 				"Here is a Painpoint",
@@ -626,16 +649,16 @@ ol li::before {
 				"Here is a where we talk about Feelings. The Feelings stuff goes here",
 				"Feelings. Feelings",
 				"Here is a Feeling"
+			],
+			[
+				"Here, here, right here is an Improvement",
+				"Here is an Improvement"
 			]
 		],
 		[
 			"Confirmation and Follow-ups",
 			"This is a description. The description will go here",
 			"Here is a quote, a short quote", 
-			[
-				"Here is a Need",
-				"Here is a Need"
-			],
 			[
 				"Here is a Painpoint",
 				"Here is a Painpoint",
@@ -650,6 +673,10 @@ ol li::before {
 				"Here is a Feeling",
 				"The Feelings stuff goes here",
 				"Here is a Feeling"
+			],
+			[
+				"Here is an Improvement",
+				"Here is an Improvement"
 			]
 		]
 	];
@@ -694,6 +721,7 @@ ol li::before {
 		setContainerWidth();
 		getMaxHeights();
 		appendBoxesMk3();
+		generateContext();
 		generateInsightsList()
 		generateValueDriversList();
 	}
@@ -1014,7 +1042,25 @@ ol li::before {
 			list.appendChild(li);
 			document.getElementById("valueDriversOLDiv").appendChild(list);
 		}
+	}
+	function generateContext(){
 		
+		var contextP = document.createElement('P');
+		contextP.id = "context";
+		contextP.className = "text";
+		
+		var span = document.createElement('SPAN');
+		span.id = "contextSpan";
+		
+		var contextSpanText = document.createTextNode(context[0]);
+		
+		var contextText = document.createTextNode(context[1]);
+		
+		span.appendChild(contextSpanText);
+		contextP.appendChild(span);
+		contextP.appendChild(contextText);
+		
+		document.getElementById("contextDiv").appendChild(contextP);
 	}
 	
 	
