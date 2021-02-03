@@ -448,8 +448,8 @@ ol li::before {
 <script>
 	
 	var context = 	[
-					" e ", 
-					" ."
+					"Understanding the Customer Experience", 
+					" is based on 1:1 interviews with individuals who recently applied for Inspecting Organisation Authorisation. We have documented the experience from their perspective."
 					];
 	
 	var insights =
@@ -562,7 +562,10 @@ ol li::before {
 		[
 			"Application Form",
 			"This is a description. The description will go here",
-			"Another quote goes here. It'll likely be at least this long", 
+			[
+				"Another quote goes here. It'll likely be at least this long", 
+				"And a second quote for this section will go here"
+			],
 			[
 				"Here is a Painpoint",
 				"This section is all about PainPoints",
@@ -685,13 +688,16 @@ ol li::before {
 	
 	var columnWidth = 11;
 	
-	var maxHeights = [];
+	var maxCharCount = [];
 	var minFirstRowHeight = 3.3;
-	var minRowHeight = 4.5;
+	var minRowHeight = 4;
 	
-	//Smaller number = bigger box
-	var heightNumber = 16; 
-	var arrayHeightNumber = 12;
+	//smaller number = smaller height
+	var heightNumber = 0.05; 
+	var arrayHeightNumber = 0.045;
+	
+	//this is to compensate for the newline white space
+	var newLineAvgCharLength = 25;
 	
 	var keys = [];
 	
@@ -719,7 +725,7 @@ ol li::before {
 		console.log(data);
 		getKeys();
 		setContainerWidth();
-		getMaxHeights();
+		getmaxCharCount();
 		appendBoxesMk3();
 		generateContext();
 		generateInsightsList()
@@ -742,8 +748,6 @@ ol li::before {
 	//add the boxes to the shuffleInstance
 	function appendBoxesMk3() {
 	
-		//var elements = generateBoxesMk2();
-		//var elements = generateBoxesMk3();
 		var elements = generateBoxesMk4();
 
 		elements.forEach(function (element) {
@@ -754,13 +758,14 @@ ol li::before {
 		shuffleInstance.update();
 	};
 	
-	function getMaxHeights(){
+	function getmaxCharCount(){
 		
-		var rowHasArray = [];
+		var maxRowEntries = [];
 		
 		for (var i = 0; i < keys.length; i++) {
-			maxHeights.push(0);
-			rowHasArray.push(false);
+			maxCharCount.push(0);
+			maxRowEntries.push(1); //this is 1 not zero because length doesnt start at 0?
+			
 		}
 		
 		for(var i = 0; i < keys.length; i++){
@@ -768,8 +773,11 @@ ol li::before {
 				
 				var charCount = 0;
 				
-				if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
-					rowHasArray[i] = true;
+				if(Array.isArray(data[j][i])){ //if the tile is an array
+					
+					if(data[j][i].length > maxRowEntries[i]){
+						maxRowEntries[i] = data[j][i].length;
+					}
 					const reducer = (accumulator, currentValue) => accumulator + currentValue;
 					var flattened = data[j][i].reduce(reducer);
 					charCount = flattened.length;
@@ -778,47 +786,52 @@ ol li::before {
 					charCount = charCount + data[j][i].length;
 				}
 				
-				if(charCount > maxHeights[i]){
-					maxHeights[i] = charCount;
+				if(charCount > maxCharCount[i]){
+					maxCharCount[i] = charCount;
 				}
 			}
 		}
+		console.log(maxRowEntries);
 		
 		//reduce them to a good viewWidth size
-		for(var i = 0; i < maxHeights.length; i++){
+		for(var i = 0; i < maxCharCount.length; i++){
 		
-			if(rowHasArray[i] == true){
-				maxHeights[i] = maxHeights[i] / arrayHeightNumber;
+			if(maxRowEntries[i] > 1){ 
+				console.log(maxCharCount[i]);
+				maxCharCount[i] = (maxCharCount[i] + (maxRowEntries[i] * newLineAvgCharLength)) * arrayHeightNumber; 
 			}
 			else{
-				maxHeights[i] = maxHeights[i] / heightNumber;
+				maxCharCount[i] = maxCharCount[i] * heightNumber;
 			}
+			console.log(maxCharCount[i]);
 		}
 		
+		
+		
 		//set them to at least the minimum
-		for(var i = 0; i < maxHeights.length; i++){
+		for(var i = 0; i < maxCharCount.length; i++){
 			if(i == 0){
-				console.log(maxHeights[i]);
-				if(maxHeights[i] < minFirstRowHeight){
-					maxHeights[i] = minFirstRowHeight;
+				console.log(maxCharCount[i]);
+				if(maxCharCount[i] < minFirstRowHeight){
+					maxCharCount[i] = minFirstRowHeight;
 				}
 			}
 			else{
-				if(maxHeights[i] < minRowHeight){
-					maxHeights[i] = minRowHeight;
+				if(maxCharCount[i] < minRowHeight){
+					maxCharCount[i] = minRowHeight;
 				}
 			}
 		}
 		
 		//Add the view widths
-		for(var i = 0; i < maxHeights.length; i++){
+		for(var i = 0; i < maxCharCount.length; i++){
 			var height = "";
-			height = height.concat(maxHeights[i], "vw");
-			maxHeights[i] = height;
+			height = height.concat(maxCharCount[i], "vw");
+			maxCharCount[i] = height;
 		}
 		
 		
-		console.log(maxHeights);
+		console.log(maxCharCount);
 	}
 	
 	function generateBoxesMk4(){
@@ -843,7 +856,7 @@ ol li::before {
 				
 				boxClassName = boxClassName.concat("column aspect ", keys[i], "Box");
 				box.className = boxClassName;
-				box.style.height = maxHeights[i];
+				box.style.height = maxCharCount[i];
 				
 				
 				if(j == 0){//if its the first column
