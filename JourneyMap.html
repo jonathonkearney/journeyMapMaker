@@ -146,7 +146,7 @@ body {
 
 #logoDiv{
 	height: 70%;
-	width: 30%;
+	width: 23%;
 }
 
 #logo{
@@ -265,7 +265,7 @@ body {
 }
 
 .subStageText{
-	font-size: 0.8vw;
+	font-size: 0.9vw;
 	color: #4384a2fa;
 }
 
@@ -302,7 +302,6 @@ body {
 
 .list{
 	width:85%;
-	margin: 0;
 	padding-left: 1vw;
 	margin-top: 0.3vw;
 }
@@ -447,249 +446,23 @@ ol li::before {
 </div>
 <script>
 	
-	var context = 	[
-					"Understanding the Customer Experience", 
-					" is based on 1:1 interviews with individuals who recently applied for Inspecting Organisation Authorisation. We have documented the experience from their perspective."
-					];
+	var context = 	[];
 	
 	var insights =
-	[
-		[
-			"Insight Title",
-			"The insight Description goes here and it will be a somewhat long bit of text. Bla Bla. I could add some latin in here I guess. We talk about the insight here yes we do. yes we do.",
-		],
-		[
-			"Another Insight Title",
-			"The insight Description goes here and it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
-		],
-		[
-			"The Third Insight Title",
-			"Aliquam quis ante id enim elementum vestibulum vel non erat. Nulla vel est eget augue efficitur pharetra. Nam imperdiet nunc quis tortor aliquet posuere. Nam placerat bibendum leo, nec elementum. We talk about the insight here yes we do. yes we do.",
-		],
-		[
-			"And Another Insight Title",
-			"The insight Description goes here and it will be a somewhat vitae posuere felis ex vel magna. Etiam vel semper urna. Nulla quis dolor ut eros feugiat sodales  long bit of text. We talk about the insight here yes we do. yes we do.",
-		],
-		[
-			"The Last Insight Title",
-			"The insight Description goes here and vitae ullamcorper sem efficitur sodales. Cras nec congue sem. Curabitur id scelerisque felis. Maecenas finibus erat non lacus malesuada it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
-		]
-	];
+	[];
 	
 	var valueDrivers =
-	[
-		[
-			"Value Driver",
-			"The Value Driver goes here and it will be a somewhat long bit of text. Quisque rhoncus metus eget velit faucibus, nec congue est bibendum. We talk about the value here yes we do. yes we do.",
-		],
-		[
-			"Another Value Driver",
-			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do. Sed at dui nec erat vehicula congue. Vestibulum volutpat quam ligula.",
-		],
-		[
-			"The Third Value Driver",
-			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do. Nulla in mi turpis. Vestibulum aliquam, ex et interdum aliquam, ante turpis imperdiet mi, sit amet lobortis",
-		],
-		[
-			"And Another Value Driver",
-			"The Value Driver goes here and it will be a somewhat long bit of text. Nulla vel est eget augue efficitur pharetra. Nam imperdiet nunc quis tortor aliquet posuere. Nam placerat bibendum leo, nec elementum lacus mollis sed.",
-		],
-		[
-			"The Final Value Driver",
-			"Nulla id odio magna. Vestibulum malesuada tortor non tincidunt molestie. Maecenas non odio lacinia, tincidunt nibh suscipit, eleifend neque. We talk about the value here yes we do. yes we do.",
-		],
-	];
+	[];
 	
 	var newNewData =
-	[
-		[
-			"Stage",
-			"Description",
-			"Quote", 
-			"PainPoints",
-			"Behaviour",
-			"Feelings",
-			"Improvements"
-		],
-		[
-			"Trigger",
-			"This is a description. The description will go here",
-			"Here is the Quote", 
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"This is where we talk about PainPoints"
-			],
-			[
-				"Here is a Behaviour",
-				"Behaviour stuff goes here",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"What a feeling",
-				"Here is a Feeling"
-			],
-			[
-				"Here is an Improvement",
-				"Improvement stuff goes in this section"
-			]
-		],
-		[
-			"Research and Training",
-			"This is a description. The description will go here",
-			"This is a Quote from a participant. It may be quite a long quote or it may be quite short. Who knows", 
-			[
-				"This is where we talk about PainPoints, sometimes at length",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Behaviour Behaviour Behaviour"
-			],
-			[
-				"The Feeling stuff goes here",
-				"Here is a Feeling",
-				"What a feeling"
-			],
-			[
-				"Here is an Improvement",
-				"Improvement Improvement, this is an Improvement"
-			]
-		],
-		[
-			"Application Form",
-			"This is a description. The description will go here",
-			[
-				"Another quote goes here. It'll likely be at least this long", 
-				"And a second quote for this section will go here"
-			],
-			[
-				"Here is a Painpoint",
-				"This section is all about PainPoints",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Here is a Behaviour",
-				"Behaviour Behaviour Behaviour"
-			],
-			[
-				"The Feelings that they had",
-				"Feelings. Feelings.",
-				"Here is a Feeling"
-			],
-			[
-				"Improvement stuff goes in this section",
-				"Here is an Improvement",
-			]
-		],
-		[
-			"Additional Info or Queries",
-			"This is a description. The description will go here",
-			"Here is a quote too. Its a quote. It's a good quote", 
-			[
-				"This is where we talk about PainPoints",
-				"This is also where we talk about PainPoints",
-				"Here is a Painpoint"
-			],
-			[
-				"Behaviour stuff goes here",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a Feeling",
-				"Here is a Feeling",
-				"The Feelings that they had"
-			],
-			[
-				"Here is an Improvement",
-				"This is the Improvements Section",
-			]
-		],
-		[
-			"Form Processing and Payment",
-			"This is a description. The description will go here",
-			"Another day another quote. A quote from a person we interviewed", 
-			[
-				"Here is a where we mention some PainPoints",
-				"Here is a Painpoint",
-				"Here is a Painpoint"
-			],
-			[
-				"Here is a Behaviour",
-				"Behaviour stuff goes here",
-				"Here is a Behaviour"
-			],
-			[
-				"The Feelings that they had",
-				"Here is a Feeling",
-				"Here is a Feeling"
-			],
-			[
-				"Here is an Improvement",
-				"Improvements"
-			]
-		],
-		[
-			"Site Inspection",
-			"This is a description. The description will go here",
-			"This is a quote from a participant too. It may be quite a long quote or it may be quite short. I think this is about as long as it will get", 
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"This is where we list the PainPoints they had"
-			],
-			[
-				"Behaviour stuff goes here",
-				"Here is a Behaviour",
-				"Here is a Behaviour"
-			],
-			[
-				"Here is a where we talk about Feelings. The Feelings stuff goes here",
-				"Feelings. Feelings",
-				"Here is a Feeling"
-			],
-			[
-				"Here, here, right here is an Improvement",
-				"Here is an Improvement"
-			]
-		],
-		[
-			"Confirmation and Follow-ups",
-			"This is a description. The description will go here",
-			"Here is a quote, a short quote", 
-			[
-				"Here is a Painpoint",
-				"Here is a Painpoint",
-				"Painpoints. Painpoints"
-			],
-			[
-				"Behaviour stuff goes here",
-				"Here is a Behaviour",
-				"Behaviour stuff goes here"
-			],
-			[
-				"Here is a Feeling",
-				"The Feelings stuff goes here",
-				"Here is a Feeling"
-			],
-			[
-				"Here is an Improvement",
-				"Here is an Improvement"
-			]
-		]
-	];
+	[];
 	
 	var data = [];
 	
-	var columnWidth = 11;
+	var columnWidth = 9;
 	
 	var maxCharCount = [];
-	var minFirstRowHeight = 3.3;
+	var minFirstRowHeight = 2.5;
 	var minRowHeight = 4;
 	
 	//smaller number = smaller height
