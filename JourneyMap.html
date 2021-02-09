@@ -183,10 +183,11 @@ body {
 }
 
 
-.my-shuffle-container{
+#container{
 	float: left;
 	margin-bottom: 1vw;
 	margin-right: 4vw;
+	margin-left: -5.5vw;
 	overflow: visible !important;
 }
 
@@ -274,7 +275,6 @@ body {
 }
 
 .line{
-	position: absolute;
 	width: 95%;
 	height: 0;
 	top: 1%;
@@ -380,11 +380,6 @@ ol li::before {
 
 <body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Shuffle/5.2.3/shuffle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.5/lazysizes-umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.6.3/papaparse.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
@@ -433,23 +428,65 @@ ol li::before {
 				<img id="logo" src="WKLogo.jpg">
 			</div>
 		</div>
-		<div class="canvasWrapper">	
-			<div id="container" class="row my-shuffle-container">
-				<div class="column my-sizer-element"></div>
-			</div>
+		<div id="container">
 		</div>
 		
 	</div>
 </div>
 <script>
 	
-	var context = 	[];
+	var context = 	[
+					"Understanding the Customer Experience", 
+					" is based on 1:1 interviews with individuals who recently applied for Inspecting Organisation Authorisation. We have documented the experience from their perspective."
+					];
 	
 	var insights =
-	[];
+	[
+		[
+			"Insight Title",
+			"The insight Description goes here and it will be a somewhat long bit of text. Bla Bla. I could add some latin in here I guess. We talk about the insight here yes we do. yes we do.",
+		],
+		[
+			"Another Insight Title",
+			"The insight Description goes here and it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
+		],
+		[
+			"The Third Insight Title",
+			"Aliquam quis ante id enim elementum vestibulum vel non erat. Nulla vel est eget augue efficitur pharetra. Nam imperdiet nunc quis tortor aliquet posuere. Nam placerat bibendum leo, nec elementum. We talk about the insight here yes we do. yes we do.",
+		],
+		[
+			"And Another Insight Title",
+			"The insight Description goes here and it will be a somewhat vitae posuere felis ex vel magna. Etiam vel semper urna. Nulla quis dolor ut eros feugiat sodales  long bit of text. We talk about the insight here yes we do. yes we do.",
+		],
+		[
+			"The Last Insight Title",
+			"The insight Description goes here and vitae ullamcorper sem efficitur sodales. Cras nec congue sem. Curabitur id scelerisque felis. Maecenas finibus erat non lacus malesuada it will be a somewhat long bit of text. We talk about the insight here yes we do. yes we do.",
+		]
+	];
 	
 	var valueDrivers =
-	[];
+	[
+		[
+			"Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. Quisque rhoncus metus eget velit faucibus, nec congue est bibendum. We talk about the value here yes we do. yes we do.",
+		],
+		[
+			"Another Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do. Sed at dui nec erat vehicula congue. Vestibulum volutpat quam ligula.",
+		],
+		[
+			"The Third Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do. Nulla in mi turpis. Vestibulum aliquam, ex et interdum aliquam, ante turpis imperdiet mi, sit amet lobortis",
+		],
+		[
+			"And Another Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. Nulla vel est eget augue efficitur pharetra. Nam imperdiet nunc quis tortor aliquet posuere. Nam placerat bibendum leo, nec elementum lacus mollis sed.",
+		],
+		[
+			"The Final Value Driver",
+			"Nulla id odio magna. Vestibulum malesuada tortor non tincidunt molestie. Maecenas non odio lacinia, tincidunt nibh suscipit, eleifend neque. We talk about the value here yes we do. yes we do.",
+		],
+	];
 	
 	var newNewData =
 	[];
@@ -466,27 +503,16 @@ ol li::before {
 	var heightNumber = 0.055; 
 	var arrayHeightNumber = 0.04;
 	
+	var gutterWidth = 0.3;
+	
 	//this is to compensate for the newline white space
 	var newLineAvgCharLength = 25;
 	
 	var keys = [];
 	
-	var animationSpeed = 750; 
 	
 	//****** SHUFFLE ******\\
-	
-	var Shuffle = window.Shuffle;
-	var element = document.querySelector('.my-shuffle-container');
-	var sizer = element.querySelector('.my-sizer-element');
 
-	var shuffleInstance = new Shuffle(element, {
-		itemSelector: '.shuffle-item',
-		sizer: sizer,
-		speed: animationSpeed,
-		filterMode: Shuffle.FilterMode.ALL,
-		gutterWidth: 0,
-	});
-	
 	main();
 	
 	function main(theData) { 
@@ -496,37 +522,25 @@ ol li::before {
 		getKeys();
 		setContainerWidth();
 		getmaxCharCount();
-		appendBoxesMk3();
+		appendBoxes();
 		generateContext();
 		generateInsightsList()
 		generateValueDriversList();
 	}
 	
-	function parseData(url, callBack) {
-		Papa.parse(url, {
-			download: true,
-			header: true,
-			dynamicTyping: true,
-			complete: function(results) {
-				callBack(results.data);
-			}
-		});
-	}
-	
 	//****** ADD IN BOXES ******\\
 	
-	//add the boxes to the shuffleInstance
-	function appendBoxesMk3() {
-	
+	function appendBoxes(){
+		
 		var elements = generateBoxesMk4();
-
-		elements.forEach(function (element) {
-			this.element.appendChild(element);
-		}, this);
-
-		shuffleInstance.add(elements);
-		shuffleInstance.update();
-	};
+		
+		var container = document.getElementById("container");
+		
+		for(var i = 0; i < elements.length; i++){
+			container.appendChild(elements[i]);
+		}
+		
+	}
 	
 	function getmaxCharCount(){
 		
@@ -627,6 +641,10 @@ ol li::before {
 				boxClassName = boxClassName.concat("column aspect ", keys[i], "Box");
 				box.className = boxClassName;
 				box.style.height = maxCharCount[i];
+				
+				var marginRight = "";
+				marginRight = marginRight.concat(gutterWidth, "vw");
+				box.style.marginRight = marginRight;
 				
 				
 				if(j == 0){//if its the first column
@@ -729,14 +747,11 @@ ol li::before {
 	function setContainerWidth(){
 		
 		//set the size of the container
-		var containerWidthNumber = (columnWidth * (data.length)) * 1.08; //had to guess that last number cos I cant find the gutterWidth 
+		var containerWidthNumber = (columnWidth  + gutterWidth) * (data.length);
+		console.log(containerWidthNumber);
 		containerWidth = "";
 		containerWidth = containerWidth.concat(containerWidthNumber, "vw");
-		document.getElementById("container").style.width = containerWidth;
-		
-		//set the sizer element as the correct size
-		var columnWidthString = ""; 
-		element.querySelector('.my-sizer-element').style.width = columnWidthString.concat(columnWidth, "vw");	
+		document.getElementById("container").style.width = containerWidth;	
 		
 		//move the container slightly left while we are at it. so the row headers are snug to the left.
 		var moveContainerLeft = "";
@@ -746,7 +761,7 @@ ol li::before {
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
-		function decapitalizeFirstLetter(string) {
+	function decapitalizeFirstLetter(string) {
 		return string.charAt(0).toLowerCase() + string.slice(1);
 	}
 	
