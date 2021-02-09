@@ -47,7 +47,7 @@ body {
 	min-width:28vw;
 	display: flex;
     flex-direction: column;
-	background-color: rgba(215,228,244,0.3);
+	background-color: rgb(244 245 247);
 	z-index: 1;
 	border-radius: 0.6vw;
 	border-color: rgba(215,228,244,0.9);
@@ -216,7 +216,7 @@ body {
 	/* font-family: 'Overpass', sans-serif; */
 	/* font-family: 'Montserrat', sans-serif; */
 	font-family: 'Open Sans', sans-serif;
-	font-size: 0.8vw;
+	font-size: 0.7vw;
 	z-index:2;
 	display:table;
 	width: 100%;
@@ -273,18 +273,14 @@ body {
 
 }
 
-.descriptionText{
-	color: rgba(0,89,104,1);
-}
-
 .line{
 	position: absolute;
 	width: 95%;
 	height: 0;
 	top: 1%;
 	left: 0%;
-	border-color: rgba(0,89,104,1);
-	border-bottom-width: 0.05vw;
+	border-color: rgba(0,89,104,0.3);
+	border-bottom-width: 0.15vw;
 	border-bottom-style: solid;
 }
 
@@ -304,6 +300,7 @@ body {
 	width:85%;
 	padding-left: 1vw;
 	margin-top: 0.3vw;
+	margin-left: 0;
 }
 
 ul {
@@ -466,8 +463,8 @@ ol li::before {
 	var minRowHeight = 4;
 	
 	//smaller number = smaller height
-	var heightNumber = 0.05; 
-	var arrayHeightNumber = 0.045;
+	var heightNumber = 0.055; 
+	var arrayHeightNumber = 0.04;
 	
 	//this is to compensate for the newline white space
 	var newLineAvgCharLength = 25;
