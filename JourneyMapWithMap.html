@@ -86,12 +86,12 @@ body {
 }
 
 #contextDiv{
-	height:18vw;
+	height:16vw;
 }
 
 #contextTextDiv{
 	width: 55%;
-	margin-top: -17vw;
+	margin-top: -17.5vw;
 }
 #context{
 	font-size: 0.9vw !important;
@@ -104,6 +104,21 @@ body {
 	position: relative;
     left: 50%;
 }
+
+#mapTitleDiv{
+	position: absolute;
+	top:5vw;
+	left:3vw;
+}
+
+#mapTitleText{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.3vw !important;
+    margin-left: 1vw;
+	margin: 0;
+	color: rgba(0,89,55,1);
+}
+
 .map{
 	max-width:100%
 }
@@ -405,6 +420,9 @@ ol li::before {
 			</div>
 			<div id="contextDiv">
 				<div id="mapDiv">
+					<div id="mapTitleDiv">
+						<p id="mapTitleText"><strong>N=7</strong></p>
+					</div>
 				</div>
 			</div>
 			<div class="sideDivLine"></div>
@@ -446,20 +464,20 @@ ol li::before {
 <script>
 	
 	var mapData =[
-	 {"NAME_1": "Auckland",				"value": 2},
+	 {"NAME_1": "Auckland",				"value": 1},
 	 {"NAME_1": "Bay of Plenty",		"value": 1},
-	 {"NAME_1": "Canterbury",			"value": 1},
+	 {"NAME_1": "Canterbury",			"value": 0},
 	 {"NAME_1": "Gisborne",				"value": 0},
 	 {"NAME_1": "Hawke's Bay",			"value": 1},
-	 {"NAME_1": "Manawatu-Wanganui",	"value": 1},
-	 {"NAME_1": "Marlborough",			"value": 0},
+	 {"NAME_1": "Manawatu-Wanganui",	"value": 0},
+	 {"NAME_1": "Marlborough",			"value": 1},
 	 {"NAME_1": "Nelson",				"value": 0},
 	 {"NAME_1": "Northland",			"value": 0},
 	 {"NAME_1": "Otago",				"value": 1},
-	 {"NAME_1": "Southland",			"value": 1},
+	 {"NAME_1": "Southland",			"value": 0},
 	 {"NAME_1": "Taranaki",				"value": 0},
-	 {"NAME_1": "Waikato",				"value": 0},
-	 {"NAME_1": "Wellington",			"value": 2},
+	 {"NAME_1": "Waikato",				"value": 1},
+	 {"NAME_1": "Wellington",			"value": 1},
 	 {"NAME_1": "West Coast",			"value": 0}
     ]
 	
@@ -467,6 +485,9 @@ ol li::before {
 	var context = 	[];
 	
 	var insights =
+	[];
+	
+	var valueDrivers =
 	[];
 	
 	var newNewData =
@@ -510,8 +531,8 @@ ol li::before {
 		mapHeight = "100%";
 
 	var projection = d3.geoMercator()
-		.center([22, -47])
-		.scale(750)
+		.center([19.5, -46.5])
+		.scale(780)
 		.rotate([-180,0]);
 
 	var svg = d3.select("#mapDiv").append("svg")
