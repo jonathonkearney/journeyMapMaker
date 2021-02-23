@@ -113,7 +113,7 @@ body {
 
 #mapTitleText{
 	font-family: 'Open Sans', sans-serif;
-	font-size: 1.3vw !important;
+	font-size: 1.2vw !important;
     margin-left: 1vw;
 	margin: 0;
 	color: rgba(0,89,55,1);
@@ -129,7 +129,7 @@ body {
 
 #insightsDiv{
 	z-index: 1;
-	height: 40%;
+	height: 36%;
 	margin-bottom: 1vw;
 }
 #valueDriversDiv{
@@ -176,7 +176,7 @@ body {
 
 #logoDiv{
 	height: 70%;
-	width: 23%;
+	width: 17%;
 }
 
 #logo{
@@ -217,17 +217,14 @@ body {
 	float: left;
 	margin-bottom: 1vw;
 	margin-right: 4vw;
-	margin-left: -6vw;
+	margin-left: -10vw;
 	overflow: visible !important;
 }
 
-.column {
-	float: left;
-	/* width: 9vw;   */
-	height:auto;
-	/* overflow:visible; */
+.column{
 	background-color: white;
 	margin: 0vw;
+	display:inline-block;
 }
 
 
@@ -247,7 +244,7 @@ body {
 	/* font-family: 'Overpass', sans-serif; */
 	/* font-family: 'Montserrat', sans-serif; */
 	font-family: 'Open Sans', sans-serif;
-	font-size: 0.7vw;
+	font-size: 0.6vw;
 	z-index:2;
 	display:table;
 	width: 100%;
@@ -272,7 +269,6 @@ body {
 }
 
 .quoteText{
-	font-weight: bold;
 	font-style: italic;
 }
 
@@ -310,7 +306,7 @@ body {
 }
 
 .paraText{
-    margin-top: 0.4vw;
+    margin-top: 0.3vw;
     margin-bottom: 0vw;
 	width:90%;
 	margin-left: 0.3vw;
@@ -336,8 +332,8 @@ ul li::before {
 	margin-left: -1em; /* Also needed for space (tweak if needed) */
 }
 
-li:not(:last-child) {
-    margin-bottom: 0.1vw;
+li{
+    margin-bottom: 0.5vw;
 }
 
 
@@ -350,14 +346,12 @@ ol {
   margin-left: 1vw;
 }
 ol li {
-  /* counter-increment: my-awesome-counter; */
   margin-bottom: 0.6vw !important;
-  font-size: 0.7vw;
+  font-size: 0.8vw;
   font-family: 'Open Sans', sans-serif;
   
 }
 ol li::before {
-  /* content: counter(my-awesome-counter) ". "; */
   color: #4384a2fa;
   font-weight: bold;
 }
@@ -394,6 +388,18 @@ ol li::before {
 	font-style: italic;
 }
 
+#footnotesDiv{
+	margin-top:-1vw;
+}
+
+#footnote1, #footnote2{
+	font-size: 0.6vw !important;
+}
+.textDiv{
+	height: auto;
+	white-space: break-spaces;: 
+}
+
 </style>
 </head>
 
@@ -416,12 +422,12 @@ ol li::before {
 	<div id="sideDiv">
 		<div id="sideSonDiv">
 			<div id="sideTitleDiv">
-				<p id="sideTitle">Inspecting Organisations</p>
+				<p id="sideTitle"></p>
 			</div>
 			<div id="contextDiv">
 				<div id="mapDiv">
 					<div id="mapTitleDiv">
-						<p id="mapTitleText"><strong>N=7</strong></p>
+						<p id="mapTitleText"><strong>N=4</strong></p>
 					</div>
 				</div>
 			</div>
@@ -450,7 +456,7 @@ ol li::before {
 			</div>
 			<div id="titleDivLine"></div>
 			<div class="createdByDiv">
-				<p id="createdBy">Developed by<span class="versionAndDateSpan"><br>2021 - Version 1.0</span></p>
+				<p id="createdBy">Developed by <span class="versionAndDateSpan"><br>2021 - Version 1.0</span></p>
 			</div>
 			<div id="logoDiv">
 				<img id="logo" src="WKLogo.jpg">
@@ -458,22 +464,24 @@ ol li::before {
 		</div>
 		<div id="container">
 		</div>
-		
+		<div id="footnotesDiv">
+			<p id="footnote1" class="text"><strong>*</strong> - </p>
+		</div>
 	</div>
 </div>
 <script>
 	
 	var mapData =[
-	 {"NAME_1": "Auckland",				"value": 1},
+	 {"NAME_1": "Auckland",				"value": 0},
 	 {"NAME_1": "Bay of Plenty",		"value": 1},
 	 {"NAME_1": "Canterbury",			"value": 0},
 	 {"NAME_1": "Gisborne",				"value": 0},
-	 {"NAME_1": "Hawke's Bay",			"value": 1},
+	 {"NAME_1": "Hawke's Bay",			"value": 0},
 	 {"NAME_1": "Manawatu-Wanganui",	"value": 0},
-	 {"NAME_1": "Marlborough",			"value": 1},
+	 {"NAME_1": "Marlborough",			"value": 0},
 	 {"NAME_1": "Nelson",				"value": 0},
-	 {"NAME_1": "Northland",			"value": 0},
-	 {"NAME_1": "Otago",				"value": 1},
+	 {"NAME_1": "Northland",			"value": 1},
+	 {"NAME_1": "Otago",				"value": 0},
 	 {"NAME_1": "Southland",			"value": 0},
 	 {"NAME_1": "Taranaki",				"value": 0},
 	 {"NAME_1": "Waikato",				"value": 1},
@@ -497,20 +505,22 @@ ol li::before {
 	
 	//****** SETTINGS ******\\
 	
-	var columnWidth = 10;
+	var columnWidth = 14;
 	
 	var maxCharCount = [];
-	var minFirstRowHeight = 2.5;
+	var maxDivHeights = [];
+	
+	var minFirstRowHeight = 2.9;
 	var minRowHeight = 4;
 	
 	//smaller number = smaller height
-	var heightNumber = 0.055; 
-	var arrayHeightNumber = 0.04;
+	var heightNumber = 0.03; 
+	var arrayHeightNumber = 0.025;
 	
 	var gutterWidth = 0.3;
 	
 	//this is to compensate for the newline white space
-	var newLineAvgCharLength = 25;
+	var newLineAvgCharLength = 50;
 	
 	var keys = [];
 	
@@ -531,8 +541,8 @@ ol li::before {
 		mapHeight = "100%";
 
 	var projection = d3.geoMercator()
-		.center([19.5, -46.5])
-		.scale(780)
+		.center([22, -47.5])
+		.scale(730)
 		.rotate([-180,0]);
 
 	var svg = d3.select("#mapDiv").append("svg")
@@ -554,13 +564,13 @@ ol li::before {
 		console.log(data);
 		getKeys();
 		setContainerWidth();
-		getmaxCharCount();
 		appendBoxes();
 		generateContext();
 		generateInsightsList()
 		generateValueDriversList();
 		generateMap();
-		
+		getMaxHeights();
+		setMaxHeights();
 	}
 	
 	//****** ADD IN BOXES ******\\
@@ -577,80 +587,6 @@ ol li::before {
 		
 	}
 	
-	function getmaxCharCount(){
-		
-		var maxRowEntries = [];
-		
-		for (var i = 0; i < keys.length; i++) {
-			maxCharCount.push(0);
-			maxRowEntries.push(1); //this is 1 not zero because length doesnt start at 0?
-			
-		}
-		
-		for(var i = 0; i < keys.length; i++){
-			for(var j = 0; j < data.length; j++){
-				
-				var charCount = 0;
-				
-				if(Array.isArray(data[j][i])){ //if the tile is an array
-					
-					if(data[j][i].length > maxRowEntries[i]){
-						maxRowEntries[i] = data[j][i].length;
-					}
-					const reducer = (accumulator, currentValue) => accumulator + currentValue;
-					var flattened = data[j][i].reduce(reducer);
-					charCount = flattened.length;
-				}
-				else{
-					charCount = charCount + data[j][i].length;
-				}
-				
-				if(charCount > maxCharCount[i]){
-					maxCharCount[i] = charCount;
-				}
-			}
-		}
-		console.log(maxRowEntries);
-		
-		//reduce them to a good viewWidth size
-		for(var i = 0; i < maxCharCount.length; i++){
-		
-			if(maxRowEntries[i] > 1){ 
-				maxCharCount[i] = (maxCharCount[i] + (maxRowEntries[i] * newLineAvgCharLength)) * arrayHeightNumber; 
-			}
-			else{
-				maxCharCount[i] = maxCharCount[i] * heightNumber;
-			}
-		}
-		
-		
-		
-		//set them to at least the minimum
-		for(var i = 0; i < maxCharCount.length; i++){
-			if(i == 0){
-				console.log(maxCharCount[i]);
-				if(maxCharCount[i] < minFirstRowHeight){
-					maxCharCount[i] = minFirstRowHeight;
-				}
-			}
-			else{
-				if(maxCharCount[i] < minRowHeight){
-					maxCharCount[i] = minRowHeight;
-				}
-			}
-		}
-		
-		//Add the view widths
-		for(var i = 0; i < maxCharCount.length; i++){
-			var height = "";
-			height = height.concat(maxCharCount[i], "vw");
-			maxCharCount[i] = height;
-		}
-		
-		
-		console.log(maxCharCount);
-	}
-	
 	function generateBoxesMk4(){
 		
 		var items = [];
@@ -661,6 +597,7 @@ ol li::before {
 				//make the figure and give it classes
 				var box = document.createElement('figure'); //create a figure
 				var boxClassName = "";
+				var boxIdName = "";
 				
 				//set its width to the columnWidth
 				var boxWidth = "";
@@ -672,7 +609,13 @@ ol li::before {
 				
 				boxClassName = boxClassName.concat("column ", keys[i], "Box");
 				box.className = boxClassName;
-				box.style.height = maxCharCount[i];
+				
+				//add a figure number so that later we can access this box 
+				boxIdName = boxIdName.concat("figure", (i*data.length)+j);
+				box.id = boxIdName;
+				
+				//box.style.height = maxCharCount[i];
+				//box.style.height = maxDivHeights[i];
 				
 				var marginRight = "";
 				marginRight = marginRight.concat(gutterWidth, "vw");
@@ -685,12 +628,23 @@ ol li::before {
 					var rowHeaderDiv = document.createElement('div'); //create a Div for text
 					rowHeaderDiv.className = "rowHeaderDiv";
 					
+					var textDivIdName = "";
+					textDivIdName = textDivIdName.concat("textDiv", (i*data.length)+j);
+					rowHeaderDiv.id = textDivIdName;
+					
+					
 					//make the paragraph and give it classes
 					var rowHeader = document.createElement('P');
 					rowHeader.className = "rowHeader";
 					
 					//make the text
-					var rowHeaderText = document.createTextNode(data[j][i]);		
+					if(data[j][i] == "PainPoints"){
+						rowHeaderText = document.createTextNode("Pain Points");
+						console.log("changed rowHeaderText");
+					}
+					else{
+						var rowHeaderText = document.createTextNode(data[j][i]);
+					}	
 					
 					rowHeader.appendChild(rowHeaderText); //add the text to the paragraph
 					rowHeaderDiv.appendChild(rowHeader); //add the paragraph to the div
@@ -718,6 +672,10 @@ ol li::before {
 					var paraTextDivClassName = "";
 					paraTextDivClassName = paraTextDivClassName = (keys[i], "textDiv");
 					paraTextDiv.className = paraTextDivClassName;
+					
+					var textDivIdName = "";
+					textDivIdName = textDivIdName.concat("textDiv", (i*data.length)+j);
+					paraTextDiv.id = textDivIdName;
 					
 					if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
 						
@@ -956,7 +914,55 @@ ol li::before {
 		return string.charAt(0).toLowerCase() + string.slice(1);
 	}
 	
+	function getMaxHeights(divHeight){
+		
+		for (var i = 0; i < keys.length; i++) {
+			maxDivHeights.push(0);
+		}
+		
+		for(var i = 0; i < keys.length; i++){
+			for(var j = 0; j < data.length; j++){
+				
+				
+				var idString = "";
+				idString = idString.concat("textDiv", (i*data.length)+j); //use the TextDiv height
+				//idString = idString.concat("figure", (i*data.length)+j); //use the figure height
+				
+				var maxDivHeight = document.getElementById(idString).scrollHeight;
+					
+				if(maxDivHeight > maxDivHeights[i]){
+					maxDivHeights[i] = maxDivHeight;
+				}
+			}
+		}
+		//convert them to VWs and add "vw"
+		for(var i = 0; i < maxDivHeights.length; i++){
+			
+			maxDivHeights[i] = convertPXToVW(maxDivHeights[i] *1.09).toFixed(2);
+			maxDivHeights[i] = maxDivHeights[i].concat("vw");
+		}
+		
+		console.log(maxDivHeights);
+		
+	}
 	
+	function setMaxHeights(){
+		
+		for(var i = 0; i < keys.length; i++){
+			for(var j = 0; j < data.length; j++){
+				
+				var idString = "";
+				idString = idString.concat("figure", (i*data.length)+j);	
+				
+				document.getElementById(idString).style.height = maxDivHeights[i];
+				
+			}
+		}
+	}
+	
+	function convertPXToVW(px) {
+		return px * (100 / document.documentElement.clientWidth);
+	}
 </script>
 
 </body>
