@@ -502,56 +502,34 @@ ol li::before {
 	[];
 	
 	var data = [];
+	var maxDivHeights = [];
 	
 	//****** SETTINGS ******\\
 	
 	var columnWidth = 14;
-	
-	var maxCharCount = [];
-	var maxDivHeights = [];
-	
-	var minFirstRowHeight = 2.9;
-	var minRowHeight = 4;
-	
-	//smaller number = smaller height
-	var heightNumber = 0.03; 
-	var arrayHeightNumber = 0.025;
-	
+	var firstColumnWidth = 4;
 	var gutterWidth = 0.3;
-	
-	//this is to compensate for the newline white space
-	var newLineAvgCharLength = 50;
-	
 	var keys = [];
 	
 	//****** MAP SETTINGS ******\\
 	
 	var colours = ["#D3D3D3", "#90B0D5"]; //the colours for the gradient
-	
 	var lowestValue = 0; 
 	var highestValue = 0;
-	
 	var lowestIsZero = true;
-	
 	var minMaxArray = [];
-	
 	var map = d3.map();
-	
 	var mapWidth = "55%",
 		mapHeight = "100%";
-
 	var projection = d3.geoMercator()
 		.center([22, -47.5])
 		.scale(730)
 		.rotate([-180,0]);
-
 	var svg = d3.select("#mapDiv").append("svg")
 		.attr("width", mapWidth)
 		.attr("height", mapHeight);
-
 	var path = d3.geoPath()
 		.projection(projection);
-	
 	var colorScale = d3.scaleLinear();
 	
 	//****** MAIN ******\\
@@ -560,8 +538,7 @@ ol li::before {
 	
 	function main(theData) { 
 		
-		data = newNewData;
-		console.log(data);
+		data = newData;
 		getKeys();
 		setContainerWidth();
 		appendBoxes();
@@ -569,7 +546,6 @@ ol li::before {
 		generateInsightsList()
 		generateValueDriversList();
 		generateMap();
-		getMaxHeights();
 		setMaxHeights();
 	}
 	
@@ -599,9 +575,16 @@ ol li::before {
 				var boxClassName = "";
 				var boxIdName = "";
 				
-				//set its width to the columnWidth
-				var boxWidth = "";
-				box.style.width = boxWidth.concat(columnWidth, "vw");
+				if(j == 0){//if its the first column
+					//set its width to half the columnWidth
+					var boxWidth = "";
+					box.style.width = boxWidth.concat(firstColumnWidth, "vw");
+				}
+				else{//if its NOT the first column
+					//set its width to the columnWidth
+					var boxWidth = "";
+					box.style.width = boxWidth.concat(columnWidth, "vw");
+				}
 				
 				if(j == 0){//if its the first column
 					boxClassName = boxClassName.concat("column rowHeaderFigure ");
@@ -736,8 +719,7 @@ ol li::before {
 	function setContainerWidth(){
 		
 		//set the size of the container
-		var containerWidthNumber = (columnWidth  + gutterWidth) * (data.length);
-		console.log(containerWidthNumber);
+		var containerWidthNumber = ((columnWidth  + gutterWidth) * (data.length -1)) + (firstColumnWidth + gutterWidth);
 		containerWidth = "";
 		containerWidth = containerWidth.concat(containerWidthNumber, "vw");
 		document.getElementById("container").style.width = containerWidth;	
@@ -748,11 +730,11 @@ ol li::before {
 	}
 	
 	function generateInsightsList(){
+	
 		document.getElementById("sideDiv").style.height = document.getElementById("sonDiv").style.height;
 		
 		var list = document.createElement('ol')
 		list.id = "insightsOL"
-		
 		
 		for(var i = 0; i < insights.length; i++){
 			
@@ -779,15 +761,13 @@ ol li::before {
 			
 			list.appendChild(li);
 			document.getElementById("insightsOLDiv").appendChild(list);
-		}
-		
+		}	
 	}
 	
 	function generateValueDriversList(){
 		
 		var list = document.createElement('ol')
 		list.id = "valueDriversOL"
-		
 		
 		for(var i = 0; i < valueDrivers.length; i++){
 		
@@ -808,10 +788,8 @@ ol li::before {
 				else{
 					var listText = document.createTextNode(valueDrivers[i][j]);
 					li.appendChild(listText);
-				}
-				
-			}
-				
+				}	
+			}	
 			list.appendChild(li);
 			document.getElementById("valueDriversOLDiv").appendChild(list);
 		}
@@ -900,21 +878,7 @@ ol li::before {
 		
 	}
 	
-	function getKeys(){
-		
-		for(var i = 0; i < data[0].length; i++){ //go through first data column
-			keys.push(decapitalizeFirstLetter(data[0][i]));
-		}
-	}
-	
-	function capitalizeFirstLetter(string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
-	function decapitalizeFirstLetter(string) {
-		return string.charAt(0).toLowerCase() + string.slice(1);
-	}
-	
-	function getMaxHeights(divHeight){
+	function setMaxHeights(){
 		
 		for (var i = 0; i < keys.length; i++) {
 			maxDivHeights.push(0);
@@ -944,10 +908,6 @@ ol li::before {
 		
 		console.log(maxDivHeights);
 		
-	}
-	
-	function setMaxHeights(){
-		
 		for(var i = 0; i < keys.length; i++){
 			for(var j = 0; j < data.length; j++){
 				
@@ -960,9 +920,24 @@ ol li::before {
 		}
 	}
 	
+	function getKeys(){
+		for(var i = 0; i < data[0].length; i++){ //go through first data column
+			keys.push(decapitalizeFirstLetter(data[0][i]));
+		}
+	}
+	
+	function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+	
+	function decapitalizeFirstLetter(string) {
+		return string.charAt(0).toLowerCase() + string.slice(1);
+	}
+	
 	function convertPXToVW(px) {
 		return px * (100 / document.documentElement.clientWidth);
 	}
+	
 </script>
 
 </body>
