@@ -21,8 +21,8 @@ li {
 body {
 	
 	margin: 0;
-  padding: 0;
-  height: 100%;
+	padding: 0;
+	height: 100%;
 	
 }
 
@@ -44,7 +44,7 @@ body {
 	height: auto;
 	min-height:100%;
 	width: auto;
-	min-width:28vw;
+	min-width:22vw;
 	display: flex;
     flex-direction: column;
 	background-color: rgb(244 245 247);
@@ -56,9 +56,9 @@ body {
 }
 
 #sideSonDiv{
-	margin-right: 2vw;
-	margin-left: 2vw;
-	margin-bottom: 2vw;
+	margin-right: 1.2vw;
+	margin-left: 1.2vw;
+	margin-bottom: 1vw;
 }
 
 #sonDiv{
@@ -66,12 +66,12 @@ body {
 	flex-direction: column;
 	width: auto;
 	min-width: 100%;
-	margin-left: 2vw;
+	margin-left: 1.5vw;
 }
 
 #sideTitleDiv{
 	height:4%;
-	font-size: 2vw;
+	font-size: 1.5vw;
 	width: 100%;
 	margin-bottom: 0vw;
 	font-family: 'Roboto', sans-serif !important;
@@ -86,7 +86,7 @@ body {
 }
 
 #contextDiv{
-	height:16vw;
+	height:11vw;
 }
 
 #contextTextDiv{
@@ -94,26 +94,26 @@ body {
 	margin-top: -17.5vw;
 }
 #context{
-	font-size: 0.9vw !important;
+	font-size: 0.7vw !important;
 	margin-left: 1vw;
-	width:90%;
+	width:77%;
 }
 
 #mapDiv{
-	height: 18vw;
+	height: 17vw;
 	position: relative;
     left: 50%;
 }
 
 #mapTitleDiv{
 	position: absolute;
-	top:5vw;
-	left:3vw;
+	top:3vw;
+	left:2vw;
 }
 
 #mapTitleText{
 	font-family: 'Open Sans', sans-serif;
-	font-size: 1.2vw !important;
+	font-size: 0.9vw !important;
     margin-left: 1vw;
 	margin: 0;
 	color: rgba(0,89,55,1);
@@ -138,18 +138,25 @@ body {
 	height: 40%;
 }
 
+#additionalInfoDiv{
+	float: left;
+	z-index: 1;
+	height: 40%;
+}
+
 #insightsHeaderDiv{
 	font-family: 'Roboto', sans-serif !important;
-	font-size: 1vw;
+	font-size: 0.8vw;
 }
 
 #valueDriversHeaderDiv{
 	font-family: 'Roboto', sans-serif !important;
-	font-size: 1vw;
+	font-size: 0.8vw;
 }
 
-#insightsOLDiv{
-	
+#additionalInfoHeaderDiv{
+	font-family: 'Roboto', sans-serif !important;
+	font-size: 0.8vw;
 }
 
 .canvasWrapper{
@@ -167,7 +174,7 @@ body {
 }
 
 .title{
-	font-size: 2vw;
+	font-size: 1.5vw;
 	width: 100%;
 	margin: 1vw;
 	margin-left:0;
@@ -176,7 +183,7 @@ body {
 
 #logoDiv{
 	height: 70%;
-	width: 17%;
+	width: 30%;
 }
 
 #logo{
@@ -187,7 +194,7 @@ body {
 	width: 45%;
 	height: 35%;
 	margin-top:0.25vw;
-	font-size: 0.9vw;
+	font-size: 0.7vw;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -197,13 +204,13 @@ body {
 
 .insightPointTitle{
 	color: black;
-	font-size: 0.7vw !important;
+	font-size: 0.55vw !important;
 	font-family: 'Noto Sans JP', sans-serif;
 }
 .valueDriversPointTitle{
 	font-family: 'Noto Sans JP', sans-serif;
 	color: black;
-	font-size: 0.7vw !important;
+	font-size: 0.55vw !important;
 }
 
 .rowHeadersDiv{
@@ -217,20 +224,20 @@ body {
 	float: left;
 	margin-bottom: 1vw;
 	margin-right: 4vw;
-	margin-left: -10vw;
 	overflow: visible !important;
 }
 
 .column{
 	background-color: white;
 	margin: 0vw;
+	margin-bottom: 0.3vw;
 	display:inline-block;
 }
 
 
 .rowHeaderText{
 	padding-top: 0vw;
-	font-size: 0.7vw !important;
+	font-size: 0.55vw !important;
 	margin-top:0.5vw;
 	text-align-last: right;
 	color: rgba(0,89,104,0.8);
@@ -241,10 +248,8 @@ body {
 	top: 0vw;
 	right: 0;
 	text-align: left;
-	/* font-family: 'Overpass', sans-serif; */
-	/* font-family: 'Montserrat', sans-serif; */
 	font-family: 'Open Sans', sans-serif;
-	font-size: 0.6vw;
+	font-size: 0.45vw;
 	z-index:2;
 	display:table;
 	width: 100%;
@@ -254,7 +259,7 @@ body {
 .rowHeader{
 	font-weight: bold;
 	padding-top: 0vw;
-	font-size: 0.6vw !important;
+	font-size: 0.5vw !important;
 	margin-top:0.4vw;
 	text-align-last: right;
 	color: #4384a2fa;
@@ -265,7 +270,11 @@ body {
 	margin: 0;
 	float: right;
 	margin-right: 0.5vw;
+}
 
+.textDiv{
+	height: auto;
+	white-space: break-spaces; 
 }
 
 .quoteText{
@@ -274,20 +283,14 @@ body {
 
 .stageText{
 	padding-top: 0vw;
-	font-size:0.9vw;
-	margin-top:0.5vw;;
-	width: 90%;
+	font-size:0.7vw;
 	margin-top: 0.2vw !important;
 	font-family: 'Noto Sans JP', sans-serif;
 }
 
 .subStageText{
-	font-size: 0.9vw;
+	font-size: 0.7vw;
 	color: #4384a2fa;
-}
-
-.improvementsText{
-
 }
 
 .line{
@@ -306,7 +309,6 @@ body {
 }
 
 .paraText{
-    margin-top: 0.3vw;
     margin-bottom: 0vw;
 	width:90%;
 	margin-left: 0.3vw;
@@ -341,13 +343,13 @@ li{
 ol {
   list-style: none;
   counter-reset: my-awesome-counter;
-  margin-right: 2vw;
+  margin-right: 1vw;
   padding-left: 0;
-  margin-left: 1vw;
+  margin-left: 0.5vw;
 }
 ol li {
   margin-bottom: 0.6vw !important;
-  font-size: 0.8vw;
+  font-size: 0.6vw;
   font-family: 'Open Sans', sans-serif;
   
 }
@@ -384,7 +386,7 @@ ol li::before {
 }
 
 .versionAndDateSpan{
-	font-size: 0.8vw;
+	font-size: 0.6vw;
 	font-style: italic;
 }
 
@@ -395,9 +397,9 @@ ol li::before {
 #footnote1, #footnote2{
 	font-size: 0.6vw !important;
 }
-.textDiv{
-	height: auto;
-	white-space: break-spaces;: 
+
+.lineChartSVG{
+	
 }
 
 </style>
@@ -422,7 +424,7 @@ ol li::before {
 	<div id="sideDiv">
 		<div id="sideSonDiv">
 			<div id="sideTitleDiv">
-				<p id="sideTitle"></p>
+				<p id="sideTitle">Vehicle Inspectors</p>
 			</div>
 			<div id="contextDiv">
 				<div id="mapDiv">
@@ -447,6 +449,13 @@ ol li::before {
 				<div id="valueDriversOLDiv">
 				</div>
 			</div>
+			<div id="additionalInfoDiv">
+				<div id="additionalInfoHeaderDiv">
+					<!-- <p>Additional Information</p> -->
+				</div>
+				<div id="additionalInfoOLDiv"> 
+				</div>
+			</div>
 		</div>
 	</div>
 	<div id="sonDiv">
@@ -456,16 +465,16 @@ ol li::before {
 			</div>
 			<div id="titleDivLine"></div>
 			<div class="createdByDiv">
-				<p id="createdBy">Developed by <span class="versionAndDateSpan"><br>2021 - Version 1.0</span></p>
+				<p id="createdBy">Developed by [] <span class="versionAndDateSpan"><br>2021 - Version 1.0</span></p>
 			</div>
 			<div id="logoDiv">
-				<img id="logo" src="WKLogo.jpg">
+				<img id="logo" src="">
 			</div>
 		</div>
 		<div id="container">
 		</div>
 		<div id="footnotesDiv">
-			<p id="footnote1" class="text"><strong>*</strong> - </p>
+			<p id="footnote1" class="text"><strong>*</strong> - Processing and response times were likely increased due to the disruption caused by the COVID-19 Pandemic</p>
 		</div>
 	</div>
 </div>
@@ -474,31 +483,27 @@ ol li::before {
 	var mapData =[
 	 {"NAME_1": "Auckland",				"value": 0},
 	 {"NAME_1": "Bay of Plenty",		"value": 1},
-	 {"NAME_1": "Canterbury",			"value": 0},
+	 {"NAME_1": "Canterbury",			"value": 1},
 	 {"NAME_1": "Gisborne",				"value": 0},
 	 {"NAME_1": "Hawke's Bay",			"value": 0},
 	 {"NAME_1": "Manawatu-Wanganui",	"value": 0},
 	 {"NAME_1": "Marlborough",			"value": 0},
-	 {"NAME_1": "Nelson",				"value": 0},
+	 {"NAME_1": "Nelson",				"value": 1},
 	 {"NAME_1": "Northland",			"value": 1},
 	 {"NAME_1": "Otago",				"value": 0},
-	 {"NAME_1": "Southland",			"value": 0},
+	 {"NAME_1": "Southland",			"value": 1},
 	 {"NAME_1": "Taranaki",				"value": 0},
 	 {"NAME_1": "Waikato",				"value": 1},
 	 {"NAME_1": "Wellington",			"value": 1},
 	 {"NAME_1": "West Coast",			"value": 0}
     ]
 	
-	
 	var context = 	[];
 	
 	var insights =
 	[];
 	
-	var valueDrivers =
-	[];
-	
-	var newNewData =
+	var newData =
 	[];
 	
 	var data = [];
@@ -506,8 +511,8 @@ ol li::before {
 	
 	//****** SETTINGS ******\\
 	
-	var columnWidth = 14;
-	var firstColumnWidth = 4;
+	var columnWidth = 10;
+	var firstColumnWidth = 3;
 	var gutterWidth = 0.3;
 	var keys = [];
 	
@@ -522,8 +527,8 @@ ol li::before {
 	var mapWidth = "55%",
 		mapHeight = "100%";
 	var projection = d3.geoMercator()
-		.center([22, -47.5])
-		.scale(730)
+		.center([35, -52]) //.center([22, -47.5])
+		.scale(540)
 		.rotate([-180,0]);
 	var svg = d3.select("#mapDiv").append("svg")
 		.attr("width", mapWidth)
@@ -545,8 +550,10 @@ ol li::before {
 		generateContext();
 		generateInsightsList()
 		generateValueDriversList();
+		//generateAdditionalInfoList();
 		generateMap();
 		setMaxHeights();
+		//lineChart();
 	}
 	
 	//****** ADD IN BOXES ******\\
@@ -794,6 +801,31 @@ ol li::before {
 			document.getElementById("valueDriversOLDiv").appendChild(list);
 		}
 	}
+	
+	function generateAdditionalInfoList(){
+		
+		var list = document.createElement('ol')
+		list.id = "additionalInfoOL"
+		
+		for(var i = 0; i < additionalInfo.length; i++){
+		
+			var li = document.createElement('li');
+			var liDiv = document.createElement('div');
+			liDiv.className = "liLine";
+			li.appendChild(liDiv);
+			
+			var anchor = document.createElement("A");
+			var listText = document.createTextNode(additionalInfo[i][0]);
+			anchor.appendChild(listText);
+			anchor.setAttribute("href", additionalInfo[i][1]);
+			li.appendChild(anchor);
+			
+			list.appendChild(li);
+			document.getElementById("additionalInfoOLDiv").appendChild(list);
+		}
+	}
+		
+	
 	function generateContext(){
 		
 		var contextTextDiv = document.createElement('div');
@@ -902,7 +934,7 @@ ol li::before {
 		//convert them to VWs and add "vw"
 		for(var i = 0; i < maxDivHeights.length; i++){
 			
-			maxDivHeights[i] = convertPXToVW(maxDivHeights[i] *1.09).toFixed(2);
+			maxDivHeights[i] = convertPXToVW(maxDivHeights[i] *1.05).toFixed(2); //had to add the multiplier then cos for some reason its not fitting properly
 			maxDivHeights[i] = maxDivHeights[i].concat("vw");
 		}
 		
@@ -937,7 +969,98 @@ ol li::before {
 	function convertPXToVW(px) {
 		return px * (100 / document.documentElement.clientWidth);
 	}
-	
+
+
+	function lineChart(){
+		
+		var lineChartData = [
+			{x:1, y:40, feeling: "Sad"},
+			{x:2, y:58, feeling: "Happy"},
+			{x:3, y:97, feeling: "Sad"},
+			{x:4, y:117, feeling: "Happy"},
+			{x:5, y:98, feeling: "Sad"},
+			{x:6, y:120, feeling: "Sad"},
+			{x:7, y:84, feeling: "Sad"}     
+		];
+		
+		var margin = {top: 30, right: 50, bottom: 30, left: 30};
+		
+		var containerWidthInPx = document.getElementById('container').getBoundingClientRect().width;
+		var firstColumnWidthInPx = document.getElementById('container').firstElementChild.getBoundingClientRect().width;
+		var columnWidthInPx = document.getElementById('container').lastElementChild.getBoundingClientRect().width;
+		var gutterWidthInPX = (containerWidthInPx - (columnWidthInPx * (data.length -1) - firstColumnWidthInPx)) / data.length;
+		
+		console.log("containerWidthInPx: " + containerWidthInPx + " " +
+					"firstColumnWidthInPx: " + firstColumnWidthInPx + " " +
+					"columnWidthInPx: " + columnWidthInPx + " " +
+					"gutterWidthInPX: " + gutterWidthInPX + " "
+					);
+		
+		
+		var	lineChartSvgWidth  = containerWidthInPx - firstColumnWidthInPx;
+		var lineChartSvgHeight = 100;
+		
+		var offset = columnWidthInPx + gutterWidthInPX
+		
+		var lineChartSvg = d3.select("#container").append("svg")
+			.classed("lineChartSVG", true)
+			.attr('width', lineChartSvgWidth)
+			.attr('height', lineChartSvgHeight + margin.top);
+		
+		var lineChartWidth = lineChartSvgWidth,
+			lineChartHeight = 100,
+			labelPadding = 10;
+
+		var axisOpacity = 0;
+
+		var g = lineChartSvg.append("g")
+			.attr("transform", "translate(" + -(offset/4) + "," + 20 + ")")
+
+		var x = d3.scaleLinear()
+		  .domain([0, d3.max(lineChartData, d => d.x)])
+		  .range([0, lineChartWidth]);
+
+		var y = d3.scaleLinear()
+			.domain([0, d3.max(lineChartData, d => d.y)])
+			.range([lineChartHeight, 0]);
+
+		g.append("g")
+			.attr("class", "axis axis--x")
+			.attr("transform", "translate(0," + lineChartHeight + ")")
+			.call(d3.axisBottom(x))
+			.style("opacity", axisOpacity);
+		
+		line = d3.line()
+			.x(d => x(d.x))
+			.y(d => y(d.y))
+		
+		g.append("path")
+			.datum(lineChartData)
+			.attr("fill", "none")
+			.attr("stroke", "steelblue")
+			.attr("stroke-width", 1.5)
+			.attr("stroke-linejoin", "round")
+			.attr("stroke-linecap", "round")
+			.attr("d", line);
+		
+		g.append("g")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", 12)
+			.attr("stroke-linecap", "round")
+			.attr("stroke-linejoin", "round")
+			.attr("text-anchor", "middle")
+		.selectAll("text")
+		.data(lineChartData)
+		.join("text")
+			.text(d => d.feeling)
+			.attr("dy", "0.35em")
+			.attr("x", d => x(d.x))
+			.attr("y", d => y(d.y))
+		.clone(true).lower()
+			.attr("fill", "none")
+			.attr("stroke", "white")
+			.attr("stroke-width", labelPadding);
+	}
 </script>
 
 </body>
