@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Journey Map</title>
+
+<style>
+
+p {
+	line-height: 1.4;
+}
+li {
+	line-height: 1.4;
+}
+
+
+body {
+	
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	
+}
+
+#parentDiv{
+	display: flex;
+    flex-direction: row;
+	margin: .5vw;
+}
+
+.headerDiv{
+	height:8vw;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+#sideDiv{
+	height: auto;
+	min-height:100%;
+	width: auto;
+	min-width:22vw;
+	display: flex;
+    flex-direction: column;
+	background-color: rgb(244 245 247);
+	z-index: 1;
+	border-radius: 0.6vw;
+	border-color: rgba(215,228,244,0.9);
+	border-right-width: 0.5vw;
+	border-right-style: solid;
+}
+
+#sideSonDiv{
+	margin-right: 1.2vw;
+	margin-left: 1.2vw;
+	margin-bottom: 1vw;
+}
+
+#sonDiv{
+	display: flex;
+	flex-direction: column;
+	width: auto;
+	min-width: 100%;
+	margin-left: 1.5vw;
+}
+
+#sideTitleDiv{
+	height:4%;
+	font-size: 1.5vw;
+	width: 100%;
+	margin-bottom: 0vw;
+	font-family: 'Roboto', sans-serif !important;
+}
+
+#sideTitle{
+	margin-top: 1vw;
+	margin-right:1vw;
+	margin-left: 0vw;
+	margin-bottom: 0vw;
+	color: rgba(0,89,55,1);
+}
+
+#contextDiv{
+	height:11vw;
+}
+
+#contextTextDiv{
+	width: 55%;
+	margin-top: -17.5vw;
+}
+#context{
+	font-size: 0.7vw !important;
+	margin-left: 1vw;
+	width:77%;
+}
+
+#mapDiv{
+	height: 17vw;
+	position: relative;
+    left: 50%;
+}
+
+#mapTitleDiv{
+	position: absolute;
+	top:3vw;
+	left:2vw;
+}
+
+#mapTitleText{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.9vw !important;
+    margin-left: 1vw;
+	margin: 0;
+	color: rgba(0,89,55,1);
+}
+
+.map{
+	max-width:100%
+}
+
+#contextSpan{
+	font-weight: bold;
+}
+
+#insightsDiv{
+	z-index: 1;
+	height: 36%;
+	margin-bottom: 1vw;
+}
+#valueDriversDiv{
+	float: left;
+	z-index: 1;
+	height: 40%;
+}
+
+#additionalInfoDiv{
+	float: left;
+	z-index: 1;
+	height: 40%;
+}
+
+#insightsHeaderDiv{
+	font-family: 'Roboto', sans-serif !important;
+	font-size: 0.8vw;
+}
+
+#valueDriversHeaderDiv{
+	font-family: 'Roboto', sans-serif !important;
+	font-size: 0.8vw;
+}
+
+#additionalInfoHeaderDiv{
+	font-family: 'Roboto', sans-serif !important;
+	font-size: 0.8vw;
+}
+
+.canvasWrapper{
+	width: 70vw;
+	height: 100%;
+	margin-left: -2.5vw;
+}
+
+.titleDiv{
+	width: 45%;
+	margin-bottom: 0;
+	margin-top: 0;
+	max-height: 48%;
+	
+}
+
+.title{
+	font-size: 1.5vw;
+	width: 100%;
+	margin: 1vw;
+	margin-left:0;
+	font-family: 'Roboto', sans-serif;
+}
+
+#logoDiv{
+	height: 70%;
+	width: 30%;
+}
+
+#logo{
+	height: 100%;
+}
+
+.createdByDiv{
+	width: 45%;
+	height: 35%;
+	margin-top:0.25vw;
+	font-size: 0.7vw;
+	font-family: 'Roboto', sans-serif;
+}
+
+#createdBy{
+    margin-top: 0;
+}
+
+.insightPointTitle{
+	color: black;
+	font-size: 0.55vw !important;
+	font-family: 'Noto Sans JP', sans-serif;
+}
+.valueDriversPointTitle{
+	font-family: 'Noto Sans JP', sans-serif;
+	color: black;
+	font-size: 0.55vw !important;
+}
+
+.rowHeadersDiv{
+	width: 6vw;
+    position: relative;
+	margin-top: 0.3vw;
+}
+
+
+#container{
+	float: left;
+	margin-bottom: 1vw;
+	margin-right: 4vw;
+	overflow: visible !important;
+}
+
+.column{
+	background-color: white;
+	margin: 0vw;
+	margin-bottom: 0.3vw;
+	display:inline-block;
+}
+
+
+.rowHeaderText{
+	padding-top: 0vw;
+	font-size: 0.55vw !important;
+	margin-top:0.5vw;
+	text-align-last: right;
+	color: rgba(0,89,104,0.8);
+}
+
+.text{
+	left: 0.5vw;
+	top: 0vw;
+	right: 0;
+	text-align: left;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.45vw;
+	z-index:2;
+	display:table;
+	width: 100%;
+	
+}
+
+.rowHeader{
+	font-weight: bold;
+	padding-top: 0vw;
+	font-size: 0.5vw !important;
+	margin-top:0.4vw;
+	text-align-last: right;
+	color: #4384a2fa;
+}
+
+.rowHeaderDiv{
+	width: 5vw;
+	margin: 0;
+	float: right;
+	margin-right: 0.5vw;
+}
+
+.textDiv{
+	height: auto;
+	white-space: break-spaces; 
+}
+
+.quoteText{
+	font-style: italic;
+}
+
+.stageText{
+	padding-top: 0vw;
+	font-size:0.7vw;
+	margin-top: 0.2vw !important;
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+.subStageText{
+	font-size: 0.7vw;
+	color: #4384a2fa;
+}
+
+.line{
+	width: 95%;
+	height: 0;
+	top: 1%;
+	left: 0%;
+	border-color: rgba(0,89,104,0.3);
+	border-bottom-width: 0.15vw;
+	border-bottom-style: solid;
+}
+
+.my-sizer-element { 
+	margin-left: 0.8vw;
+	visibility: hidden;
+}
+
+.paraText{
+    margin-bottom: 0vw;
+	width:90%;
+	margin-left: 0.3vw;
+}
+
+.list{
+	width:85%;
+	padding-left: 1vw;
+	margin-top: 0.3vw;
+	margin-left: 0;
+}
+
+ul {
+  list-style: none; /* Remove default bullets */
+}
+
+ul li::before {
+	content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+	color: gray; /* Change the color */
+	font-weight: bold; /* If you want it to be bold */
+	display: inline-block; /* Needed to add space between the bullet and the text */
+	width: 1em; /* Also needed for space (tweak if needed) */
+	margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+
+li{
+    margin-bottom: 0.5vw;
+}
+
+
+
+ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+  margin-right: 1vw;
+  padding-left: 0;
+  margin-left: 0.5vw;
+}
+ol li {
+  margin-bottom: 0.6vw !important;
+  font-size: 0.6vw;
+  font-family: 'Open Sans', sans-serif;
+  
+}
+ol li::before {
+  color: #4384a2fa;
+  font-weight: bold;
+}
+
+.liLine {
+  border-color: rgba(0,89,104,0.7);
+  border-top-width: 0.15vw;
+  border-top-style: solid;
+  width: 10%;
+  margin-bottom: 0.5vw;  
+}
+
+.sideDivLine{
+	width: 95%;
+	height: 0;
+	top: 1%;
+	left: 0%;
+	border-color: rgba(0,89,104,0.1);
+	border-bottom-width: 0.2vw;
+	border-bottom-style: solid;
+}
+
+#titleDivLine{
+	width: 5%;
+	height: 0;
+	margin-left: 0%;
+	border-color: rgba(0,89,104,0.7);
+	border-bottom-width: 0.2vw;
+	border-bottom-style: solid;
+}
+
+.versionAndDateSpan{
+	font-size: 0.6vw;
+	font-style: italic;
+}
+
+#footnotesDiv{
+	margin-top:-1vw;
+}
+
+#footnote1, #footnote2{
+	font-size: 0.6vw !important;
+}
+
+.lineChartSVG{
+	
+}
+
+</style>
+</head>
+
+<body>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://unpkg.com/topojson@3"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald:700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+
+<div id="parentDiv">
+	<div id="sideDiv">
+		<div id="sideSonDiv">
+			<div id="sideTitleDiv">
+				<p id="sideTitle">Vehicle Inspectors</p>
+			</div>
+			<div id="contextDiv">
+				<div id="mapDiv">
+					<div id="mapTitleDiv">
+						<p id="mapTitleText"><strong>N=4</strong></p>
+					</div>
+				</div>
+			</div>
+			<div class="sideDivLine"></div>
+			<div id="insightsDiv">
+				<div id="insightsHeaderDiv">
+					<p class="insightsTitle">Key Insights</p>
+				</div>
+				<div id="insightsOLDiv">
+				</div>
+			</div>
+			<div class="sideDivLine"></div>
+			<div id="valueDriversDiv">
+				<div id="valueDriversHeaderDiv">
+					<p>Value Drivers</p>
+				</div>
+				<div id="valueDriversOLDiv">
+				</div>
+			</div>
+			<div id="additionalInfoDiv">
+				<div id="additionalInfoHeaderDiv">
+					<!-- <p>Additional Information</p> -->
+				</div>
+				<div id="additionalInfoOLDiv"> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="sonDiv">
+		<div id="headerDiv" class="headerDiv">
+			<div class="titleDiv">
+				<p class="title">Understanding the Customer Experience</p>
+			</div>
+			<div id="titleDivLine"></div>
+			<div class="createdByDiv">
+				<p id="createdBy">Developed by [] <span class="versionAndDateSpan"><br>2021 - Version 1.0</span></p>
+			</div>
+			<div id="logoDiv">
+				<img id="logo" src="">
+			</div>
+		</div>
+		<div id="container">
+		</div>
+		<div id="footnotesDiv">
+			<p id="footnote1" class="text"><strong>*</strong> - Processing and response times were likely increased due to the disruption caused by the COVID-19 Pandemic</p>
+		</div>
+	</div>
+</div>
+<script>
+	
+		var mapData =[
+	 {"NAME_1": "Auckland",				"value": 0},
+	 {"NAME_1": "Bay of Plenty",		"value": 1},
+	 {"NAME_1": "Canterbury",			"value": 0},
+	 {"NAME_1": "Gisborne",				"value": 0},
+	 {"NAME_1": "Hawke's Bay",			"value": 0},
+	 {"NAME_1": "Manawatu-Wanganui",	"value": 0},
+	 {"NAME_1": "Marlborough",			"value": 0},
+	 {"NAME_1": "Nelson",				"value": 0},
+	 {"NAME_1": "Northland",			"value": 1},
+	 {"NAME_1": "Otago",				"value": 0},
+	 {"NAME_1": "Southland",			"value": 0},
+	 {"NAME_1": "Taranaki",				"value": 0},
+	 {"NAME_1": "Waikato",				"value": 1},
+	 {"NAME_1": "Wellington",			"value": 1},
+	 {"NAME_1": "West Coast",			"value": 0}
+    ]
+	
+	var context = 	[
+					"[Name of the title]", 
+					" is based on 1:1 interviews with individuals across the country who..."
+					];
+	
+	var insights =
+	[
+		[
+			"Insight 1",
+			"Text goes here",
+		],
+		[
+			"Insight 2",
+			"Text goes here",
+		],
+		[
+			"Insight 3",
+			"Text goes here",
+		],
+		[
+			"Insight 4",
+			"Text goes here",
+		],
+		[
+			"Insight 5",
+			"Text goes here"
+		]
+	];
+	
+	var valueDrivers =
+	[
+		[
+			"Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. Quisque rhoncus metus eget velit faucibus, nec congue est bibendum. We talk about the value here yes we do. yes we do.",
+		],
+		[
+			"Another Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do. Sed at dui nec erat vehicula congue. Vestibulum volutpat quam ligula.",
+		],
+		[
+			"The Third Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. We talk about the value here yes we do. yes we do. Nulla in mi turpis. Vestibulum aliquam, ex et interdum aliquam, ante turpis imperdiet mi, sit amet lobortis",
+		],
+		[
+			"And Another Value Driver",
+			"The Value Driver goes here and it will be a somewhat long bit of text. Nulla vel est eget augue efficitur pharetra. Nam imperdiet nunc quis tortor aliquet posuere. Nam placerat bibendum leo, nec elementum lacus mollis sed.",
+		],
+		[
+			"The Final Value Driver",
+			"Nulla id odio magna. Vestibulum malesuada tortor non tincidunt molestie. Maecenas non odio lacinia, tincidunt nibh suscipit, eleifend neque. We talk about the value here yes we do. yes we do.",
+		],
+	];
+	
+	var additionalInfo =
+	[
+		[
+			"This is a test",
+			"https://www.w3schools.com",
+		],
+		[
+			"This is another test",
+			"https://www.w3schools.com",
+		]
+	];
+	
+	var newData =
+	[
+		[
+			"Stage",
+			"Behaviour",
+			"Quote", 
+			"Needs",
+			"PainPoints",
+			"Feelings"
+		],
+		[
+			"Column 1",
+			[
+				"Text goes here",
+				"Text goes here",
+			],
+			[
+				"Text goes here",
+				"Text goes here",
+				"Text goes here" 
+			],
+			"Text goes here",
+			"Text goes here",
+			"Text goes here"
+		],
+		[
+			"Column 2",
+			[
+				"Text goes here",
+				"Text goes here",
+				"Text goes here"
+			],
+			"Text goes here",
+			[
+				"Text goes here",
+				"Text goes here"
+			],
+			"Text goes here",
+			"Text goes here"
+		],
+		[
+			"Column 3",
+			[
+				"Text goes here",
+				"Text goes here"
+			],
+			[
+				"Text goes here",
+				"Text goes here",
+				"Text goes here",
+				"Text goes here"
+			],
+			"Text goes here",
+			[
+				"Text goes here",
+				"Text goes here"
+			],
+			"Text goes here"
+		],
+		[
+			"Column 4",
+			"Text goes here",
+			[
+				"Text goes here",
+				"Text goes here"
+			],
+			"Text goes here",
+			"Text goes here",
+			"Text goes here"
+		],
+		[
+			"Column 5",
+			[
+				"Text goes here",
+				"Text goes here"
+			],
+			[
+				"Text goes here",
+				"Text goes here"
+			],
+			"Text goes here",
+			"Text goes here",
+			"Text goes here"
+		],
+		[
+			"Column 6",
+			[
+				"Text goes here",
+				"Text goes here"
+			],
+			[
+				"Text goes here",
+				"Text goes here",
+				"Text goes here",
+				"Text goes here"
+			],
+			[
+				"Text goes here",
+				"Text goes here"
+			],
+			[
+				"Text goes here",
+				"Text goes here",
+				"Text goes here",
+				"Text goes here",
+				"Text goes here"
+			],
+			[
+				"Text goes here",
+				"Text goes here",
+				"Text goes here"
+			]
+		],
+		[
+			"Column 7",
+			[
+				"Text goes here",
+				"Text goes here",
+				"Text goes here",
+				"Text goes here"
+			],
+			[
+				"Text goes here",
+				"Text goes here",
+				"Text goes here"
+			],
+			"Text goes here",
+			"Text goes here",
+			"Text goes here"
+		]
+	];
+	
+	var data = [];
+	var maxDivHeights = [];
+	
+	//****** SETTINGS ******\\
+	
+	var columnWidth = 10;
+	var firstColumnWidth = 3;
+	var gutterWidth = 0.3;
+	var keys = [];
+	
+	//****** MAP SETTINGS ******\\
+	
+	var colours = ["#D3D3D3", "#90B0D5"]; //the colours for the gradient
+	var lowestValue = 0; 
+	var highestValue = 0;
+	var lowestIsZero = true;
+	var minMaxArray = [];
+	var map = d3.map();
+	var mapWidth = "55%",
+		mapHeight = "100%";
+	var projection = d3.geoMercator()
+		.center([35, -52]) //.center([22, -47.5])
+		.scale(540)
+		.rotate([-180,0]);
+	var svg = d3.select("#mapDiv").append("svg")
+		.attr("width", mapWidth)
+		.attr("height", mapHeight);
+	var path = d3.geoPath()
+		.projection(projection);
+	var colorScale = d3.scaleLinear();
+	
+	//****** MAIN ******\\
+
+	main();
+	
+	function main(theData) { 
+		
+		data = newData;
+		getKeys();
+		setContainerWidth();
+		appendBoxes();
+		generateContext();
+		generateInsightsList()
+		generateValueDriversList();
+		//generateAdditionalInfoList();
+		generateMap();
+		setMaxHeights();
+		//lineChart();
+	}
+	
+	//****** ADD IN BOXES ******\\
+	
+	function appendBoxes(){
+		
+		var elements = generateBoxesMk4();
+		
+		var container = document.getElementById("container");
+		
+		for(var i = 0; i < elements.length; i++){
+			container.appendChild(elements[i]);
+		}
+		
+	}
+	
+	function generateBoxesMk4(){
+		
+		var items = [];
+		
+		for(var i = 0; i < keys.length; i++){
+			for(var j = 0; j < data.length; j++){
+				
+				//make the figure and give it classes
+				var box = document.createElement('figure'); //create a figure
+				var boxClassName = "";
+				var boxIdName = "";
+				
+				if(j == 0){//if its the first column
+					//set its width to half the columnWidth
+					var boxWidth = "";
+					box.style.width = boxWidth.concat(firstColumnWidth, "vw");
+				}
+				else{//if its NOT the first column
+					//set its width to the columnWidth
+					var boxWidth = "";
+					box.style.width = boxWidth.concat(columnWidth, "vw");
+				}
+				
+				if(j == 0){//if its the first column
+					boxClassName = boxClassName.concat("column rowHeaderFigure ");
+				}
+				
+				boxClassName = boxClassName.concat("column ", keys[i], "Box");
+				box.className = boxClassName;
+				
+				//add a figure number so that later we can access this box 
+				boxIdName = boxIdName.concat("figure", (i*data.length)+j);
+				box.id = boxIdName;
+				
+				//box.style.height = maxCharCount[i];
+				//box.style.height = maxDivHeights[i];
+				
+				var marginRight = "";
+				marginRight = marginRight.concat(gutterWidth, "vw");
+				box.style.marginRight = marginRight;
+				
+				
+				if(j == 0){//if its the first column
+					
+					//make the text div and give it classes
+					var rowHeaderDiv = document.createElement('div'); //create a Div for text
+					rowHeaderDiv.className = "rowHeaderDiv";
+					
+					var textDivIdName = "";
+					textDivIdName = textDivIdName.concat("textDiv", (i*data.length)+j);
+					rowHeaderDiv.id = textDivIdName;
+					
+					
+					//make the paragraph and give it classes
+					var rowHeader = document.createElement('P');
+					rowHeader.className = "rowHeader";
+					
+					//make the text
+					if(data[j][i] == "PainPoints"){
+						rowHeaderText = document.createTextNode("Pain Points");
+						console.log("changed rowHeaderText");
+					}
+					else{
+						var rowHeaderText = document.createTextNode(data[j][i]);
+					}	
+					
+					rowHeader.appendChild(rowHeaderText); //add the text to the paragraph
+					rowHeaderDiv.appendChild(rowHeader); //add the paragraph to the div
+
+					box.appendChild(rowHeaderDiv); //add the div to box
+					
+				}
+				else{//if its any of the other columns
+				
+					if(i != 0){//if its not the top row then create the line and give it a class
+						var line = document.createElement('div');
+						line.className = "line";
+						
+						//if the box up and right of it is blank then make your line connect up
+
+						if(j < data.length -1 && data[j+1][i-1] === ""){
+							line.style.width = "140%";
+						}
+						
+						box.appendChild(line);
+					}
+					
+					//make the text div and give it classes
+					var paraTextDiv = document.createElement('div'); //create a Div for text
+					var paraTextDivClassName = "";
+					paraTextDivClassName = paraTextDivClassName = (keys[i], "textDiv");
+					paraTextDiv.className = paraTextDivClassName;
+					
+					var textDivIdName = "";
+					textDivIdName = textDivIdName.concat("textDiv", (i*data.length)+j);
+					paraTextDiv.id = textDivIdName;
+					
+					if(Array.isArray(data[j][i])){ //if the key (stage, substage, etc) at the column its up to is an array
+						
+						//LIST VERSION
+						var list = document.createElement('ul')
+						var listClassName = "";
+						listClassName = listClassName.concat(keys[i], "Text ", "text paraText list");
+						list.className = listClassName
+						
+						var arrayLength = data[j][i].length;
+						for(var k = 0; k < arrayLength; k++){
+							
+							var li = document.createElement('li');
+							
+							var listText = "";
+							if(keys[i] == "quote" || keys[i] == "quotes" || keys[i] == "Quote" || keys[i] == "Quotes"){
+								listText = document.createTextNode('"' + data[j][i][k] + '"');
+							}
+							else{
+								listText = document.createTextNode(data[j][i][k]);
+							}
+							
+							li.appendChild(listText);
+							list.appendChild(li);
+							paraTextDiv.appendChild(list);
+							
+						}
+					}
+					else{
+						//make the paragraphc and give it classes
+						var para = document.createElement('P');
+						var paraClassName = "";
+						paraClassName = paraClassName.concat(keys[i], "Text ", "text paraText");
+						para.className = paraClassName;
+						
+						//make the text
+						var paraText = document.createTextNode(data[j][i]);
+						var paraText = "";
+						if(keys[i] == "quote" || keys[i] == "quotes" || keys[i] == "Quote" || keys[i] == "Quotes"){
+							paraText = document.createTextNode('"' + data[j][i] + '"');
+						}
+						else{
+							paraText = document.createTextNode(data[j][i]);
+						}		
+						
+						para.appendChild(paraText); //add the text to the paragraph
+						paraTextDiv.appendChild(para); //add the paragraph to the div
+					}
+
+					box.appendChild(paraTextDiv); //add the div to box
+				}
+				items.push(box);
+			}
+		}
+		return items;
+	}
+	
+	function setContainerWidth(){
+		
+		//set the size of the container
+		var containerWidthNumber = ((columnWidth  + gutterWidth) * (data.length -1)) + (firstColumnWidth + gutterWidth);
+		containerWidth = "";
+		containerWidth = containerWidth.concat(containerWidthNumber, "vw");
+		document.getElementById("container").style.width = containerWidth;	
+		
+		//move the container slightly left while we are at it. so the row headers are snug to the left.
+		var moveContainerLeft = "";
+		document.getElementById("container").style.left = moveContainerLeft.concat(columnWidth * -0.4, "vw");
+	}
+	
+	function generateInsightsList(){
+	
+		document.getElementById("sideDiv").style.height = document.getElementById("sonDiv").style.height;
+		
+		var list = document.createElement('ol')
+		list.id = "insightsOL"
+		
+		for(var i = 0; i < insights.length; i++){
+			
+			var li = document.createElement('li');
+			var liDiv = document.createElement('div');
+			liDiv.className = "liLine";
+			li.appendChild(liDiv);
+			
+			for(var j = 0; j < 2; j++){
+				
+				if(j == 0){
+					var span = document.createElement('SPAN');
+					span.className = "insightPointTitle";
+					var listText = document.createTextNode(insights[i][j] + " - ");
+					span.appendChild(listText);
+					li.appendChild(span);
+				}
+				else{
+					var listText = document.createTextNode(insights[i][j]);
+					li.appendChild(listText);
+				}
+				
+			}
+			
+			list.appendChild(li);
+			document.getElementById("insightsOLDiv").appendChild(list);
+		}	
+	}
+	
+	function generateValueDriversList(){
+		
+		var list = document.createElement('ol')
+		list.id = "valueDriversOL"
+		
+		for(var i = 0; i < valueDrivers.length; i++){
+		
+			var li = document.createElement('li');
+			var liDiv = document.createElement('div');
+			liDiv.className = "liLine";
+			li.appendChild(liDiv);
+			
+			for(var j = 0; j < 2; j++){
+				
+				if(j == 0){
+					var span = document.createElement('SPAN');
+					span.className = "valueDriversPointTitle";
+					var listText = document.createTextNode(valueDrivers[i][j] + " - ");
+					span.appendChild(listText);
+					li.appendChild(span);
+				}
+				else{
+					var listText = document.createTextNode(valueDrivers[i][j]);
+					li.appendChild(listText);
+				}	
+			}	
+			list.appendChild(li);
+			document.getElementById("valueDriversOLDiv").appendChild(list);
+		}
+	}
+	
+	function generateAdditionalInfoList(){
+		
+		var list = document.createElement('ol')
+		list.id = "additionalInfoOL"
+		
+		for(var i = 0; i < additionalInfo.length; i++){
+		
+			var li = document.createElement('li');
+			var liDiv = document.createElement('div');
+			liDiv.className = "liLine";
+			li.appendChild(liDiv);
+			
+			var anchor = document.createElement("A");
+			var listText = document.createTextNode(additionalInfo[i][0]);
+			anchor.appendChild(listText);
+			anchor.setAttribute("href", additionalInfo[i][1]);
+			li.appendChild(anchor);
+			
+			list.appendChild(li);
+			document.getElementById("additionalInfoOLDiv").appendChild(list);
+		}
+	}
+		
+	
+	function generateContext(){
+		
+		var contextTextDiv = document.createElement('div');
+		contextTextDiv.id = "contextTextDiv";
+		
+		var contextP = document.createElement('P');
+		contextP.id = "context";
+		contextP.className = "text";
+		
+		var span = document.createElement('SPAN');
+		span.id = "contextSpan";
+		
+		var contextSpanText = document.createTextNode(context[0]);
+		
+		var contextText = document.createTextNode(context[1]);
+		
+		span.appendChild(contextSpanText);
+		contextP.appendChild(span);
+		contextP.appendChild(contextText);
+		
+		contextTextDiv.appendChild(contextP);
+		
+		document.getElementById("contextDiv").appendChild(contextTextDiv);
+	}
+	
+	function generateMap(){
+		
+		for (var i = 0; i < mapData.length; i++) {
+			minMaxArray.push(mapData[i].value);
+		}
+		
+		function getMaxOfArray(numArray) {
+			return Math.max.apply(null, numArray);
+		}
+		
+		function getMinOfArray(numArray) {
+			return Math.min.apply(null, numArray);
+		}
+		
+		highestValue = getMaxOfArray(minMaxArray);
+		
+		if(lowestIsZero == false){
+			lowestValue = getMinOfArray(minMaxArray);
+		}
+		
+		colorScale = d3.scaleLinear()
+			.domain([lowestValue, highestValue])
+			.range([colours[0], colours[1]]);
+		
+		console.log(lowestValue + " and " + highestValue);
+		
+		
+		for (var i = 0; i < mapData.length; i++) {
+			map.set(mapData[i].NAME_1, mapData[i].value);
+		}
+		
+		d3.json("https://raw.githubusercontent.com/deldersveld/topojson/master/countries/new-zealand/new-zealand-regional-councils.json").then(function(topology) {
+
+			console.log(topology);
+			
+			svg.append("g")
+				.attr('class','map')
+				.selectAll("path")
+				.data(topojson.feature(topology, topology.objects.NZL_adm1).features)
+				.enter().append("path")
+					.attr("class", function(d) { return d.properties.NAME_1; })
+					.attr("d", path)
+					.attr("fill", function(d) { 
+						d.value = map.get(d.properties.NAME_1); //retrieves the value from the mapped data by using its corressponding 'key'
+						//this is the binary colour setup
+						if(d.value > 0){
+							return colours[1];
+						}
+						else{
+							return colours[0];
+						}
+						//this is the old colorscale with the gradeint
+						//return colorScale(d.value);
+					});
+						
+		})
+		
+	}
+	
+	function setMaxHeights(){
+		
+		for (var i = 0; i < keys.length; i++) {
+			maxDivHeights.push(0);
+		}
+		
+		for(var i = 0; i < keys.length; i++){
+			for(var j = 0; j < data.length; j++){
+				
+				
+				var idString = "";
+				idString = idString.concat("textDiv", (i*data.length)+j); //use the TextDiv height
+				//idString = idString.concat("figure", (i*data.length)+j); //use the figure height
+				
+				var maxDivHeight = document.getElementById(idString).scrollHeight;
+					
+				if(maxDivHeight > maxDivHeights[i]){
+					maxDivHeights[i] = maxDivHeight;
+				}
+			}
+		}
+		//convert them to VWs and add "vw"
+		for(var i = 0; i < maxDivHeights.length; i++){
+			
+			maxDivHeights[i] = convertPXToVW(maxDivHeights[i] *1.05).toFixed(2); //had to add the multiplier then cos for some reason its not fitting properly
+			maxDivHeights[i] = maxDivHeights[i].concat("vw");
+		}
+		
+		console.log(maxDivHeights);
+		
+		for(var i = 0; i < keys.length; i++){
+			for(var j = 0; j < data.length; j++){
+				
+				var idString = "";
+				idString = idString.concat("figure", (i*data.length)+j);	
+				
+				document.getElementById(idString).style.height = maxDivHeights[i];
+				
+			}
+		}
+	}
+	
+	function getKeys(){
+		for(var i = 0; i < data[0].length; i++){ //go through first data column
+			keys.push(decapitalizeFirstLetter(data[0][i]));
+		}
+	}
+	
+	function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+	
+	function decapitalizeFirstLetter(string) {
+		return string.charAt(0).toLowerCase() + string.slice(1);
+	}
+	
+	function convertPXToVW(px) {
+		return px * (100 / document.documentElement.clientWidth);
+	}
+
+
+	function lineChart(){
+		
+		var lineChartData = [
+			{x:1, y:40, feeling: "Sad"},
+			{x:2, y:58, feeling: "Happy"},
+			{x:3, y:97, feeling: "Sad"},
+			{x:4, y:117, feeling: "Happy"},
+			{x:5, y:98, feeling: "Sad"},
+			{x:6, y:120, feeling: "Sad"},
+			{x:7, y:84, feeling: "Sad"}     
+		];
+		
+		var margin = {top: 30, right: 50, bottom: 30, left: 30};
+		
+		var containerWidthInPx = document.getElementById('container').getBoundingClientRect().width;
+		var firstColumnWidthInPx = document.getElementById('container').firstElementChild.getBoundingClientRect().width;
+		var columnWidthInPx = document.getElementById('container').lastElementChild.getBoundingClientRect().width;
+		var gutterWidthInPX = (containerWidthInPx - (columnWidthInPx * (data.length -1) - firstColumnWidthInPx)) / data.length;
+		
+		console.log("containerWidthInPx: " + containerWidthInPx + " " +
+					"firstColumnWidthInPx: " + firstColumnWidthInPx + " " +
+					"columnWidthInPx: " + columnWidthInPx + " " +
+					"gutterWidthInPX: " + gutterWidthInPX + " "
+					);
+		
+		
+		var	lineChartSvgWidth  = containerWidthInPx - firstColumnWidthInPx;
+		var lineChartSvgHeight = 100;
+		
+		var offset = columnWidthInPx + gutterWidthInPX
+		
+		var lineChartSvg = d3.select("#container").append("svg")
+			.classed("lineChartSVG", true)
+			.attr('width', lineChartSvgWidth)
+			.attr('height', lineChartSvgHeight + margin.top);
+		
+		var lineChartWidth = lineChartSvgWidth,
+			lineChartHeight = 100,
+			labelPadding = 10;
+
+		var axisOpacity = 0;
+
+		var g = lineChartSvg.append("g")
+			.attr("transform", "translate(" + -(offset/4) + "," + 20 + ")")
+
+		var x = d3.scaleLinear()
+		  .domain([0, d3.max(lineChartData, d => d.x)])
+		  .range([0, lineChartWidth]);
+
+		var y = d3.scaleLinear()
+			.domain([0, d3.max(lineChartData, d => d.y)])
+			.range([lineChartHeight, 0]);
+
+		g.append("g")
+			.attr("class", "axis axis--x")
+			.attr("transform", "translate(0," + lineChartHeight + ")")
+			.call(d3.axisBottom(x))
+			.style("opacity", axisOpacity);
+		
+		line = d3.line()
+			.x(d => x(d.x))
+			.y(d => y(d.y))
+		
+		g.append("path")
+			.datum(lineChartData)
+			.attr("fill", "none")
+			.attr("stroke", "steelblue")
+			.attr("stroke-width", 1.5)
+			.attr("stroke-linejoin", "round")
+			.attr("stroke-linecap", "round")
+			.attr("d", line);
+		
+		g.append("g")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", 12)
+			.attr("stroke-linecap", "round")
+			.attr("stroke-linejoin", "round")
+			.attr("text-anchor", "middle")
+		.selectAll("text")
+		.data(lineChartData)
+		.join("text")
+			.text(d => d.feeling)
+			.attr("dy", "0.35em")
+			.attr("x", d => x(d.x))
+			.attr("y", d => y(d.y))
+		.clone(true).lower()
+			.attr("fill", "none")
+			.attr("stroke", "white")
+			.attr("stroke-width", labelPadding);
+	}
+</script>
+
+</body>
+</html>
